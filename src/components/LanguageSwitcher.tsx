@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Flag, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -9,11 +9,11 @@ import {
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
 
-// Language data with display names and flags
+// Language data with display names and image paths
 const languageOptions = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'pt', name: 'Português', flag: '🇵🇹' }
+  { code: 'en', name: 'English', flag: '/lovable-uploads/4a930a24-b34c-420c-a409-46368b5de838.png' },
+  { code: 'es', name: 'Español', flag: '/lovable-uploads/edf0a1bf-9ecc-422f-a52f-e6c84c56586c.png' },
+  { code: 'pt', name: 'Português', flag: '/lovable-uploads/2020d3e8-4649-4791-93ef-cd585e5fdd1c.png' }
 ];
 
 const LanguageSwitcher: React.FC = () => {
@@ -25,7 +25,7 @@ const LanguageSwitcher: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-2 px-3 py-2 bg-white rounded-md border border-gray-200 hover:bg-gray-50 transition-colors text-sm">
-        <span>{currentLanguage.flag}</span>
+        <img src={currentLanguage.flag} alt={currentLanguage.code} className="w-5 h-4 object-cover" />
         <span className="font-medium">{currentLanguage.code.toUpperCase()}</span>
         <ChevronDown className="h-4 w-4 opacity-70" />
       </DropdownMenuTrigger>
@@ -38,7 +38,7 @@ const LanguageSwitcher: React.FC = () => {
             }`}
             onClick={() => setLanguage(option.code as 'en' | 'es' | 'pt')}
           >
-            <span className="text-base mr-1">{option.flag}</span>
+            <img src={option.flag} alt={option.code} className="w-5 h-4 object-cover" />
             <div>
               <span className="font-medium">{option.name}</span>
               <span className="text-gray-500 text-xs ml-1">({option.code.toUpperCase()})</span>
