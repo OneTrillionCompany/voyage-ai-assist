@@ -101,7 +101,7 @@ const HeroSection: React.FC = () => {
         {/* Image - Center */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg md:max-w-xl lg:max-w-2xl">
           <img 
-            src="public/lovable-uploads/hero.png" 
+            src="/hero.webp" 
             alt="AI Travel Assistant" 
             className="w-full animate-plane-float h-auto scale-125"
           />
