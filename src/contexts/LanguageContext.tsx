@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 type Language = 'en' | 'es' | 'pt';
@@ -134,7 +133,7 @@ const defaultTranslations = {
   'problems.description': {
     en: 'The travel industry faces numerous challenges that our AI technology is uniquely positioned to address.',
     es: 'La industria de viajes enfrenta numerosos desafíos que nuestra tecnología de IA está en una posición única para abordar.',
-    pt: 'A indústria de viagens enfrenta numerosos desafios que nossa tecnologia de IA está exclusivamente posicionada para resolver.'
+    pt: 'A indústria de viajes enfrenta numerosos desafios que nuestra tecnologia de IA está exclusivamente posicionada para resolver.'
   },
   'usecases.title': {
     en: 'How Our AI Works in Action',
@@ -185,6 +184,16 @@ const defaultTranslations = {
     en: 'The innovative minds behind sellmoretrips.AI',
     es: 'Las mentes innovadoras detrás de sellmoretrips.AI',
     pt: 'As mentes inovadoras por trás da sellmoretrips.AI'
+  },
+  'whatsapp.chat': {
+    en: 'Chat with us',
+    es: 'Chatea con nosotros',
+    pt: 'Converse conosco'
+  },
+  'whatsapp.message': {
+    en: 'Hello, I would like more information about your travel services.',
+    es: 'Hola, me gustaría más información sobre sus servicios de viaje.',
+    pt: 'Olá, eu gostaria de mais informações sobre seus serviços de viagem.'
   }
 };
 

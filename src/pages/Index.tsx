@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   useScrollReveal();
@@ -54,6 +55,8 @@ const Index = () => {
           <ArrowUp />
         </Button>
       )}
+      
+      <WhatsAppButton />
     </div>
   );
 };
