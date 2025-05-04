@@ -11,9 +11,9 @@ import {
 
 // Language data with display names and image paths
 const languageOptions = [
-  { code: 'en', name: 'English', flag: '/lovable-uploads/us-flag.jpeg' },
-  { code: 'es', name: 'Español', flag: '/lovable-uploads/col-flag.jpeg' },
-  { code: 'pt', name: 'Português', flag: '/lovable-uploads/br-flag.jpeg' }
+  { code: 'en', name: 'English', flag: '/lovable-uploads/4a930a24-b34c-420c-a409-46368b5de838.png' },
+  { code: 'es', name: 'Español', flag: '/lovable-uploads/edf0a1bf-9ecc-422f-a52f-e6c84c56586c.png' },
+  { code: 'pt', name: 'Português', flag: '/lovable-uploads/2020d3e8-4649-4791-93ef-cd585e5fdd1c.png' }
 ];
 
 const LanguageSwitcher: React.FC = () => {
