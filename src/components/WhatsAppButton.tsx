@@ -3,9 +3,11 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useWhatsAppButton } from '@/contexts/WhatsAppButtonContext';
 
 const WhatsAppButton: React.FC = () => {
   const { t, language } = useLanguage();
+  const { isHeroButtonVisible } = useWhatsAppButton();
   
   const phoneNumber = '573176654137'; // Colombian format without + sign
   const message = encodeURIComponent(t('whatsapp.message'));
@@ -19,7 +21,8 @@ const WhatsAppButton: React.FC = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed left-8 bottom-8 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 transition-transform duration-300 hover:scale-110 group"
+            className={`fixed right-8 bottom-8 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 hover:scale-110 group
+              ${isHeroButtonVisible ? 'opacity-0 pointer-events-none transform translate-y-10' : 'opacity-100 pointer-events-auto transform translate-y-0'}`}
             aria-label={t('whatsapp.chat')}
           >
             <div className="absolute w-full h-full rounded-full bg-green-500 opacity-40 animate-ping" />

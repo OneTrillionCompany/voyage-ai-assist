@@ -1,12 +1,26 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useWhatsAppButton } from '@/contexts/WhatsAppButtonContext';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const HeroSection: React.FC = () => {
   // Use the language context
   const { t } = useLanguage();
+  
+  // WhatsApp button visibility
+  const whatsAppButtonRef = useRef<HTMLDivElement>(null);
+  const { setIsHeroButtonVisible } = useWhatsAppButton();
+  const isButtonVisible = useIntersectionObserver({
+    elementRef: whatsAppButtonRef,
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    setIsHeroButtonVisible(isButtonVisible);
+  }, [isButtonVisible, setIsHeroButtonVisible]);
   
   // Scene state management
   const [currentScene, setCurrentScene] = useState(0);
@@ -119,7 +133,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* CTA Button - Bottom Right */}
-        <div className="absolute bottom-10 right-10">
+        <div className="absolute bottom-10 right-10" ref={whatsAppButtonRef}>
           <Button 
             className="bg-primary hover:bg-secondary text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6 hidden md:flex" 
             onClick={() => window.open('https://wa.me/573054498624', '_blank')}
