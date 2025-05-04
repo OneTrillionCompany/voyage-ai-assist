@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Whatsapp } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
@@ -23,7 +23,7 @@ const WhatsAppButton: React.FC = () => {
             aria-label={t('whatsapp.chat')}
           >
             <div className="absolute w-full h-full rounded-full bg-green-500 opacity-40 animate-ping" />
-            <Whatsapp size={24} />
+            <MessageCircle size={24} />
           </a>
         </TooltipTrigger>
         <TooltipContent>
