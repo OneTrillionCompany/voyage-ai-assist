@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProblemCardProps {
   title: string;
@@ -21,15 +21,18 @@ const ProblemCard: React.FC<ProblemCardProps> = ({ title, description, solution 
 };
 
 const ProblemsSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="problems" className="section-container">
       <div className="text-center mb-16 reveal-animation">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Problems We're Solving</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('problems.title')}</h2>
         <p className="text-secondary text-lg max-w-2xl mx-auto">
-          The travel industry faces numerous challenges that our AI technology is uniquely positioned to address.
+          {t('problems.description')}
         </p>
       </div>
 
+      {/* Keep existing problem cards - we'll add translations for them in a future iteration */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <ProblemCard
           title="Information Overload"

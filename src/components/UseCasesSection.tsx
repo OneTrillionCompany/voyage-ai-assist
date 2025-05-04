@@ -1,20 +1,22 @@
-
 import React from 'react';
 import { Card } from "@/components/ui/card";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const UseCasesSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="use-cases" className="section-container bg-gray-50">
       <div className="text-center mb-16 reveal-animation">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">How Our AI Works in Action</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('usecases.title')}</h2>
         <p className="text-secondary text-lg max-w-2xl mx-auto">
-          Explore practical applications of our AI assistants in real-world travel scenarios.
+          {t('usecases.description')}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <Card className="p-8 reveal-animation">
-          <div className="mb-4 text-lg font-semibold">For Travel Advisors</div>
+          <div className="mb-4 text-lg font-semibold">{t('usecases.advisors')}</div>
           <ol className="space-y-4">
             <li className="flex gap-3">
               <div className="bg-primary text-white h-6 w-6 rounded-full flex items-center justify-center flex-shrink-0">1</div>
@@ -40,7 +42,7 @@ const UseCasesSection: React.FC = () => {
         </Card>
 
         <Card className="p-8 reveal-animation">
-          <div className="mb-4 text-lg font-semibold">For Travelers</div>
+          <div className="mb-4 text-lg font-semibold">{t('usecases.travelers')}</div>
           <ol className="space-y-4">
             <li className="flex gap-3">
               <div className="bg-primary text-white h-6 w-6 rounded-full flex items-center justify-center flex-shrink-0">1</div>

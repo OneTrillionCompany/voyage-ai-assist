@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TeamMemberProps {
   name: string;
@@ -20,12 +20,14 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image }) => {
 };
 
 const TeamSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="team" className="section-container">
       <div className="text-center mb-16 reveal-animation">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('team.title')}</h2>
         <p className="text-secondary text-lg max-w-2xl mx-auto">
-          The innovative minds behind sellmoretrips.AI
+          {t('team.description')}
         </p>
       </div>
 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Accordion,
@@ -6,14 +5,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="faq" className="section-container">
       <div className="text-center mb-16 reveal-animation">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('faq.title')}</h2>
         <p className="text-secondary text-lg max-w-2xl mx-auto">
-          Get answers to common questions about our AI travel solutions.
+          {t('faq.description')}
         </p>
       </div>
 

@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactSection: React.FC = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,9 +20,9 @@ const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="section-container bg-gray-50">
       <div className="text-center mb-16 reveal-animation">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('contact.title')}</h2>
         <p className="text-secondary text-lg max-w-2xl mx-auto">
-          Ready to transform your travel business? Contact us today for a personalized demo.
+          {t('contact.description')}
         </p>
       </div>
 

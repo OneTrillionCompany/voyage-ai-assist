@@ -2,8 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection: React.FC = () => {
+  // Use the language context
+  const { t } = useLanguage();
+  
   // Scene state management
   const [currentScene, setCurrentScene] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
@@ -94,7 +98,7 @@ const HeroSection: React.FC = () => {
         {/* Title - Top Left */}
         <div className="absolute top-12 md:top-0 md:left-10 max-w-xl md:max-w-2xl">
           <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold transition-colors duration-500 ${currentScene === 2 ? 'text-white' : ''}`}>
-            Transform Travel Advisory with AI
+            {t('hero.title')}
           </h1>
         </div>
 
@@ -110,7 +114,7 @@ const HeroSection: React.FC = () => {
         {/* Description - Bottom Left */}
         <div className="absolute bottom-10 md:left-10 max-w-md md:max-w-lg">
           <p className={`text-base md:text-lg lg:text-xl transition-colors duration-500 ${currentScene === 2 ? 'text-white' : 'text-secondary'}`}>
-            Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.
+            {t('hero.description')}
           </p>
         </div>
 
@@ -120,7 +124,7 @@ const HeroSection: React.FC = () => {
             className="bg-primary hover:bg-secondary text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6 hidden md:flex" 
             onClick={() => window.open('https://wa.me/573054498624', '_blank')}
           >
-            Connect with Us <ArrowRight className="ml-2 h-5 w-5" />
+            {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </div>
