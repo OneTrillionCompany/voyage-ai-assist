@@ -5,30 +5,39 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-28">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="max-w-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Transform Travel Advisory with AI
-            </h1>
-            <p className="text-lg md:text-xl text-secondary mb-8">
-              Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.
-            </p>
-            <Button className="bg-primary hover:bg-secondary text-white text-lg px-8 py-6" onClick={() => window.open('https://wa.me/1234567890', '_blank')}>
-              Connect with Us <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
+    <section className="relative min-h-screen pt-28 pb-16">
+      <div className="container mx-auto px-4 md:px-8 relative h-[calc(100vh-7rem)]">
+        {/* Title - Top Left */}
+        <div className="absolute top-0 left-0 max-w-xl md:max-w-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            Transform Travel Advisory with AI
+          </h1>
+        </div>
 
-          <div className="flex justify-center">
-            <div className="relative">
-              <img 
-                src="public/lovable-uploads/8b3b9b10-0f93-43c6-91e5-95d9455d309b.png" 
-                alt="AI Travel Assistant" 
-                className="w-full max-w-lg animate-plane-float"
-              />
-            </div>
-          </div>
+        {/* Image - Center */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md md:max-w-lg">
+          <img 
+            src="public/lovable-uploads/8b3b9b10-0f93-43c6-91e5-95d9455d309b.png" 
+            alt="AI Travel Assistant" 
+            className="w-full animate-plane-float"
+          />
+        </div>
+
+        {/* Description - Bottom Left */}
+        <div className="absolute bottom-0 left-0 max-w-md md:max-w-lg">
+          <p className="text-base md:text-lg lg:text-xl text-secondary">
+            Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.
+          </p>
+        </div>
+
+        {/* CTA Button - Bottom Right */}
+        <div className="absolute bottom-0 right-0">
+          <Button 
+            className="bg-primary hover:bg-secondary text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6" 
+            onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+          >
+            Connect with Us <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>
