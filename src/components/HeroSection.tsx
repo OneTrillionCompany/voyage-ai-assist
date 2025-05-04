@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
           <img 
             src="public/lovable-uploads/8b3b9b10-0f93-43c6-91e5-95d9455d309b.png" 
             alt="AI Travel Assistant" 
-            className="w-full animate-plane-float h-[700px]"
+            className="w-auto animate-plane-float h-[700px]"
           />
         </div>
 
