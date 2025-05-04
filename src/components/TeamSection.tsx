@@ -33,24 +33,29 @@ const TeamSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <TeamMember
-          name="Alex Johnson"
-          role="Founder & CEO"
-          image="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+          name="Manuel Alejandro Gruezo"
+          role="CEO"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQHBdbUsPq4Lqg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724384225794?e=1752105600&v=beta&t=7zBvGn9HkshExXLC7dbpu_z4bKB74mVRcBbJd63OZDc"
         />
         <TeamMember
-          name="Maria Rodriguez"
-          role="AI Research Director"
-          image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+          name="Gustavo Chipantiza"
+          role="CDO"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQH1W7YMO4PWPg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700289742816?e=1752105600&v=beta&t=EAsSQLFxgHha3lLfWruv0HJnTRlBuRxfmDetjZtM4CA"
         />
         <TeamMember
-          name="David Chen"
+          name="Sofia Salinas"
           role="CTO"
-          image="https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+          image="https://media.licdn.com/dms/image/v2/D4D03AQGYM8KaU6EEHg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1711032962726?e=1752105600&v=beta&t=dOxNzWutLvAjo07fTVlHvxUKnr7Uw-zk5NCBlplXa2k"
         />
         <TeamMember
-          name="Sarah Patel"
-          role="Travel Industry Expert"
-          image="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+          name="Daniel Rivera Yepes"
+          role="AI Engineer"
+          image="https://media.licdn.com/dms/image/v2/D4E35AQFtIpYMBBMCHw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1695931178349?e=1746993600&v=beta&t=oFBNBec5x9JBsL6OcdIUxG7QW5ORAngPBwUFWYMf8Is"
+        />
+        <TeamMember
+          name="Miguel Muñoz"
+          role="AI Engineer"
+          image="https://media.licdn.com/dms/image/v2/D4E35AQFtIpYMBBMCHw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1695931178349?e=1746993600&v=beta&t=oFBNBec5x9JBsL6OcdIUxG7QW5ORAngPBwUFWYMf8Is"
         />
       </div>
     </section>
