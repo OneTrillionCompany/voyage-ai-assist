@@ -8,7 +8,7 @@ const WhatsAppButton: React.FC = () => {
   const { t, language } = useLanguage();
   const { isHeroButtonVisible } = useWhatsAppButton();
   
-  const phoneNumber = '573176654137'; // Colombian format without + sign
+  const phoneNumber = '573159381236'; // Número actualizado
   const message = encodeURIComponent(t('whatsapp.message'));
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

@@ -136,7 +136,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute bottom-10 right-10" ref={whatsAppButtonRef}>
           <Button 
             className="bg-primary hover:bg-secondary text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6 hidden md:flex" 
-            onClick={() => window.open('https://wa.me/573054498624', '_blank')}
+            onClick={() => window.open('https://wa.me/573159381236', '_blank')}
           >
             {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

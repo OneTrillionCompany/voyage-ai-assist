@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,7 +42,7 @@ const ContactSection: React.FC = () => {
             
             <div>
               <h4 className="font-semibold mb-1">WhatsApp</h4>
-              <p className="text-secondary">+1 (555) 123-4567</p>
+              <p className="text-secondary">+573159381236</p>
             </div>
             
             <div>
