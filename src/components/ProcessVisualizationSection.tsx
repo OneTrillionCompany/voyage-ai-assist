@@ -1,19 +1,20 @@
-
 import React, { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { FileText, CheckSquare, FileCheck, BarChart3 } from 'lucide-react';
-
 interface ProcessStepProps {
   number: string;
   title: string;
   description: string;
   icon: React.ReactNode;
 }
-
-const ProcessStep: React.FC<ProcessStepProps> = ({ number, title, description, icon }) => {
-  return (
-    <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 reveal-animation">
+const ProcessStep: React.FC<ProcessStepProps> = ({
+  number,
+  title,
+  description,
+  icon
+}) => {
+  return <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 reveal-animation">
       <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
         {number}
       </div>
@@ -22,20 +23,18 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ number, title, description, i
       <div className="mt-4 text-primary">
         {icon}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const ProcessVisualizationSection: React.FC = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const phoneImageRef = useRef(null);
   const isPhoneVisible = useIntersectionObserver({
     elementRef: phoneImageRef,
     threshold: 0.1
   });
-  
-  return (
-    <section id="use-cases" className="section-container bg-gray-50">
+  return <section id="use-cases" className="section-container bg-gray-50">
       <div className="text-center mb-16 reveal-animation">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('usecases.title')}</h2>
         <p className="text-secondary text-lg max-w-2xl mx-auto">
@@ -45,30 +44,10 @@ const ProcessVisualizationSection: React.FC = () => {
       
       {/* Process Steps */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-        <ProcessStep 
-          number="1" 
-          title="Cotización" 
-          description="Genera cotizaciones profesionales automáticamente con solo unos clics"
-          icon={<FileText size={24} />}
-        />
-        <ProcessStep 
-          number="2" 
-          title="Confirmación" 
-          description="Procesa confirmaciones y pagos directamente a través de WhatsApp"
-          icon={<CheckSquare size={24} />}
-        />
-        <ProcessStep 
-          number="3" 
-          title="Documentos" 
-          description="Envía itinerarios y documentación necesaria automáticamente"
-          icon={<FileCheck size={24} />}
-        />
-        <ProcessStep 
-          number="4" 
-          title="Seguimiento" 
-          description="Mantén a tus clientes informados con actualizaciones programadas"
-          icon={<BarChart3 size={24} />}
-        />
+        <ProcessStep number="1" title="Cotización" description="Genera cotizaciones profesionales automáticamente con solo unos clics" icon={<FileText size={24} />} />
+        <ProcessStep number="2" title="Confirmación" description="Procesa confirmaciones y pagos directamente a través de WhatsApp" icon={<CheckSquare size={24} />} />
+        <ProcessStep number="3" title="Documentos" description="Envía itinerarios y documentación necesaria automáticamente" icon={<FileCheck size={24} />} />
+        <ProcessStep number="4" title="Seguimiento" description="Mantén a tus clientes informados con actualizaciones programadas" icon={<BarChart3 size={24} />} />
       </div>
       
       {/* WhatsApp Experience Showcase */}
@@ -91,13 +70,10 @@ const ProcessVisualizationSection: React.FC = () => {
           </div>
         </div>
         
-        <div 
-          className="flex justify-center lg:justify-end reveal-animation" 
-          ref={phoneImageRef}
-        >
+        <div className="flex justify-center lg:justify-end reveal-animation" ref={phoneImageRef}>
           <div className={`transform transition-all duration-1000 ${isPhoneVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="relative">
-              <div className="chat-bubble absolute -top-10 -left-16 bg-green-500 text-white p-3 rounded-lg max-w-xs">
+              <div className="chat-bubble absolute -top-10 -left-16 bg-green-500 text-white p-3 rounded-lg  max-w-xs z-10 -mt-8">
                 Hola, ¿podrían enviarme información sobre paquetes a Cancún?
                 <div className="absolute bottom-0 right-4 transform translate-y-1/2 rotate-45 w-4 h-4 bg-green-500"></div>
               </div>
@@ -147,8 +123,6 @@ const ProcessVisualizationSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProcessVisualizationSection;
