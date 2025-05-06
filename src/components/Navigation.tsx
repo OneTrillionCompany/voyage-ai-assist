@@ -39,7 +39,6 @@ const Navigation: React.FC = () => {
               <a href="#use-cases" className="text-white hover:text-primary transition-colors">{t('nav.usecases')}</a>
               <a href="#faq" className="text-white hover:text-primary transition-colors">{t('nav.faq')}</a>
               <a href="#team" className="text-white hover:text-primary transition-colors">{t('nav.team')}</a>
-              <Link to="/whatsapp-assistant" className="text-white hover:text-primary transition-colors">WhatsApp Assistant</Link>
             </div>
 
             <div className="hidden md:block mr-4">
@@ -72,7 +71,6 @@ const Navigation: React.FC = () => {
             <a href="#use-cases" className="text-white hover:text-secondary transition-colors font-medium">{t('nav.usecases')}</a>
             <a href="#faq" className="text-white hover:text-secondary transition-colors font-medium">{t('nav.faq')}</a>
             <a href="#team" className="text-white hover:text-secondary transition-colors font-medium">{t('nav.team')}</a>
-            <Link to="/whatsapp-assistant" className="text-white hover:text-secondary transition-colors font-medium">WhatsApp Assistant</Link>
             
             <div className="py-2">
               <LanguageSwitcher />

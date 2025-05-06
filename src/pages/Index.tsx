@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
-import ProblemsSection from '@/components/ProblemsSection';
-import UseCasesSection from '@/components/UseCasesSection';
+import BeforeAfterComparisonSection from '@/components/BeforeAfterComparisonSection';
+import ProcessVisualizationSection from '@/components/ProcessVisualizationSection';
 import FAQSection from '@/components/FAQSection';
 import ContactSection from '@/components/ContactSection';
 import TeamSection from '@/components/TeamSection';
@@ -13,6 +13,8 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import StatsSection from '@/components/StatsSection';
+import CRMIntegrationSection from '@/components/CRMIntegrationSection';
 
 const Index = () => {
   useScrollReveal();
@@ -40,8 +42,10 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <ServicesSection />
-      <ProblemsSection />
-      <UseCasesSection />
+      <StatsSection />
+      <BeforeAfterComparisonSection />
+      <ProcessVisualizationSection />
+      <CRMIntegrationSection />
       <FAQSection />
       <ContactSection />
       <TeamSection />
