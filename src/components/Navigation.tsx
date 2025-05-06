@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -26,9 +27,9 @@ const Navigation: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollPosition > 20 ? 'bg-primary shadow-md py-2' : 'py-6'}`}>
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
-          <div className="font-bold text-white text-xl md:text-2xl">
+          <Link to="/" className="font-bold text-white text-xl md:text-2xl">
             sellmoretrips.ai
-          </div>
+          </Link>
           
           <div className="flex items-center space-x-6">
             {/* Desktop Menu */}
@@ -38,6 +39,7 @@ const Navigation: React.FC = () => {
               <a href="#use-cases" className="text-white hover:text-primary transition-colors">{t('nav.usecases')}</a>
               <a href="#faq" className="text-white hover:text-primary transition-colors">{t('nav.faq')}</a>
               <a href="#team" className="text-white hover:text-primary transition-colors">{t('nav.team')}</a>
+              <Link to="/whatsapp-assistant" className="text-white hover:text-primary transition-colors">WhatsApp Assistant</Link>
             </div>
 
             <div className="hidden md:block mr-4">
@@ -70,6 +72,7 @@ const Navigation: React.FC = () => {
             <a href="#use-cases" className="text-white hover:text-secondary transition-colors font-medium">{t('nav.usecases')}</a>
             <a href="#faq" className="text-white hover:text-secondary transition-colors font-medium">{t('nav.faq')}</a>
             <a href="#team" className="text-white hover:text-secondary transition-colors font-medium">{t('nav.team')}</a>
+            <Link to="/whatsapp-assistant" className="text-white hover:text-secondary transition-colors font-medium">WhatsApp Assistant</Link>
             
             <div className="py-2">
               <LanguageSwitcher />
@@ -77,7 +80,7 @@ const Navigation: React.FC = () => {
             
             <Button 
               className="bg-white hover:bg-secondary text-primary hover:text-white text-base px-6 py-4 mt-2 flex items-center justify-center" 
-              onClick={() => window.open('https://wa.me/573054498624', '_blank')}
+              onClick={() => window.open('https://wa.me/573159381236', '_blank')}
             >
               {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
