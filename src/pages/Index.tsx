@@ -38,7 +38,7 @@ const Index = () => {
   };
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navigation />
       <HeroSection />
       <ServicesSection />
@@ -53,7 +53,7 @@ const Index = () => {
       
       {showScrollTop && (
         <Button 
-          className="fixed bottom-8 right-8 bg-primary hover:bg-secondary text-white rounded-full w-12 h-12 flex items-center justify-center z-50"
+          className="fixed bottom-8 right-8 bg-primary hover:bg-secondary text-white rounded-full w-12 h-12 flex items-center justify-center z-40"
           onClick={scrollToTop}
         >
           <ArrowUp />
