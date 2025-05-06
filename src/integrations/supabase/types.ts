@@ -45,6 +45,36 @@ export type Database = {
         }
         Relationships: []
       }
+      demo_requests: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       newsletter_subscriptions: {
         Row: {
           created_at: string
@@ -173,6 +203,15 @@ export type Database = {
               p_country_code?: string
               p_phone?: string
             }
+        Returns: undefined
+      }
+      request_demo: {
+        Args: {
+          p_name: string
+          p_email: string
+          p_company?: string
+          p_message?: string
+        }
         Returns: undefined
       }
       subscribe_to_newsletter: {
