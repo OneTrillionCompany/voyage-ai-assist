@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -8,39 +7,23 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText, CheckSquare, FileCheck, BarChart3 } from 'lucide-react';
+import { useCountAnimation } from '@/hooks/useCountAnimation';
 
 // Create the Counter Animation Component
 const AnimatedCounter = ({ value, label, prefix = '', suffix = '', duration = 2000 }) => {
-  const [count, setCount] = useState(0);
   const counterRef = useRef(null);
   const isVisible = useIntersectionObserver({
     elementRef: counterRef,
     threshold: 0.1
   });
-
-  useEffect(() => {
-    if (isVisible) {
-      let start = 0;
-      const end = parseInt(value);
-      const range = end - start;
-      let current = start;
-      const increment = end > start ? Math.ceil(range / (duration / 30)) : Math.floor(range / (duration / 30));
-      const timer = setInterval(() => {
-        current += increment;
-        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(current);
-        }
-      }, 30);
-
-      return () => {
-        clearInterval(timer);
-      };
-    }
-  }, [isVisible, value, duration]);
+  
+  const count = useCountAnimation({
+    end: parseInt(value),
+    start: 0,
+    duration: duration,
+    isTriggered: isVisible
+  });
 
   return (
     <div className="text-center" ref={counterRef}>
@@ -61,6 +44,9 @@ const ProcessStep = ({ number, title, description, icon }) => {
       </div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
+      <div className="mt-4 text-primary">
+        {icon}
+      </div>
     </div>
   );
 };
@@ -254,7 +240,7 @@ const WhatsAppAssistant = () => {
                       <span>Historial completo y búsqueda rápida</span>
                     </li>
                     <li className="flex items-center">
-                      <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
+                      <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">���</span>
                       <span>Clasificación automática de prospectos</span>
                     </li>
                   </ul>
@@ -325,21 +311,25 @@ const WhatsAppAssistant = () => {
               number="1" 
               title="Cotización" 
               description="Genera cotizaciones profesionales automáticamente con solo unos clics"
+              icon={<FileText size={24} />}
             />
             <ProcessStep 
               number="2" 
               title="Confirmación" 
               description="Procesa confirmaciones y pagos directamente a través de WhatsApp"
+              icon={<CheckSquare size={24} />}
             />
             <ProcessStep 
               number="3" 
               title="Documentos" 
               description="Envía itinerarios y documentación necesaria automáticamente"
+              icon={<FileCheck size={24} />}
             />
             <ProcessStep 
               number="4" 
               title="Seguimiento" 
               description="Mantén a tus clientes informados con actualizaciones programadas"
+              icon={<BarChart3 size={24} />}
             />
           </div>
         </div>
