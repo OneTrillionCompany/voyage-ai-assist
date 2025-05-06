@@ -34,6 +34,7 @@ const ProcessVisualizationSection: React.FC = () => {
     elementRef: phoneImageRef,
     threshold: 0.1
   });
+  const background_url = "https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg";
   return <section id="use-cases" className="section-container bg-gray-50">
       <div className="text-center mb-16 reveal-animation">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('usecases.title')}</h2>
@@ -41,7 +42,7 @@ const ProcessVisualizationSection: React.FC = () => {
           {t('usecases.description')}
         </p>
       </div>
-      
+
       {/* Process Steps */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
         <ProcessStep number="1" title="Cotización" description="Genera cotizaciones profesionales automáticamente con solo unos clics" icon={<FileText size={24} />} />
@@ -49,7 +50,7 @@ const ProcessVisualizationSection: React.FC = () => {
         <ProcessStep number="3" title="Documentos" description="Envía itinerarios y documentación necesaria automáticamente" icon={<FileCheck size={24} />} />
         <ProcessStep number="4" title="Seguimiento" description="Mantén a tus clientes informados con actualizaciones programadas" icon={<BarChart3 size={24} />} />
       </div>
-      
+
       {/* WhatsApp Experience Showcase */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-16">
         <div>
@@ -69,15 +70,15 @@ const ProcessVisualizationSection: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        <div className="flex justify-center lg:justify-end reveal-animation" ref={phoneImageRef}>
+
+        <div className="flex justify-center lg:justify-end reveal-animation" >
           <div className={`transform transition-all duration-1000 ${isPhoneVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="relative">
               <div className="chat-bubble absolute -top-10 -left-16 bg-green-500 text-white p-3 rounded-lg  max-w-xs z-10 -mt-8">
                 Hola, ¿podrían enviarme información sobre paquetes a Cancún?
                 <div className="absolute bottom-0 right-4 transform translate-y-1/2 rotate-45 w-4 h-4 bg-green-500"></div>
               </div>
-              
+
               <div className="phone-mockup w-64 h-auto relative">
                 <svg className="w-full" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
                   <rect x="10" y="10" width="280" height="580" rx="40" fill="#222" stroke="#000" strokeWidth="10" />
@@ -94,7 +95,7 @@ const ProcessVisualizationSection: React.FC = () => {
                         <div className="text-green-100 text-xs">escribiendo...</div>
                       </div>
                     </div>
-                    <div className="flex-1 bg-[url()] p-2 overflow-y-auto">
+                    <div className="flex-1 bg-[url(${background_url})] p-2 overflow-y-auto">
                       <div className="mr-auto max-w-[70%] bg-white p-2 rounded-lg mb-2">
                         Hola, ¿podrían enviarme información sobre paquetes a Cancún?
                       </div>
@@ -114,7 +115,7 @@ const ProcessVisualizationSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="chat-bubble absolute -bottom-12 -right-16 bg-white border border-gray-300 p-3 rounded-lg max-w-xs shadow-lg">
                 ¡Gracias! Me interesa la opción 2. ¿Cómo puedo reservar?
                 <div className="absolute top-0 left-8 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-white border-l border-t border-gray-300"></div>

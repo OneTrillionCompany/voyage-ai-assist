@@ -88,13 +88,13 @@ const ProcessVisualizationSection: React.FC = () => {
                   {/* WhatsApp Interface with More Detailed Conversation */}
                   <div className="h-full flex flex-col">
                     <div className="bg-green-500 p-3 flex items-center">
-                      <div className="w-10 h-10 bg-white rounded-full"></div>
-                      <div className="ml-3">
+                      <div className="w-10 bg-white rounded-full"></div>
+                      <div className="ml-2">
                         <div className="text-white font-semibold">Asistente de Viajes</div>
                         <div className="text-green-100 text-xs">escribiendo...</div>
                       </div>
                     </div>
-                    <div className="flex-1 bg-[url()] p-2 overflow-y-auto">
+                    <div className="flex-1 bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] p-2 overflow-y-auto">
                       <div className="mr-auto max-w-[70%] bg-white p-2 rounded-lg mb-2">
                         Hola, ¿podrían enviarme información sobre paquetes a Cancún?
                       </div>

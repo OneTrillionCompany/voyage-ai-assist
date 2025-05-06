@@ -94,7 +94,7 @@ const ProcessVisualizationSection: React.FC = () => {
                         <div className="text-green-100 text-xs">escribiendo...</div>
                       </div>
                     </div>
-                    <div className="flex-1 bg-[url()] p-2 overflow-y-auto">
+                    <div className="flex-1 bg-[url(${background_url})] p-2 overflow-y-auto">
                       <div className="mr-auto max-w-[70%] bg-white p-2 rounded-lg mb-2">
                         Hola, ¿podrían enviarme información sobre paquetes a Cancún?
                       </div>
