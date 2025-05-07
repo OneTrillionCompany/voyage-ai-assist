@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -44,28 +45,28 @@ const ProcessVisualizationSection: React.FC = () => {
       
       {/* Process Steps */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-        <ProcessStep number="1" title="Cotización" description="Genera cotizaciones profesionales automáticamente con solo unos clics" icon={<FileText size={24} />} />
-        <ProcessStep number="2" title="Confirmación" description="Procesa confirmaciones y pagos directamente a través de WhatsApp" icon={<CheckSquare size={24} />} />
-        <ProcessStep number="3" title="Documentos" description="Envía itinerarios y documentación necesaria automáticamente" icon={<FileCheck size={24} />} />
-        <ProcessStep number="4" title="Seguimiento" description="Mantén a tus clientes informados con actualizaciones programadas" icon={<BarChart3 size={24} />} />
+        <ProcessStep number="1" title={t('process.step1.title')} description={t('process.step1.description')} icon={<FileText size={24} />} />
+        <ProcessStep number="2" title={t('process.step2.title')} description={t('process.step2.description')} icon={<CheckSquare size={24} />} />
+        <ProcessStep number="3" title={t('process.step3.title')} description={t('process.step3.description')} icon={<FileCheck size={24} />} />
+        <ProcessStep number="4" title={t('process.step4.title')} description={t('process.step4.description')} icon={<BarChart3 size={24} />} />
       </div>
       
       {/* WhatsApp Experience Showcase */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-16">
         <div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 reveal-animation">Experiencia WhatsApp Fluida</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 reveal-animation">{t('whatsapp.experience.title')}</h3>
           <div className="space-y-6 reveal-animation">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="font-bold text-xl mb-2">Respuestas instantáneas</h4>
-              <p className="text-gray-600">Tus clientes reciben respuestas inmediatas, incluso cuando estás ocupado con otros asuntos.</p>
+              <h4 className="font-bold text-xl mb-2">{t('whatsapp.experience.instant.title')}</h4>
+              <p className="text-gray-600">{t('whatsapp.experience.instant.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="font-bold text-xl mb-2">Personalización automática</h4>
-              <p className="text-gray-600">Cada mensaje se adapta al cliente, incluyendo su nombre y detalles específicos de su consulta.</p>
+              <h4 className="font-bold text-xl mb-2">{t('whatsapp.experience.personalization.title')}</h4>
+              <p className="text-gray-600">{t('whatsapp.experience.personalization.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="font-bold text-xl mb-2">Múltiples idiomas</h4>
-              <p className="text-gray-600">Comunícate con clientes internacionales con soporte para español, inglés y otros idiomas.</p>
+              <h4 className="font-bold text-xl mb-2">{t('whatsapp.experience.languages.title')}</h4>
+              <p className="text-gray-600">{t('whatsapp.experience.languages.description')}</p>
             </div>
           </div>
         </div>
@@ -74,7 +75,7 @@ const ProcessVisualizationSection: React.FC = () => {
           <div className={`transform transition-all duration-1000 ${isPhoneVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="relative">
               <div className="chat-bubble absolute -top-10 -left-16 bg-green-500 text-white p-3 rounded-lg  max-w-xs z-10 -mt-8">
-                Hola, ¿podrían enviarme información sobre paquetes a Cancún?
+                {t('whatsapp.conversation.message1')}
                 <div className="absolute bottom-0 right-4 transform translate-y-1/2 rotate-45 w-4 h-4 bg-green-500"></div>
               </div>
               
@@ -90,25 +91,25 @@ const ProcessVisualizationSection: React.FC = () => {
                     <div className="bg-green-500 p-3 flex items-center">
                       <div className="w-10 h-10 bg-white rounded-full"></div>
                       <div className="ml-3">
-                        <div className="text-white font-semibold">Asistente de Viajes</div>
-                        <div className="text-green-100 text-xs">escribiendo...</div>
+                        <div className="text-white font-semibold">{t('whatsapp.header.title')}</div>
+                        <div className="text-green-100 text-xs">{t('whatsapp.header.status')}</div>
                       </div>
                     </div>
                     <div className="flex-1 bg-[url()] p-2 overflow-y-auto">
                       <div className="mr-auto max-w-[70%] bg-white p-2 rounded-lg mb-2">
-                        Hola, ¿podrían enviarme información sobre paquetes a Cancún?
+                        {t('whatsapp.conversation.message1')}
                       </div>
                       <div className="ml-auto max-w-[70%] bg-green-100 p-2 rounded-lg mb-2">
-                        ¡Hola! Por supuesto, tenemos excelentes opciones para Cancún. ¿Para cuántas personas y en qué fechas estás pensando viajar?
+                        {t('whatsapp.conversation.response1')}
                       </div>
                       <div className="mr-auto max-w-[70%] bg-white p-2 rounded-lg mb-2">
-                        Para 2 adultos, del 15 al 22 de julio
+                        {t('whatsapp.conversation.message2')}
                       </div>
                       <div className="ml-auto max-w-[70%] bg-green-100 p-2 rounded-lg mb-2">
-                        ¡Perfecto! Aquí tienes nuestras 3 mejores opciones para esas fechas:
+                        {t('whatsapp.conversation.response2')}
                       </div>
                       <div className="ml-auto max-w-[70%] bg-green-100 p-2 rounded-lg">
-                        [Cotización PDF] Opciones Cancún Jul 15-22
+                        {t('whatsapp.conversation.quote')}
                       </div>
                     </div>
                   </div>
@@ -116,7 +117,7 @@ const ProcessVisualizationSection: React.FC = () => {
               </div>
               
               <div className="chat-bubble absolute -bottom-12 -right-16 bg-white border border-gray-300 p-3 rounded-lg max-w-xs shadow-lg">
-                ¡Gracias! Me interesa la opción 2. ¿Cómo puedo reservar?
+                {t('whatsapp.conversation.message3')}
                 <div className="absolute top-0 left-8 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-white border-l border-t border-gray-300"></div>
               </div>
             </div>

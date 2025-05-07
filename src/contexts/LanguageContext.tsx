@@ -334,46 +334,222 @@ const defaultTranslations = {
     es: 'Explora aplicaciones prácticas de nuestros asistentes de IA en escenarios de viaje del mundo real.',
     pt: 'Explore aplicações práticas dos nossos assistentes de IA em cenários de viagem do mundo real.'
   },
-  'usecases.advisors': {
-    en: 'For Travel Advisors',
-    es: 'Para Asesores de Viajes',
-    pt: 'Para Consultores de Viagens'
+  
+  // Process Steps
+  'process.step1.title': {
+    en: 'Quotation',
+    es: 'Cotización',
+    pt: 'Cotação'
   },
-  'usecases.travelers': {
-    en: 'For Travelers',
-    es: 'Para Viajeros',
-    pt: 'Para Viajantes'
+  'process.step1.description': {
+    en: 'Generate professional quotes automatically with just a few clicks',
+    es: 'Genera cotizaciones profesionales automáticamente con solo unos clics',
+    pt: 'Gere orçamentos profissionais automaticamente com apenas alguns cliques'
   },
-  'faq.title': {
-    en: 'Frequently Asked Questions',
-    es: 'Preguntas Frecuentes',
-    pt: 'Perguntas Frequentes'
+  'process.step2.title': {
+    en: 'Confirmation',
+    es: 'Confirmación',
+    pt: 'Confirmação'
   },
-  'faq.description': {
-    en: 'Get answers to common questions about our AI travel solutions.',
-    es: 'Obtén respuestas a preguntas comunes sobre nuestras soluciones de viaje con IA.',
-    pt: 'Obtenha respostas para perguntas comuns sobre nossas soluções de viagem com IA.'
+  'process.step2.description': {
+    en: 'Process confirmations and payments directly through WhatsApp',
+    es: 'Procesa confirmaciones y pagos directamente a través de WhatsApp',
+    pt: 'Processe confirmações e pagamentos diretamente pelo WhatsApp'
   },
-  'contact.title': {
-    en: 'Get in Touch',
-    es: 'Ponte en Contacto',
-    pt: 'Entre em Contato'
+  'process.step3.title': {
+    en: 'Documents',
+    es: 'Documentos',
+    pt: 'Documentos'
   },
-  'contact.description': {
-    en: 'Ready to transform your travel business? Contact us today for a personalized demo.',
-    es: '¿Listo para transformar tu negocio de viajes? Contáctanos hoy para una demostración personalizada.',
-    pt: 'Pronto para transformar seu negócio de viagens? Entre em contato hoje para uma demonstração personalizada.'
+  'process.step3.description': {
+    en: 'Send itineraries and necessary documentation automatically',
+    es: 'Envía itinerarios y documentación necesaria automáticamente',
+    pt: 'Envie itinerários e documentação necessária automaticamente'
   },
-  'team.title': {
-    en: 'Meet Our Team',
-    es: 'Conoce a Nuestro Equipo',
-    pt: 'Conheça Nossa Equipe'
+  'process.step4.title': {
+    en: 'Monitoring',
+    es: 'Seguimiento',
+    pt: 'Monitoramento'
   },
-  'team.description': {
-    en: 'The innovative minds behind sellmoretrips.AI',
-    es: 'Las mentes innovadoras detrás de sellmoretrips.AI',
-    pt: 'As mentes inovadoras por trás da sellmoretrips.AI'
+  'process.step4.description': {
+    en: 'Keep your customers informed with scheduled updates',
+    es: 'Mantén a tus clientes informados con actualizaciones programadas',
+    pt: 'Mantenha seus clientes informados com atualizações programadas'
   },
+  
+  // WhatsApp Experience Section
+  'whatsapp.experience.title': {
+    en: 'Fluid WhatsApp Experience',
+    es: 'Experiencia WhatsApp Fluida',
+    pt: 'Experiência Fluida no WhatsApp'
+  },
+  'whatsapp.experience.instant.title': {
+    en: 'Instant Responses',
+    es: 'Respuestas instantáneas',
+    pt: 'Respostas instantâneas'
+  },
+  'whatsapp.experience.instant.description': {
+    en: 'Your customers receive immediate responses, even when you are busy with other matters.',
+    es: 'Tus clientes reciben respuestas inmediatas, incluso cuando estás ocupado con otros asuntos.',
+    pt: 'Seus clientes recebem respostas imediatas, mesmo quando você está ocupado com outros assuntos.'
+  },
+  'whatsapp.experience.personalization.title': {
+    en: 'Automatic Personalization',
+    es: 'Personalización automática',
+    pt: 'Personalização automática'
+  },
+  'whatsapp.experience.personalization.description': {
+    en: 'Each message adapts to the client, including their name and specific details of their inquiry.',
+    es: 'Cada mensaje se adapta al cliente, incluyendo su nombre y detalles específicos de su consulta.',
+    pt: 'Cada mensagem se adapta ao cliente, incluindo seu nome e detalhes específicos de sua consulta.'
+  },
+  'whatsapp.experience.languages.title': {
+    en: 'Multiple Languages',
+    es: 'Múltiples idiomas',
+    pt: 'Múltiplos idiomas'
+  },
+  'whatsapp.experience.languages.description': {
+    en: 'Communicate with international customers with support for English, Spanish and other languages.',
+    es: 'Comunícate con clientes internacionales con soporte para español, inglés y otros idiomas.',
+    pt: 'Comunique-se com clientes internacionais com suporte para português, inglês, espanhol e outros idiomas.'
+  },
+  
+  // WhatsApp Conversation
+  'whatsapp.header.title': {
+    en: 'Travel Assistant',
+    es: 'Asistente de Viajes',
+    pt: 'Assistente de Viagens'
+  },
+  'whatsapp.header.status': {
+    en: 'typing...',
+    es: 'escribiendo...',
+    pt: 'digitando...'
+  },
+  'whatsapp.conversation.message1': {
+    en: 'Hello, could you send me information about packages to Cancun?',
+    es: 'Hola, ¿podrían enviarme información sobre paquetes a Cancún?',
+    pt: 'Olá, poderia me enviar informações sobre pacotes para Cancún?'
+  },
+  'whatsapp.conversation.response1': {
+    en: 'Hello! Of course, we have excellent options for Cancun. For how many people and on what dates are you thinking of traveling?',
+    es: '¡Hola! Por supuesto, tenemos excelentes opciones para Cancún. ¿Para cuántas personas y en qué fechas estás pensando viajar?',
+    pt: 'Olá! Claro, temos excelentes opções para Cancún. Para quantas pessoas e em quais datas você está pensando em viajar?'
+  },
+  'whatsapp.conversation.message2': {
+    en: 'For 2 adults, from July 15 to 22',
+    es: 'Para 2 adultos, del 15 al 22 de julio',
+    pt: 'Para 2 adultos, de 15 a 22 de julho'
+  },
+  'whatsapp.conversation.response2': {
+    en: 'Perfect! Here are our 3 best options for those dates:',
+    es: '¡Perfecto! Aquí tienes nuestras 3 mejores opciones para esas fechas:',
+    pt: 'Perfeito! Aqui estão nossas 3 melhores opções para essas datas:'
+  },
+  'whatsapp.conversation.quote': {
+    en: '[PDF Quote] Cancun Options Jul 15-22',
+    es: '[Cotización PDF] Opciones Cancún Jul 15-22',
+    pt: '[Orçamento PDF] Opções Cancún Jul 15-22'
+  },
+  'whatsapp.conversation.message3': {
+    en: 'Thank you! I\'m interested in option 2. How can I book?',
+    es: '¡Gracias! Me interesa la opción 2. ¿Cómo puedo reservar?',
+    pt: 'Obrigado! Estou interessado na opção 2. Como posso reservar?'
+  },
+  
+  // CRM Integration Section
+  'crm.title': {
+    en: 'CRM Integration',
+    es: 'Integración con CRM',
+    pt: 'Integração com CRM'
+  },
+  'crm.description': {
+    en: 'All your data automatically synchronized with your CRM system for complete analysis.',
+    es: 'Todos tus datos sincronizados automáticamente con tu sistema CRM para un análisis completo.',
+    pt: 'Todos os seus dados sincronizados automaticamente com seu sistema CRM para uma análise completa.'
+  },
+  'crm.whatsapp.data': {
+    en: 'WhatsApp Data',
+    es: 'Datos de WhatsApp',
+    pt: 'Dados do WhatsApp'
+  },
+  'crm.dashboard': {
+    en: 'CRM Dashboard',
+    es: 'CRM Dashboard',
+    pt: 'CRM Dashboard'
+  },
+  'crm.stats.newLeads': {
+    en: 'New Leads',
+    es: 'Leads Nuevos',
+    pt: 'Novos Leads'
+  },
+  'crm.stats.closedSales': {
+    en: 'Closed Sales',
+    es: 'Ventas Cerradas',
+    pt: 'Vendas Fechadas'
+  },
+  'crm.stats.conversionRate': {
+    en: 'Conversion Rate',
+    es: 'Tasa de Conversión',
+    pt: 'Taxa de Conversão'
+  },
+  'crm.stats.recentClients': {
+    en: 'Recent Clients',
+    es: 'Clientes Recientes',
+    pt: 'Clientes Recentes'
+  },
+  'crm.clients.client1.name': {
+    en: 'Maria Lopez',
+    es: 'María López',
+    pt: 'Maria Lopez'
+  },
+  'crm.clients.client1.status': {
+    en: 'Booked',
+    es: 'Reservado',
+    pt: 'Reservado'
+  },
+  'crm.clients.client2.name': {
+    en: 'Carlos Garcia',
+    es: 'Carlos García',
+    pt: 'Carlos Garcia'
+  },
+  'crm.clients.client2.status': {
+    en: 'Quote sent',
+    es: 'Cotización enviada',
+    pt: 'Orçamento enviado'
+  },
+  'crm.clients.client3.name': {
+    en: 'Andrea Ruiz',
+    es: 'Andrea Ruiz',
+    pt: 'Andrea Ruiz'
+  },
+  'crm.clients.client3.status': {
+    en: 'Interested',
+    es: 'Interesado',
+    pt: 'Interessado'
+  },
+  
+  // CTA Section
+  'cta.title': {
+    en: 'Ready to boost your sales?',
+    es: '¿Listo para impulsar tus ventas?',
+    pt: 'Pronto para impulsionar suas vendas?'
+  },
+  'cta.description': {
+    en: 'Start using our WhatsApp sales assistant today and transform your sales process.',
+    es: 'Comienza a utilizar nuestro asistente de ventas por WhatsApp hoy mismo y transforma tu proceso de ventas.',
+    pt: 'Comece a usar nosso assistente de vendas por WhatsApp hoje mesmo e transforme seu processo de vendas.'
+  },
+  'cta.whatsapp': {
+    en: 'Contact via WhatsApp',
+    es: 'Contactar por WhatsApp',
+    pt: 'Contato via WhatsApp'
+  },
+  'cta.demo': {
+    en: 'Request Demo',
+    es: 'Solicitar Demo',
+    pt: 'Solicitar Demo'
+  },
+  
   'whatsapp.chat': {
     en: 'Chat with us',
     es: 'Chatea con nosotros',
