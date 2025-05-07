@@ -374,7 +374,7 @@ const defaultTranslations = {
   'process.step4.description': {
     en: 'Keep your customers informed with scheduled updates',
     es: 'Mantén a tus clientes informados con actualizaciones programadas',
-    pt: 'Mantenha seus clientes informados com actualizaciones programadas'
+    pt: 'Mantenha seus clientes informados con actualizaciones programadas'
   },
   
   // WhatsApp Experience Section
@@ -495,7 +495,7 @@ const defaultTranslations = {
   'crm.stats.recentClients': {
     en: 'Recent Clients',
     es: 'Clientes Recientes',
-    pt: 'Clientes Recentes'
+    pt: 'Clientes Recientes'
   },
   'crm.clients.client1.name': {
     en: 'Maria Lopez',
@@ -610,7 +610,7 @@ const defaultTranslations = {
   'faq.items.item4.answer': {
     en: 'Our secure payment system integrates with major payment processors and provides multiple payment options for customers. The system handles deposits, installment payments, and full payments, with automated receipts and confirmation emails. Travel advisors receive immediate notification of completed transactions.',
     es: 'Nuestro sistema de pago seguro se integra con los principales procesadores de pago y proporciona múltiples opciones de pago para los clientes. El sistema maneja depósitos, pagos en cuotas y pagos completos, con recibos automatizados y correos electrónicos de confirmación. Los asesores de viaje reciben notificación inmediata de las transacciones completadas.',
-    pt: 'Nosso sistema de pagamento seguro se integra com los principais processadores de pagamento e oferece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
+    pt: 'Nosso sistema de pagamento seguro se integra com los principales processadores de pagamento e oferece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
   },
   'faq.items.item5.question': {
     en: 'Can the AI assistant be customized for my travel business?',
@@ -733,7 +733,39 @@ const defaultTranslations = {
     en: 'Sending...',
     es: 'Enviando...',
     pt: 'Enviando...'
-  }
+  },
+  
+  // Team Section
+  'team.title': {
+    en: 'Our Team',
+    es: 'Nuestro Equipo',
+    pt: 'Nossa Equipe'
+  },
+  'team.description': {
+    en: 'Meet the talented individuals behind our AI travel solutions',
+    es: 'Conoce a las personas talentosas detrás de nuestras soluciones de viaje con IA',
+    pt: 'Conheça os talentosos indivíduos por trás de nossas soluções de viagem com IA'
+  },
+  'team.role.ceo': {
+    en: 'CEO',
+    es: 'CEO',
+    pt: 'CEO'
+  },
+  'team.role.cdo': {
+    en: 'CDO',
+    es: 'CDO',
+    pt: 'CDO'
+  },
+  'team.role.cto': {
+    en: 'CTO',
+    es: 'CTO',
+    pt: 'CTO'
+  },
+  'team.role.ai': {
+    en: 'AI Engineer',
+    es: 'Ingeniero de IA',
+    pt: 'Engenheiro de IA'
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
