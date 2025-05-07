@@ -25,6 +25,41 @@ const defaultTranslations = {
     es: 'Conéctate con Nosotros',
     pt: 'Conecte-se Conosco'
   },
+  'hero.city.bogota': {
+    en: 'Discover Bogotá',
+    es: 'Descubre Bogotá',
+    pt: 'Descubra Bogotá'
+  },
+  'hero.city.cartagena': {
+    en: 'Enjoy Cartagena',
+    es: 'Disfruta Cartagena',
+    pt: 'Aproveite Cartagena'
+  },
+  'hero.city.medellin': {
+    en: 'Explore Medellín',
+    es: 'Explora Medellín',
+    pt: 'Explore Medellín'
+  },
+  'hero.city.tayrona': {
+    en: 'Experience Tayrona',
+    es: 'Vive Tayrona',
+    pt: 'Vivencie Tayrona'
+  },
+  'hero.city.cali': {
+    en: 'Dance in Cali',
+    es: 'Baila en Cali',
+    pt: 'Dance em Cali'
+  },
+  'hero.city.santamarta': {
+    en: 'Relax in Santa Marta',
+    es: 'Relájate en Santa Marta',
+    pt: 'Relaxe em Santa Marta'
+  },
+  'hero.city.sanandres': {
+    en: 'Sail San Andrés',
+    es: 'Navega San Andrés',
+    pt: 'Navegue em San Andrés'
+  },
   'nav.services': {
     en: 'Services',
     es: 'Servicios',

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
@@ -139,14 +138,15 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8 relative h-[calc(100vh-7rem)] z-10">
         {/* Scene-specific text overlay */}
         <div className={`absolute top-4 right-10 text-sm font-medium transition-opacity duration-500 ${transitioning ? 'opacity-0' : 'opacity-70'}`}>
-          {currentScene === 0 && <span className="text-blue-800">Descubre Bogotá</span>}
-          {currentScene === 1 && <span className="text-amber-800">Disfruta Cartagena</span>}
-          {currentScene === 2 && <span className="text-white">Explora Medellín</span>}
-          {currentScene === 3 && <span className="text-white">Vive Tayrona</span>}
-          {currentScene === 4 && <span className="text-orange-800">Baila en Cali</span>}
-          {currentScene === 5 && <span className="text-teal-800">Relájate en Santa Marta</span>}
-          {currentScene === 6 && <span className="text-blue-800">Navega San Andrés</span>}
+          {currentScene === 0 && <span className="text-blue-800">{t('hero.city.bogota')}</span>}
+          {currentScene === 1 && <span className="text-amber-800">{t('hero.city.cartagena')}</span>}
+          {currentScene === 2 && <span className="text-white">{t('hero.city.medellin')}</span>}
+          {currentScene === 3 && <span className="text-white">{t('hero.city.tayrona')}</span>}
+          {currentScene === 4 && <span className="text-orange-800">{t('hero.city.cali')}</span>}
+          {currentScene === 5 && <span className="text-teal-800">{t('hero.city.santamarta')}</span>}
+          {currentScene === 6 && <span className="text-blue-800">{t('hero.city.sanandres')}</span>}
         </div>
+        
         {/* Title - Top Left */}
         <div className="absolute top-12 md:top-0 md:left-10 max-w-xl md:max-w-2xl">
           <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold transition-colors duration-500 ${currentScene === 2 ? 'text-white' : ''}`}>
