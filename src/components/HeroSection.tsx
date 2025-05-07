@@ -52,6 +52,15 @@ const HeroSection: React.FC = () => {
     
     return () => clearInterval(interval);
   }, []);
+  
+  // Function to scroll to contact form
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <section className="relative h-screen pt-28 pb-16 overflow-hidden">
       {/* Dynamic Background */}
@@ -136,7 +145,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute bottom-10 right-10" ref={whatsAppButtonRef}>
           <Button 
             className="bg-primary hover:bg-secondary text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6 hidden md:flex" 
-            onClick={() => window.open('https://wa.me/573159381236', '_blank')}
+            onClick={scrollToContact}
           >
             {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

@@ -44,6 +44,15 @@ const Navigation: React.FC = () => {
     }
   }, [isMobile, isMenuOpen]);
 
+  // Function to scroll to contact form
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -70,8 +79,8 @@ const Navigation: React.FC = () => {
               <LanguageSwitcher />
             </div>
 
-            <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100">
-              <a href="#contact" className="whitespace-nowrap">{t('nav.contact')}</a>
+            <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100" onClick={scrollToContact}>
+              <span className="whitespace-nowrap">{t('nav.contact')}</span>
             </Button>
             
             {/* Mobile Menu Button */}
@@ -135,9 +144,9 @@ const Navigation: React.FC = () => {
             
             <Button 
               className="bg-white hover:bg-gray-100 text-primary hover:text-primary text-base px-6 py-4 mt-2 flex items-center justify-center" 
-              onClick={() => {
+              onClick={(e) => {
                 setIsMenuOpen(false);
-                window.location.href = "#contact";
+                scrollToContact(e);
               }}
             >
               {t('nav.contact')} <ArrowRight className="ml-2 h-5 w-5" />
