@@ -115,7 +115,7 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="reveal-animation">
+        <div className="reveal-animation" id="contact-form">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block mb-2">Name</label>

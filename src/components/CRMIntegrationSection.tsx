@@ -7,6 +7,14 @@ import { ArrowRight } from 'lucide-react';
 const CRMIntegrationSection: React.FC = () => {
   const { t } = useLanguage();
 
+  // Function to scroll to contact form
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       {/* CRM Integration */}
@@ -117,7 +125,7 @@ const CRMIntegrationSection: React.FC = () => {
               </Button>
               <Button 
                 className="bg-white hover:bg-gray-100 text-primary text-lg px-8 py-6 w-full sm:w-auto"
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={scrollToContact}
               >
                 Solicitar Demo
               </Button>
