@@ -374,7 +374,7 @@ const defaultTranslations = {
   'process.step4.description': {
     en: 'Keep your customers informed with scheduled updates',
     es: 'Mantén a tus clientes informados con actualizaciones programadas',
-    pt: 'Mantenha seus clientes informados com atualizações programadas'
+    pt: 'Mantenha seus clientes informados com actualizaciones programadas'
   },
   
   // WhatsApp Experience Section
@@ -559,6 +559,180 @@ const defaultTranslations = {
     en: 'Hello, I would like more information about your travel services.',
     es: 'Hola, me gustaría más información sobre sus servicios de viaje.',
     pt: 'Olá, eu gostaria de mais informações sobre seus serviços de viagem.'
+  },
+  
+  // FAQ Section
+  'faq.title': {
+    en: 'Frequently Asked Questions',
+    es: 'Preguntas Frecuentes',
+    pt: 'Perguntas Frequentes'
+  },
+  'faq.description': {
+    en: 'Find answers to common questions about our AI travel solutions',
+    es: 'Encuentra respuestas a preguntas comunes sobre nuestras soluciones de viaje con IA',
+    pt: 'Encontre respostas para perguntas comuns sobre nossas soluções de viagem com IA'
+  },
+  'faq.items.item1.question': {
+    en: 'How does the AI advisor assistant work?',
+    es: '¿Cómo funciona el asistente de IA para asesores?',
+    pt: 'Como funciona o assistente de IA para consultores?'
+  },
+  'faq.items.item1.answer': {
+    en: 'Our AI advisor assistant uses advanced natural language processing and machine learning to analyze thousands of travel options across multiple providers. It quickly filters results based on specific client requirements, price ranges, and preferences, presenting advisors with the most relevant options and saving hours of research time.',
+    es: 'Nuestro asistente de IA para asesores utiliza procesamiento avanzado de lenguaje natural y aprendizaje automático para analizar miles de opciones de viaje de múltiples proveedores. Filtra rápidamente los resultados según los requisitos específicos del cliente, rangos de precios y preferencias, presentando a los asesores las opciones más relevantes y ahorrando horas de tiempo de investigación.',
+    pt: 'Nosso assistente de IA para consultores usa processamento avançado de linguagem natural e aprendizado de máquina para analisar milhares de opções de viagem em vários provedores. Ele filtra rapidamente os resultados com base nos requisitos específicos do cliente, faixas de preço e preferências, apresentando aos consultores as opções mais relevantes e economizando horas de tempo de pesquisa.'
+  },
+  'faq.items.item2.question': {
+    en: 'Is customer data kept secure?',
+    es: '¿Se mantienen seguros los datos de los clientes?',
+    pt: 'Os dados dos clientes são mantidos seguros?'
+  },
+  'faq.items.item2.answer': {
+    en: 'Absolutely. We implement enterprise-grade security measures including encryption, secure authentication, and regular security audits. All customer data is protected in compliance with global privacy standards, and we never share personal information with third parties without explicit consent.',
+    es: 'Absolutamente. Implementamos medidas de seguridad de nivel empresarial que incluyen cifrado, autenticación segura y auditorías de seguridad regulares. Todos los datos de los clientes están protegidos en cumplimiento con los estándares globales de privacidad, y nunca compartimos información personal con terceros sin consentimiento explícito.',
+    pt: 'Absolutamente. Implementamos medidas de segurança de nível empresarial, incluindo criptografia, autenticação segura e auditorias regulares de segurança. Todos os dados dos clientes são protegidos em conformidade com os padrões globais de privacidade, e nunca compartilhamos informações pessoais com terceiros sem consentimento explícito.'
+  },
+  'faq.items.item3.question': {
+    en: 'Can the AI handle complex itineraries?',
+    es: '¿Puede la IA manejar itinerarios complejos?',
+    pt: 'A IA consegue lidar com itinerários complexos?'
+  },
+  'faq.items.item3.answer': {
+    en: 'Yes, our AI excels at managing complex multi-destination itineraries with various transportation methods, accommodation types, and activities. It can coordinate complicated logistics while optimizing for factors like cost, convenience, and customer preferences.',
+    es: 'Sí, nuestra IA se destaca en la gestión de itinerarios complejos con múltiples destinos, diversos métodos de transporte, tipos de alojamiento y actividades. Puede coordinar logísticas complicadas mientras optimiza factores como costo, conveniencia y preferencias del cliente.',
+    pt: 'Sim, nossa IA se destaca no gerenciamento de itinerários complexos com múltiplos destinos, vários métodos de transporte, tipos de acomodação e atividades. Ela pode coordenar logísticas complicadas enquanto otimiza fatores como custo, conveniência e preferências do cliente.'
+  },
+  'faq.items.item4.question': {
+    en: 'How do payments work through the platform?',
+    es: '¿Cómo funcionan los pagos a través de la plataforma?',
+    pt: 'Como funcionam os pagamentos através da plataforma?'
+  },
+  'faq.items.item4.answer': {
+    en: 'Our secure payment system integrates with major payment processors and provides multiple payment options for customers. The system handles deposits, installment payments, and full payments, with automated receipts and confirmation emails. Travel advisors receive immediate notification of completed transactions.',
+    es: 'Nuestro sistema de pago seguro se integra con los principales procesadores de pago y proporciona múltiples opciones de pago para los clientes. El sistema maneja depósitos, pagos en cuotas y pagos completos, con recibos automatizados y correos electrónicos de confirmación. Los asesores de viaje reciben notificación inmediata de las transacciones completadas.',
+    pt: 'Nosso sistema de pagamento seguro se integra com los principais processadores de pagamento e oferece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
+  },
+  'faq.items.item5.question': {
+    en: 'Can the AI assistant be customized for my travel business?',
+    es: '¿Se puede personalizar el asistente de IA para mi negocio de viajes?',
+    pt: 'O assistente de IA pode ser personalizado para o meu negócio de viagens?'
+  },
+  'faq.items.item5.answer': {
+    en: 'Yes, our AI solutions are designed to be highly customizable. We can adapt the system to match your brand voice, preferred suppliers, commission structures, and business workflow. The AI learns from your business patterns over time, becoming increasingly tailored to your specific needs.',
+    es: 'Sí, nuestras soluciones de IA están diseñadas para ser altamente personalizables. Podemos adaptar el sistema para que coincida con la voz de su marca, proveedores preferidos, estructuras de comisiones y flujo de trabajo comercial. La IA aprende de los patrones de su negocio con el tiempo, volviéndose cada vez más adaptada a sus necesidades específicas.',
+    pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho do negócio. A IA aprende com os padrões do seu negócio ao longo do tempo, tornando-se cada vez mais adaptada às suas necessidades específicas.'
+  },
+  'faq.items.item6.question': {
+    en: 'Is training required to use the system?',
+    es: '¿Se requiere capacitación para usar el sistema?',
+    pt: 'É necessário treinamento para usar o sistema?'
+  },
+  'faq.items.item6.answer': {
+    en: 'We provide comprehensive onboarding and training, but the system is designed to be intuitive and user-friendly. Most travel advisors can begin using the basic features within hours, while more advanced capabilities might require additional familiarization. Our support team is always available to help with questions or challenges.',
+    es: 'Proporcionamos una incorporación y capacitación integral, pero el sistema está diseñado para ser intuitivo y fácil de usar. La mayoría de los asesores de viajes pueden comenzar a usar las funciones básicas en cuestión de horas, mientras que las capacidades más avanzadas podrían requerir una familiarización adicional. Nuestro equipo de soporte siempre está disponible para ayudar con preguntas o desafíos.',
+    pt: 'Fornecemos integração e treinamento abrangentes, mas o sistema é projetado para ser intuitivo e fácil de usar. A maioria dos consultores de viagem pode começar a usar os recursos básicos em poucas horas, enquanto recursos mais avançados podem exigir familiarização adicional. Nossa equipe de suporte está sempre disponível para ajudar com perguntas ou desafios.'
+  },
+  
+  // Contact Section
+  'contact.title': {
+    en: 'Contact Us',
+    es: 'Contáctanos',
+    pt: 'Contate-nos'
+  },
+  'contact.description': {
+    en: 'Get in touch with our team and discover how we can transform your travel business',
+    es: 'Ponte en contacto con nuestro equipo y descubre cómo podemos transformar tu negocio de viajes',
+    pt: 'Entre em contato com nossa equipe e descubra como podemos transformar seu negócio de viagens'
+  },
+  'contact.info.title': {
+    en: 'Contact Information',
+    es: 'Información de Contacto',
+    pt: 'Informações de Contato'
+  },
+  'contact.info.description': {
+    en: 'Have questions about our AI solutions? Fill out the form or contact us directly using the information below.',
+    es: '¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o contáctanos directamente utilizando la información a continuación.',
+    pt: 'Tem perguntas sobre nossas soluções de IA? Preencha o formulário ou contate-nos diretamente usando as informações abaixo.'
+  },
+  'contact.info.email.label': {
+    en: 'Email',
+    es: 'Correo Electrónico',
+    pt: 'Email'
+  },
+  'contact.info.email.value': {
+    en: 'manuel.gruezo@uao.edu.co',
+    es: 'manuel.gruezo@uao.edu.co',
+    pt: 'manuel.gruezo@uao.edu.co'
+  },
+  'contact.info.whatsapp.label': {
+    en: 'WhatsApp',
+    es: 'WhatsApp',
+    pt: 'WhatsApp'
+  },
+  'contact.info.whatsapp.value': {
+    en: '+573159381236',
+    es: '+573159381236',
+    pt: '+573159381236'
+  },
+  'contact.info.hours.label': {
+    en: 'Office Hours',
+    es: 'Horario de Oficina',
+    pt: 'Horário de Funcionamento'
+  },
+  'contact.info.hours.value': {
+    en: 'Monday to Friday, 9AM - 5PM EST',
+    es: 'Lunes a Viernes, 9AM - 5PM EST',
+    pt: 'Segunda a Sexta, 9AM - 5PM EST'
+  },
+  'contact.form.name.label': {
+    en: 'Name',
+    es: 'Nombre',
+    pt: 'Nome'
+  },
+  'contact.form.name.placeholder': {
+    en: 'Your name',
+    es: 'Tu nombre',
+    pt: 'Seu nome'
+  },
+  'contact.form.email.label': {
+    en: 'Email',
+    es: 'Correo Electrónico',
+    pt: 'Email'
+  },
+  'contact.form.email.placeholder': {
+    en: 'your@email.com',
+    es: 'tu@email.com',
+    pt: 'seu@email.com'
+  },
+  'contact.form.company.label': {
+    en: 'Company',
+    es: 'Empresa',
+    pt: 'Empresa'
+  },
+  'contact.form.company.placeholder': {
+    en: 'Your company name',
+    es: 'Nombre de tu empresa',
+    pt: 'Nome da sua empresa'
+  },
+  'contact.form.message.label': {
+    en: 'Message',
+    es: 'Mensaje',
+    pt: 'Mensagem'
+  },
+  'contact.form.message.placeholder': {
+    en: 'How can we help you?',
+    es: '¿Cómo podemos ayudarte?',
+    pt: 'Como podemos ajudá-lo?'
+  },
+  'contact.form.submit': {
+    en: 'Send Message',
+    es: 'Enviar Mensaje',
+    pt: 'Enviar Mensagem'
+  },
+  'contact.form.submitting': {
+    en: 'Sending...',
+    es: 'Enviando...',
+    pt: 'Enviando...'
   }
 };
 

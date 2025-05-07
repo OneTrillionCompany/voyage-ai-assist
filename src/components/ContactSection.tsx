@@ -92,25 +92,25 @@ const ContactSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="reveal-animation">
-          <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('contact.info.title')}</h3>
           <p className="mb-8 text-secondary">
-            Have questions about our AI solutions? Fill out the form or contact us directly using the information below.
+            {t('contact.info.description')}
           </p>
           
           <div className="space-y-6">
             <div>
-              <h4 className="font-semibold mb-1">Email</h4>
-              <p className="text-secondary">manuel.gruezo@uao.edu.co</p>
+              <h4 className="font-semibold mb-1">{t('contact.info.email.label')}</h4>
+              <p className="text-secondary">{t('contact.info.email.value')}</p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-1">WhatsApp</h4>
-              <p className="text-secondary">+573159381236</p>
+              <h4 className="font-semibold mb-1">{t('contact.info.whatsapp.label')}</h4>
+              <p className="text-secondary">{t('contact.info.whatsapp.value')}</p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-1">Office Hours</h4>
-              <p className="text-secondary">Monday to Friday, 9AM - 5PM EST</p>
+              <h4 className="font-semibold mb-1">{t('contact.info.hours.label')}</h4>
+              <p className="text-secondary">{t('contact.info.hours.value')}</p>
             </div>
           </div>
         </div>
@@ -118,10 +118,10 @@ const ContactSection: React.FC = () => {
         <div className="reveal-animation" id="contact-form">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block mb-2">Name</label>
+              <label htmlFor="name" className="block mb-2">{t('contact.form.name.label')}</label>
               <Input 
                 id="name" 
-                placeholder="Your name" 
+                placeholder={t('contact.form.name.placeholder')}
                 required 
                 value={formData.name}
                 onChange={handleChange}
@@ -129,11 +129,11 @@ const ContactSection: React.FC = () => {
             </div>
             
             <div>
-              <label htmlFor="email" className="block mb-2">Email</label>
+              <label htmlFor="email" className="block mb-2">{t('contact.form.email.label')}</label>
               <Input 
                 id="email" 
                 type="email" 
-                placeholder="your@email.com" 
+                placeholder={t('contact.form.email.placeholder')}
                 required 
                 value={formData.email}
                 onChange={handleChange}
@@ -141,20 +141,20 @@ const ContactSection: React.FC = () => {
             </div>
             
             <div>
-              <label htmlFor="company" className="block mb-2">Company</label>
+              <label htmlFor="company" className="block mb-2">{t('contact.form.company.label')}</label>
               <Input 
                 id="company" 
-                placeholder="Your company name" 
+                placeholder={t('contact.form.company.placeholder')}
                 value={formData.company}
                 onChange={handleChange}
               />
             </div>
             
             <div>
-              <label htmlFor="message" className="block mb-2">Message</label>
+              <label htmlFor="message" className="block mb-2">{t('contact.form.message.label')}</label>
               <Textarea 
                 id="message" 
-                placeholder="How can we help you?" 
+                placeholder={t('contact.form.message.placeholder')}
                 required 
                 value={formData.message}
                 onChange={handleChange}
@@ -169,10 +169,10 @@ const ContactSection: React.FC = () => {
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Sending...
+                  {t('contact.form.submitting')}
                 </>
               ) : (
-                'Send Message'
+                t('contact.form.submit')
               )}
             </Button>
           </form>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   Accordion,
@@ -22,44 +23,44 @@ const FAQSection: React.FC = () => {
       <div className="max-w-3xl mx-auto reveal-animation">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="text-left">How does the AI advisor assistant work?</AccordionTrigger>
+            <AccordionTrigger className="text-left">{t('faq.items.item1.question')}</AccordionTrigger>
             <AccordionContent>
-              Our AI advisor assistant uses advanced natural language processing and machine learning to analyze thousands of travel options across multiple providers. It quickly filters results based on specific client requirements, price ranges, and preferences, presenting advisors with the most relevant options and saving hours of research time.
+              {t('faq.items.item1.answer')}
             </AccordionContent>
           </AccordionItem>
           
           <AccordionItem value="item-2">
-            <AccordionTrigger className="text-left">Is customer data kept secure?</AccordionTrigger>
+            <AccordionTrigger className="text-left">{t('faq.items.item2.question')}</AccordionTrigger>
             <AccordionContent>
-              Absolutely. We implement enterprise-grade security measures including encryption, secure authentication, and regular security audits. All customer data is protected in compliance with global privacy standards, and we never share personal information with third parties without explicit consent.
+              {t('faq.items.item2.answer')}
             </AccordionContent>
           </AccordionItem>
           
           <AccordionItem value="item-3">
-            <AccordionTrigger className="text-left">Can the AI handle complex itineraries?</AccordionTrigger>
+            <AccordionTrigger className="text-left">{t('faq.items.item3.question')}</AccordionTrigger>
             <AccordionContent>
-              Yes, our AI excels at managing complex multi-destination itineraries with various transportation methods, accommodation types, and activities. It can coordinate complicated logistics while optimizing for factors like cost, convenience, and customer preferences.
+              {t('faq.items.item3.answer')}
             </AccordionContent>
           </AccordionItem>
           
           <AccordionItem value="item-4">
-            <AccordionTrigger className="text-left">How do payments work through the platform?</AccordionTrigger>
+            <AccordionTrigger className="text-left">{t('faq.items.item4.question')}</AccordionTrigger>
             <AccordionContent>
-              Our secure payment system integrates with major payment processors and provides multiple payment options for customers. The system handles deposits, installment payments, and full payments, with automated receipts and confirmation emails. Travel advisors receive immediate notification of completed transactions.
+              {t('faq.items.item4.answer')}
             </AccordionContent>
           </AccordionItem>
           
           <AccordionItem value="item-5">
-            <AccordionTrigger className="text-left">Can the AI assistant be customized for my travel business?</AccordionTrigger>
+            <AccordionTrigger className="text-left">{t('faq.items.item5.question')}</AccordionTrigger>
             <AccordionContent>
-              Yes, our AI solutions are designed to be highly customizable. We can adapt the system to match your brand voice, preferred suppliers, commission structures, and business workflow. The AI learns from your business patterns over time, becoming increasingly tailored to your specific needs.
+              {t('faq.items.item5.answer')}
             </AccordionContent>
           </AccordionItem>
           
           <AccordionItem value="item-6">
-            <AccordionTrigger className="text-left">Is training required to use the system?</AccordionTrigger>
+            <AccordionTrigger className="text-left">{t('faq.items.item6.question')}</AccordionTrigger>
             <AccordionContent>
-              We provide comprehensive onboarding and training, but the system is designed to be intuitive and user-friendly. Most travel advisors can begin using the basic features within hours, while more advanced capabilities might require additional familiarization. Our support team is always available to help with questions or challenges.
+              {t('faq.items.item6.answer')}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
