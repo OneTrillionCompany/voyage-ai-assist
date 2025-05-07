@@ -32,6 +32,10 @@ const HeroSection: React.FC = () => {
     { name: 'cartagena', color: 'from-amber-200 to-blue-200', cloudColor: 'text-white', waveColor: 'text-blue-100' },
     { name: 'medellin', color: 'from-indigo-900 to-purple-900', cloudColor: 'text-indigo-200', waveColor: 'text-indigo-800' },
     { name: 'tayrona', color: 'from-orange-400 to-pink-500', cloudColor: 'text-pink-100', waveColor: 'text-orange-100' },
+    // New scenes
+    { name: 'cali', color: 'from-orange-300 to-yellow-200', cloudColor: 'text-white', waveColor: 'text-yellow-100' },
+    { name: 'santamarta', color: 'from-teal-400 to-blue-300', cloudColor: 'text-white', waveColor: 'text-teal-100' },
+    { name: 'sanandres', color: 'from-blue-400 to-teal-300', cloudColor: 'text-white', waveColor: 'text-blue-200' },
   ];
   
   // Scene transition effect
@@ -108,6 +112,28 @@ const HeroSection: React.FC = () => {
         {currentScene === 3 && (
           <div className="absolute top-1/3 right-1/3 w-40 h-40 rounded-full bg-orange-500 opacity-40 animate-pulse-slow"></div>
         )}
+        {/* New scene-specific elements for Cali */}
+        {currentScene === 4 && (
+          <>
+            <div className="absolute top-1/5 right-1/4 w-32 h-32 rounded-full bg-orange-400 opacity-30 animate-float-slow"></div>
+            <div className="absolute bottom-40 left-1/3 w-16 h-16 rounded-full bg-yellow-400 opacity-40 animate-float-medium"></div>
+          </>
+        )}
+        {/* New scene-specific elements for Santa Marta */}
+        {currentScene === 5 && (
+          <>
+            <div className="absolute top-1/4 left-1/4 w-48 h-48 rounded-full bg-blue-300 opacity-20 animate-float-medium"></div>
+            <div className="absolute bottom-48 right-1/3 w-24 h-24 rounded-full bg-teal-300 opacity-30 animate-float-fast"></div>
+          </>
+        )}
+        {/* New scene-specific elements for San Andrés */}
+        {currentScene === 6 && (
+          <>
+            <div className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-teal-400 opacity-20 animate-float-slow"></div>
+            <div className="absolute top-40 right-40 w-16 h-16 rounded-full bg-blue-500 opacity-30 animate-pulse"></div>
+            <div className="absolute bottom-32 left-40 w-24 h-24 rounded-full bg-teal-200 opacity-40 animate-float-fast"></div>
+          </>
+        )}
       </div>
       
       <div className="container mx-auto px-4 md:px-8 relative h-[calc(100vh-7rem)] z-10">
@@ -117,6 +143,9 @@ const HeroSection: React.FC = () => {
           {currentScene === 1 && <span className="text-amber-800">Disfruta Cartagena</span>}
           {currentScene === 2 && <span className="text-white">Explora Medellín</span>}
           {currentScene === 3 && <span className="text-white">Vive Tayrona</span>}
+          {currentScene === 4 && <span className="text-orange-800">Baila en Cali</span>}
+          {currentScene === 5 && <span className="text-teal-800">Relájate en Santa Marta</span>}
+          {currentScene === 6 && <span className="text-blue-800">Navega San Andrés</span>}
         </div>
         {/* Title - Top Left */}
         <div className="absolute top-12 md:top-0 md:left-10 max-w-xl md:max-w-2xl">
