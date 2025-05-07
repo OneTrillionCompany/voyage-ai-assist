@@ -170,6 +170,160 @@ const defaultTranslations = {
     es: 'La industria de viajes enfrenta numerosos desafíos que nuestra tecnología de IA está en una posición única para abordar.',
     pt: 'A indústria de viajes enfrenta numerosos desafios que nuestra tecnologia de IA está exclusivamente posicionada para resolver.'
   },
+  
+  'problems.tabs.quotation': {
+    en: 'Quotations',
+    es: 'Cotizaciones',
+    pt: 'Cotações'
+  },
+  'problems.tabs.organization': {
+    en: 'Organization',
+    es: 'Organización',
+    pt: 'Organização'
+  },
+  'problems.tabs.tracking': {
+    en: 'Tracking',
+    es: 'Seguimiento',
+    pt: 'Acompanhamento'
+  },
+  
+  'problems.before': {
+    en: 'Before',
+    es: 'Antes',
+    pt: 'Antes'
+  },
+  'problems.after': {
+    en: 'After',
+    es: 'Después',
+    pt: 'Depois'
+  },
+  
+  'problems.quotation.before.1': {
+    en: 'Manual quotations taking 30+ minutes',
+    es: 'Cotizaciones manuales que toman 30+ minutos',
+    pt: 'Cotações manuais que levam mais de 30 minutos'
+  },
+  'problems.quotation.before.2': {
+    en: 'Errors in calculations and pricing',
+    es: 'Errores en los cálculos y precios',
+    pt: 'Erros nos cálculos e preços'
+  },
+  'problems.quotation.before.3': {
+    en: 'Inconsistent formats',
+    es: 'Formatos inconsistentes',
+    pt: 'Formatos inconsistentes'
+  },
+  'problems.quotation.before.4': {
+    en: 'Difficulty tracking progress',
+    es: 'Dificultad para hacer seguimiento',
+    pt: 'Dificuldade para fazer acompanhamento'
+  },
+  
+  'problems.quotation.after.1': {
+    en: 'Automated quotations in seconds',
+    es: 'Cotizaciones automáticas en segundos',
+    pt: 'Cotações automáticas em segundos'
+  },
+  'problems.quotation.after.2': {
+    en: 'Precise calculations without errors',
+    es: 'Cálculos precisos sin errores',
+    pt: 'Cálculos precisos sem erros'
+  },
+  'problems.quotation.after.3': {
+    en: 'Consistent professional format',
+    es: 'Formato profesional consistente',
+    pt: 'Formato profissional consistente'
+  },
+  'problems.quotation.after.4': {
+    en: 'Automatic tracking and reminders',
+    es: 'Seguimiento automático y recordatorios',
+    pt: 'Acompanhamento automático e lembretes'
+  },
+  
+  'problems.organization.before.1': {
+    en: 'Mixed conversations with clients',
+    es: 'Conversaciones mezcladas con clientes',
+    pt: 'Conversas misturadas com clientes'
+  },
+  'problems.organization.before.2': {
+    en: 'Information scattered in notes and chats',
+    es: 'Información dispersa en notas y chats',
+    pt: 'Informações dispersas em notas e chats'
+  },
+  'problems.organization.before.3': {
+    en: 'Difficult to find customer history',
+    es: 'Difícil encontrar historiales de clientes',
+    pt: 'Difícil encontrar históricos de clientes'
+  },
+  'problems.organization.before.4': {
+    en: 'No prospect categorization',
+    es: 'Sin categorización de prospectos',
+    pt: 'Sin categorización de leads'
+  },
+  
+  'problems.organization.after.1': {
+    en: 'Chats organized by client and stage',
+    es: 'Chats organizados por cliente y etapa',
+    pt: 'Chats organizados por cliente e fase'
+  },
+  'problems.organization.after.2': {
+    en: 'All information centralized',
+    es: 'Toda la información centralizada',
+    pt: 'Todas as informações centralizadas'
+  },
+  'problems.organization.after.3': {
+    en: 'Complete history and quick search',
+    es: 'Historial completo y búsqueda rápida',
+    pt: 'Histórico completo e busca rápida'
+  },
+  'problems.organization.after.4': {
+    en: 'Automatic prospect classification',
+    es: 'Clasificación automática de prospectos',
+    pt: 'Classificação automática de leads'
+  },
+  
+  'problems.tracking.before.1': {
+    en: 'Inconsistent manual tracking',
+    es: 'Seguimiento manual poco consistente',
+    pt: 'Acompanhamento manual inconsistente'
+  },
+  'problems.tracking.before.2': {
+    en: 'Potential clients are forgotten',
+    es: 'Se olvidan clientes potenciales',
+    pt: 'Clientes potenciales são esquecidos'
+  },
+  'problems.tracking.before.3': {
+    en: 'No performance metrics',
+    es: 'Sin métricas de desempeño',
+    pt: 'Sin métricas de desempenho'
+  },
+  'problems.tracking.before.4': {
+    en: 'Slow response times',
+    es: 'Tiempos de respuesta lentos',
+    pt: 'Tempos de resposta lentos'
+  },
+  
+  'problems.tracking.after.1': {
+    en: 'Automated tracking with reminders',
+    es: 'Seguimiento automatizado con recordatorios',
+    pt: 'Acompanhamento automatizado com lembretes'
+  },
+  'problems.tracking.after.2': {
+    en: 'No client is left without attention',
+    es: 'Ningún cliente se queda sin atención',
+    pt: 'Nenhum cliente fica sem atenção'
+  },
+  'problems.tracking.after.3': {
+    en: 'Dashboard with real-time metrics',
+    es: 'Dashboard con métricas en tiempo real',
+    pt: 'Dashboard com métricas em tempo real'
+  },
+  'problems.tracking.after.4': {
+    en: 'Quick pre-configured responses',
+    es: 'Respuestas rápidas preconfiguradas',
+    pt: 'Respostas rápidas pré-configuradas'
+  },
+  
   'usecases.title': {
     en: 'How Our AI Works in Action',
     es: 'Cómo Funciona Nuestra IA en Acción',

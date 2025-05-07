@@ -28,53 +28,53 @@ const BeforeAfterComparisonSection: React.FC = () => {
             <Tabs defaultValue="quotation" className="w-full">
               <div className="flex justify-center mb-8">
                 <TabsList>
-                  <TabsTrigger value="quotation">Cotizaciones</TabsTrigger>
-                  <TabsTrigger value="organization">Organización</TabsTrigger>
-                  <TabsTrigger value="tracking">Seguimiento</TabsTrigger>
+                  <TabsTrigger value="quotation">{t('problems.tabs.quotation')}</TabsTrigger>
+                  <TabsTrigger value="organization">{t('problems.tabs.organization')}</TabsTrigger>
+                  <TabsTrigger value="tracking">{t('problems.tabs.tracking')}</TabsTrigger>
                 </TabsList>
               </div>
               
               <TabsContent value="quotation" className="mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-100 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-4 text-primary">Antes</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-primary">{t('problems.before')}</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Cotizaciones manuales que toman 30+ minutos</span>
+                        <span>{t('problems.quotation.before.1')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Errores en los cálculos y precios</span>
+                        <span>{t('problems.quotation.before.2')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Formatos inconsistentes</span>
+                        <span>{t('problems.quotation.before.3')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Dificultad para hacer seguimiento</span>
+                        <span>{t('problems.quotation.before.4')}</span>
                       </li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-4 text-green-600">Después</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-green-600">{t('problems.after')}</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Cotizaciones automáticas en segundos</span>
+                        <span>{t('problems.quotation.after.1')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Cálculos precisos sin errores</span>
+                        <span>{t('problems.quotation.after.2')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Formato profesional consistente</span>
+                        <span>{t('problems.quotation.after.3')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Seguimiento automático y recordatorios</span>
+                        <span>{t('problems.quotation.after.4')}</span>
                       </li>
                     </ul>
                   </div>
@@ -84,44 +84,44 @@ const BeforeAfterComparisonSection: React.FC = () => {
               <TabsContent value="organization" className="mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-100 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-4 text-primary">Antes</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-primary">{t('problems.before')}</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Conversaciones mezcladas con clientes</span>
+                        <span>{t('problems.organization.before.1')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Información dispersa en notas y chats</span>
+                        <span>{t('problems.organization.before.2')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Difícil encontrar historiales de clientes</span>
+                        <span>{t('problems.organization.before.3')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Sin categorización de prospectos</span>
+                        <span>{t('problems.organization.before.4')}</span>
                       </li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-4 text-green-600">Después</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-green-600">{t('problems.after')}</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Chats organizados por cliente y etapa</span>
+                        <span>{t('problems.organization.after.1')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Toda la información centralizada</span>
+                        <span>{t('problems.organization.after.2')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Historial completo y búsqueda rápida</span>
+                        <span>{t('problems.organization.after.3')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Clasificación automática de prospectos</span>
+                        <span>{t('problems.organization.after.4')}</span>
                       </li>
                     </ul>
                   </div>
@@ -131,44 +131,44 @@ const BeforeAfterComparisonSection: React.FC = () => {
               <TabsContent value="tracking" className="mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-100 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-4 text-primary">Antes</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-primary">{t('problems.before')}</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Seguimiento manual poco consistente</span>
+                        <span>{t('problems.tracking.before.1')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Se olvidan clientes potenciales</span>
+                        <span>{t('problems.tracking.before.2')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Sin métricas de desempeño</span>
+                        <span>{t('problems.tracking.before.3')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">✗</span>
-                        <span>Tiempos de respuesta lentos</span>
+                        <span>{t('problems.tracking.before.4')}</span>
                       </li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold mb-4 text-green-600">Después</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-green-600">{t('problems.after')}</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Seguimiento automatizado con recordatorios</span>
+                        <span>{t('problems.tracking.after.1')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Ningún cliente se queda sin atención</span>
+                        <span>{t('problems.tracking.after.2')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Dashboard con métricas en tiempo real</span>
+                        <span>{t('problems.tracking.after.3')}</span>
                       </li>
                       <li className="flex items-center">
                         <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">✓</span>
-                        <span>Respuestas rápidas preconfiguradas</span>
+                        <span>{t('problems.tracking.after.4')}</span>
                       </li>
                     </ul>
                   </div>
