@@ -11,9 +11,9 @@ type LanguageContextType = {
 
 const defaultTranslations = {
   'hero.title': {
-    en: 'Transform Travel Advisory with AI',
-    es: 'Transforma la Asesoría de Viajes con IA',
-    pt: 'Transforme Consultoria de Viagens com IA'
+    en: 'Transform Your Agency: 75% Less Time, 90% More Conversions', // Vende tres veces más viajes con IA
+    es: 'Transforma tu Agencia: 75% Menos Tiempo, 90% Más Conversiones', // Vende tres veces más viajes con IA
+    pt: 'Transforme sua Agência: 75% Menos Tempo, 90% Mais Conversões' //Vende tres veces más viajes con IA
   },
   'hero.description': {
     en: 'Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.',
@@ -168,7 +168,7 @@ const defaultTranslations = {
   'problems.description': {
     en: 'The travel industry faces numerous challenges that our AI technology is uniquely positioned to address.',
     es: 'La industria de viajes enfrenta numerosos desafíos que nuestra tecnología de IA está en una posición única para abordar.',
-    pt: 'A indústria de viajes enfrenta numerosos desafios que nuestra tecnologia de IA está exclusivamente posicionada para resolver.'
+    pt: 'A indústria de viajes enfrenta numerosos desafios que nossa tecnologia de IA está exclusivamente posicionada para resolver.'
   },
   
   'problems.tabs.quotation': {
@@ -258,7 +258,7 @@ const defaultTranslations = {
   'problems.organization.before.4': {
     en: 'No prospect categorization',
     es: 'Sin categorización de prospectos',
-    pt: 'Sin categorización de leads'
+    pt: 'Sin categorização de leads'
   },
   
   'problems.organization.after.1': {
@@ -790,7 +790,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return 'en';
   };
 
-  const [language, setLanguageState] = useState<Language>(detectLanguage);
+  const [language, setLanguageState] = useState<Language>(detectLanguage());
   const [translations, setTranslations] = useState(defaultTranslations);
 
   const setLanguage = (newLanguage: Language) => {

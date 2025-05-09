@@ -41,13 +41,10 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navigation />
       <HeroSection />
-      {/* <ServicesSection /> */}
       <StatsSection />
       <BeforeAfterComparisonSection />
-      {/* <ProcessVisualizationSection /> */}
       <CRMIntegrationSection />
       <FAQSection />
-      {/* <ContactSection /> */}
       <TeamSection />
       <Footer />
       

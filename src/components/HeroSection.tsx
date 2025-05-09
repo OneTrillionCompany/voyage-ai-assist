@@ -148,8 +148,8 @@ const HeroSection: React.FC = () => {
         </div>
         
         {/* Title - Top Left */}
-        <div className="absolute top-12 md:top-0 md:left-10 max-w-xl md:max-w-2xl">
-          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold transition-colors duration-500 ${currentScene === 2 ? 'text-white' : ''}`}>
+        <div className="absolute top-12 md:top-0 md:left-10 max-w-xl md:max-w-xl">
+          <h1 className={`text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-bold transition-colors duration-500 ${currentScene === 2 ? 'text-white' : ''}`}>
             {t('hero.title')}
           </h1>
         </div>
