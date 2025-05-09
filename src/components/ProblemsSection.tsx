@@ -1,61 +1,104 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Check } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 
 const ProblemsSection: React.FC = () => {
   const { t } = useLanguage();
 
-  // Define the comparison items
+  // Define the comparison items - using all items from the three previous tabs combined
   const comparisonItems = [
+    // Quotation items
     {
       traditional: {
-        title: "Manual Research",
-        description: "Hours spent searching through countless options for each customer request"
+        title: "Manual quotations taking 30+ minutes",
+        description: t('problems.quotation.before.1')
       },
       solution: {
-        title: "AI-Powered Search",
-        description: "Instant results filtered by customer preferences and budget"
+        title: "Automated quotations in seconds",
+        description: t('problems.quotation.after.1')
       }
     },
     {
       traditional: {
-        title: "Scattered Information",
-        description: "Customer data spread across emails, chats, and notes"
+        title: "Errors in calculations and pricing",
+        description: t('problems.quotation.before.2')
       },
       solution: {
-        title: "Centralized Data",
-        description: "All customer information and preferences in one accessible place"
+        title: "Precise calculations without errors",
+        description: t('problems.quotation.after.2')
       }
     },
     {
       traditional: {
-        title: "Limited Availability",
-        description: "Support only available during business hours"
+        title: "Inconsistent formats",
+        description: t('problems.quotation.before.3')
       },
       solution: {
-        title: "24/7 Assistance",
-        description: "Immediate responses to customer inquiries at any time"
+        title: "Consistent professional format",
+        description: t('problems.quotation.after.3')
+      }
+    },
+    // Organization items
+    {
+      traditional: {
+        title: "Information scattered in notes and chats",
+        description: t('problems.organization.before.2')
+      },
+      solution: {
+        title: "All information centralized",
+        description: t('problems.organization.after.2')
       }
     },
     {
       traditional: {
-        title: "Complex Booking Process",
-        description: "Multiple back-and-forth emails to finalize details and confirm bookings"
+        title: "Difficult to find customer history",
+        description: t('problems.organization.before.3')
       },
       solution: {
-        title: "Streamlined Booking",
-        description: "One-click confirmations and seamless payment processing"
+        title: "Complete history and quick search",
+        description: t('problems.organization.after.3')
+      }
+    },
+    // Tracking items
+    {
+      traditional: {
+        title: "Inconsistent manual tracking",
+        description: t('problems.tracking.before.1')
+      },
+      solution: {
+        title: "Automated tracking with reminders",
+        description: t('problems.tracking.after.1')
       }
     },
     {
       traditional: {
-        title: "Inconsistent Follow-ups",
-        description: "Manual tracking often leads to missed opportunities"
+        title: "Potential clients are forgotten",
+        description: t('problems.tracking.before.2')
       },
       solution: {
-        title: "Automated Engagement",
-        description: "Timely reminders and personalized follow-ups to close sales"
+        title: "No client is left without attention",
+        description: t('problems.tracking.after.2')
+      }
+    },
+    {
+      traditional: {
+        title: "No performance metrics",
+        description: t('problems.tracking.before.3')
+      },
+      solution: {
+        title: "Dashboard with real-time metrics",
+        description: t('problems.tracking.after.3')
+      }
+    },
+    {
+      traditional: {
+        title: "Slow response times",
+        description: t('problems.tracking.before.4')
+      },
+      solution: {
+        title: "Quick pre-configured responses",
+        description: t('problems.tracking.after.4')
       }
     }
   ];
@@ -74,11 +117,17 @@ const ProblemsSection: React.FC = () => {
         <div className="bg-gray-100 p-6 rounded-xl">
           <h3 className="text-2xl font-bold mb-6 text-center text-gray-700">Traditional Travel Agency</h3>
           
-          <div className="space-y-6">
+          <div className="space-y-4">
             {comparisonItems.map((item, index) => (
-              <div key={`traditional-${index}`} className="bg-white p-5 rounded-lg shadow-sm">
-                <h4 className="text-lg font-semibold mb-2 text-red-600">{item.traditional.title}</h4>
-                <p className="text-gray-600">{item.traditional.description}</p>
+              <div key={`traditional-${index}`} className="bg-white p-4 rounded-lg shadow-sm">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex-shrink-0">
+                    <X className="h-5 w-5 text-red-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold text-gray-800">{item.traditional.title}</h4>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -88,13 +137,17 @@ const ProblemsSection: React.FC = () => {
         <div className="bg-primary/10 p-6 rounded-xl">
           <h3 className="text-2xl font-bold mb-6 text-center text-primary">With Our AI Solution</h3>
           
-          <div className="space-y-6">
+          <div className="space-y-4">
             {comparisonItems.map((item, index) => (
-              <div key={`solution-${index}`} className="bg-white p-5 rounded-lg shadow-sm border-l-4 border-primary">
-                <h4 className="text-lg font-semibold mb-2 flex items-center text-primary">
-                  <Check className="mr-2 h-5 w-5" /> {item.solution.title}
-                </h4>
-                <p className="text-gray-600">{item.solution.description}</p>
+              <div key={`solution-${index}`} className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-primary">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex-shrink-0">
+                    <Check className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold text-primary">{item.solution.title}</h4>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
