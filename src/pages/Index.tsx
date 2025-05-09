@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import StatsSection from '@/components/StatsSection';
 import CRMIntegrationSection from '@/components/CRMIntegrationSection';
+import AITravelServicesSection from '@/components/AITravelServicesSection';
 
 const Index = () => {
   useScrollReveal();
@@ -40,7 +41,7 @@ const Index = () => {
       <HeroSection />
       <StatsSection />
       <BeforeAfterComparisonSection />
-      {/* <AITravelServicesSection /> */}
+      <AITravelServicesSection />
       <CRMIntegrationSection />
       <FAQSection />
       <TeamSection />
