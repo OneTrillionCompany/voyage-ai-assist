@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -11,6 +10,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { ArrowRight, FileText, CheckSquare, FileCheck, BarChart3 } from 'lucide-react';
 import { useCountAnimation } from '@/hooks/useCountAnimation';
 import WaitlistDialog from '@/components/WaitlistDialog';
+import AITravelServicesSection from '@/components/AITravelServicesSection';
 
 // Create the Counter Animation Component
 const AnimatedCounter = ({ value, label, prefix = '', suffix = '', duration = 2000 }) => {
@@ -420,6 +420,9 @@ const WhatsAppAssistant = () => {
           </div>
         </div>
       </section>
+      
+      {/* AI Travel Services Section - NEW SECTION */}
+      <AITravelServicesSection />
       
       {/* CRM Integration */}
       <section className="py-20 bg-gray-50">
