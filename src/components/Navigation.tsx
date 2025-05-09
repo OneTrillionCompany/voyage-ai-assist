@@ -54,23 +54,20 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrollPosition > 20 ? 'bg-primary shadow-md py-2' : 'bg-transparent py-4 md:py-6'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollPosition > 20 ? 'bg-primary shadow-md py-2' : 'bg-transparent py-4 md:py-6'
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="font-bold text-white text-xl md:text-2xl">
             sellmoretrips.ai
           </Link>
-          
+
           <div className="flex items-center">
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-4 lg:space-x-6 mr-4">
-              <a href="#services" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.services')}</a>
               <a href="#problems" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.problems')}</a>
-              <a href="#use-cases" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.usecases')}</a>
               <a href="#faq" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.faq')}</a>
               <a href="#team" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.team')}</a>
             </div>
@@ -82,14 +79,14 @@ const Navigation: React.FC = () => {
             <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100" onClick={scrollToContact}>
               <span className="whitespace-nowrap">{t('nav.contact')}</span>
             </Button>
-            
+
             {/* Mobile Menu Button */}
             <div className="flex items-center md:hidden">
               <div className="mr-2">
                 <LanguageSwitcher />
               </div>
-              <button 
-                className="text-white focus:outline-none mobile-menu-button" 
+              <button
+                className="text-white focus:outline-none mobile-menu-button"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
               >
@@ -106,44 +103,30 @@ const Navigation: React.FC = () => {
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 mobile-menu-container flex flex-col space-y-4 bg-primary p-4 rounded-md">
-            <a 
-              href="#services" 
-              className="text-white hover:text-secondary transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.services')}
-            </a>
-            <a 
-              href="#problems" 
+            <a
+              href="#problems"
               className="text-white hover:text-secondary transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.problems')}
             </a>
-            <a 
-              href="#use-cases" 
-              className="text-white hover:text-secondary transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.usecases')}
-            </a>
-            <a 
-              href="#faq" 
+            <a
+              href="#faq"
               className="text-white hover:text-secondary transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.faq')}
             </a>
-            <a 
-              href="#team" 
+            <a
+              href="#team"
               className="text-white hover:text-secondary transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.team')}
             </a>
-            
-            <Button 
-              className="bg-white hover:bg-gray-100 text-primary hover:text-primary text-base px-6 py-4 mt-2 flex items-center justify-center" 
+
+            <Button
+              className="bg-white hover:bg-gray-100 text-primary hover:text-primary text-base px-6 py-4 mt-2 flex items-center justify-center"
               onClick={(e) => {
                 setIsMenuOpen(false);
                 scrollToContact(e);
