@@ -4,9 +4,8 @@ import AnimatedCounter from './AnimatedCounter';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const StatsSection: React.FC = () => {
-
-    // Use the language context
-    const { t } = useLanguage();
+  // Use the language context
+  const { t } = useLanguage();
     
   return (
     <section className="py-20 bg-gray-50">

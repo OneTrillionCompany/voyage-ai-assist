@@ -1,27 +1,64 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-interface ProblemCardProps {
-  title: string;
-  description: string;
-  solution: string;
-}
-
-const ProblemCard: React.FC<ProblemCardProps> = ({ title, description, solution }) => {
-  return (
-    <div className="bg-white p-8 rounded-xl shadow-lg reveal-animation">
-      <h3 className="text-xl font-bold mb-3 text-primary">{title}</h3>
-      <p className="text-secondary mb-4">{description}</p>
-      <div className="border-t pt-4">
-        <span className="font-semibold text-primary">Our Solution:</span>
-        <p className="text-secondary">{solution}</p>
-      </div>
-    </div>
-  );
-};
+import { Check } from 'lucide-react';
 
 const ProblemsSection: React.FC = () => {
   const { t } = useLanguage();
+
+  // Define the comparison items
+  const comparisonItems = [
+    {
+      traditional: {
+        title: "Manual Research",
+        description: "Hours spent searching through countless options for each customer request"
+      },
+      solution: {
+        title: "AI-Powered Search",
+        description: "Instant results filtered by customer preferences and budget"
+      }
+    },
+    {
+      traditional: {
+        title: "Scattered Information",
+        description: "Customer data spread across emails, chats, and notes"
+      },
+      solution: {
+        title: "Centralized Data",
+        description: "All customer information and preferences in one accessible place"
+      }
+    },
+    {
+      traditional: {
+        title: "Limited Availability",
+        description: "Support only available during business hours"
+      },
+      solution: {
+        title: "24/7 Assistance",
+        description: "Immediate responses to customer inquiries at any time"
+      }
+    },
+    {
+      traditional: {
+        title: "Complex Booking Process",
+        description: "Multiple back-and-forth emails to finalize details and confirm bookings"
+      },
+      solution: {
+        title: "Streamlined Booking",
+        description: "One-click confirmations and seamless payment processing"
+      }
+    },
+    {
+      traditional: {
+        title: "Inconsistent Follow-ups",
+        description: "Manual tracking often leads to missed opportunities"
+      },
+      solution: {
+        title: "Automated Engagement",
+        description: "Timely reminders and personalized follow-ups to close sales"
+      }
+    }
+  ];
 
   return (
     <section id="problems" className="section-container">
@@ -32,38 +69,36 @@ const ProblemsSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Keep existing problem cards - we'll add translations for them in a future iteration */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <ProblemCard
-          title="Information Overload"
-          description="Travel advisors spend hours searching through countless options to find the right packages."
-          solution="Our AI quickly filters and prioritizes options based on customer preferences."
-        />
-        <ProblemCard
-          title="Customer Indecision"
-          description="Travelers often struggle to make final booking decisions due to overwhelming choices."
-          solution="Personalized recommendations that match exact preferences increase booking confidence."
-        />
-        <ProblemCard
-          title="Inefficient Communication"
-          description="Back-and-forth emails and calls waste valuable time for both advisors and clients."
-          solution="Streamlined communication channels with immediate AI responses."
-        />
-        <ProblemCard
-          title="After-Hours Support"
-          description="Travel emergencies don't follow business hours, leaving customers stranded."
-          solution="24/7 AI support that can handle most inquiries without human intervention."
-        />
-        <ProblemCard
-          title="Keeping Up With Trends"
-          description="Travel preferences and popular destinations change rapidly, making it hard to stay current."
-          solution="Real-time market analysis and trend identification to keep offerings relevant."
-        />
-        <ProblemCard
-          title="Payment Friction"
-          description="Complex payment processes lead to abandoned bookings and lost revenue."
-          solution="Simplified, secure payment flow integrated directly into the customer journey."
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        {/* Traditional Column */}
+        <div className="bg-gray-100 p-6 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center text-gray-700">Traditional Travel Agency</h3>
+          
+          <div className="space-y-6">
+            {comparisonItems.map((item, index) => (
+              <div key={`traditional-${index}`} className="bg-white p-5 rounded-lg shadow-sm">
+                <h4 className="text-lg font-semibold mb-2 text-red-600">{item.traditional.title}</h4>
+                <p className="text-gray-600">{item.traditional.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* AI Solution Column */}
+        <div className="bg-primary/10 p-6 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center text-primary">With Our AI Solution</h3>
+          
+          <div className="space-y-6">
+            {comparisonItems.map((item, index) => (
+              <div key={`solution-${index}`} className="bg-white p-5 rounded-lg shadow-sm border-l-4 border-primary">
+                <h4 className="text-lg font-semibold mb-2 flex items-center text-primary">
+                  <Check className="mr-2 h-5 w-5" /> {item.solution.title}
+                </h4>
+                <p className="text-gray-600">{item.solution.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
