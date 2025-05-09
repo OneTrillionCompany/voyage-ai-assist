@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { 
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from "@/components/ui/card";
 import { useRef } from 'react';
+import WaitlistDialog from './WaitlistDialog';
 
 type CarouselSlide = {
   image: string;
@@ -71,7 +72,7 @@ const CRMIntegrationSection: React.FC = () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
-      
+
       intervalRef.current = setInterval(() => {
         if (carouselRef.current) {
           const api = (carouselRef.current as any)?.api;
@@ -97,13 +98,17 @@ const CRMIntegrationSection: React.FC = () => {
     };
   }, [crmSlides.length]);
 
+  // Add state for waitlist dialog
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
   // Function to scroll to contact form
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    setIsWaitlistOpen(true);
   };
+
+
+
+
 
   return (
     <>
@@ -114,16 +119,16 @@ const CRMIntegrationSection: React.FC = () => {
           <p className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16 reveal-animation">
             {t('crm.description')}
           </p>
-          
+
           <div className="reveal-animation max-w-5xl mx-auto">
-            <Carousel 
-              className="w-full" 
+            <Carousel
+              className="w-full"
               ref={carouselRef}
               opts={{
                 align: "start",
                 loop: true,
               }}
-              onSelect={(index) => {
+              onSelect={(index: any) => {
                 setActiveSlide(index);
               }}
             >
@@ -132,10 +137,10 @@ const CRMIntegrationSection: React.FC = () => {
                   <CarouselItem key={index} className="basis-full md:basis-full">
                     <Card className="border-none shadow-lg overflow-hidden">
                       <CardContent className="p-0 relative">
-                        <img 
-                          src={slide.image} 
-                          alt={slide.alt} 
-                          className="w-full h-auto object-cover rounded-t-lg" 
+                        <img
+                          src={slide.image}
+                          alt={slide.alt}
+                          className="w-full h-auto object-cover rounded-t-lg"
                         />
                         <div className="bg-black/80 text-white p-4 md:p-6 rounded-b-lg">
                           <h3 className="font-medium text-lg md:text-xl mb-1">{slide.title}</h3>
@@ -149,7 +154,7 @@ const CRMIntegrationSection: React.FC = () => {
               <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
               <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
             </Carousel>
-            
+
             {/* <div className="mt-8 flex justify-center">
               <div className="flex gap-1">
                 {crmSlides.map((_, index) => (
@@ -183,13 +188,13 @@ const CRMIntegrationSection: React.FC = () => {
               {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 reveal-animation">
-              <Button 
+              <Button
                 className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-6 w-full sm:w-auto"
                 onClick={() => window.open('https://wa.me/573159381236?text=Hola,%20estoy%20interesado%20en%20saber%20más%20sobre%20el%20asistente%20de%20ventas', '_blank')}
               >
                 {t('cta.whatsapp')} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
+              <Button
                 className="bg-white hover:bg-gray-100 text-primary text-lg px-8 py-6 w-full sm:w-auto"
                 onClick={scrollToContact}
               >
@@ -198,6 +203,8 @@ const CRMIntegrationSection: React.FC = () => {
             </div>
           </div>
         </div>
+        {/* Waitlist Dialog */}
+        <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
       </section>
     </>
   );

@@ -19,7 +19,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, linkedin }) 
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute left-1/2 -translate-x-1/2 bottom-[1.5px] bg-primary rounded-full p-1 shadow-lg hover:bg-primary/80 transition-colors"
+          className="absolute left-1/2 -translate-x-1/2 bottom-[1.5px] bg-blue-500 rounded-full p-1 shadow-lg hover:bg-blue-600 transition-colors"
           aria-label={`LinkedIn de ${name}`}
         >
           <Linkedin className="w-6 h-6 text-white fill-white" />

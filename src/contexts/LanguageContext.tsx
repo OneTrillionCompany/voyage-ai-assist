@@ -820,7 +820,38 @@ const defaultTranslations = {
     en: 'There was an error submitting your request. Please try again.',
     es: 'Hubo un error al enviar tu solicitud. Por favor intenta de nuevo.',
     pt: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente.'
-  }
+  },
+  // Team Section
+  'team.title': {
+    en: 'Our Team',
+    es: 'Nuestro Equipo',
+    pt: 'Nossa Equipe'
+  },
+  'team.description': {
+    en: 'Meet the talented individuals behind our AI travel solutions',
+    es: 'Conoce a las personas talentosas detrás de nuestras soluciones de viaje con IA',
+    pt: 'Conheça os talentosos indivíduos por trás de nossas soluções de viagem com IA'
+  },
+  'team.role.ceo': {
+    en: 'CEO',
+    es: 'CEO',
+    pt: 'CEO'
+  },
+  'team.role.cdo': {
+    en: 'CDO',
+    es: 'CDO',
+    pt: 'CDO'
+  },
+  'team.role.cto': {
+    en: 'CTO',
+    es: 'CTO',
+    pt: 'CTO'
+  },
+  'team.role.ai': {
+    en: 'AI Engineer',
+    es: 'Ingeniero de IA',
+    pt: 'Engenheiro de IA'
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);

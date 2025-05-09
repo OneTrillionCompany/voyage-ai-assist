@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -65,6 +64,20 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({
       
       if (error) throw error;
       
+      // Enviar datos al webhook
+      await fetch('https://elder-link-staging-n8n.fwoasm.easypanel.host/webhook/136cbd2c-c7fb-4e0b-962b-2725306f098a', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name,
+          phone_number: formData.phone,
+          interest: formData.interest || 'Im Interested In Buy this Solution'
+        })
+      });
+      
       toast({
         title: t('waitlist.success'),
         description: t('waitlist.successMessage')
@@ -105,7 +118,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({
               </div>
               
               {/* Contact Information Section */}
-              <div className="mt-auto pt-8 py-px">
+              <div className="mt-auto py-px">
                 <h3 className="font-bold text-xl mb-3">{t('contact.info.title')}</h3>
                 <p className="text-sm text-gray-200 mb-6">
                   {t('contact.info.description')}
