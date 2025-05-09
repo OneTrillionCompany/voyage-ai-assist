@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -9,18 +8,23 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 interface WaitlistDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
-
-const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) => {
-  const { t } = useLanguage();
-  const { toast } = useToast();
+const WaitlistDialog: React.FC<WaitlistDialogProps> = ({
+  open,
+  onOpenChange
+}) => {
+  const {
+    t
+  } = useLanguage();
+  const {
+    toast
+  } = useToast();
   const isMobile = useIsMobile();
   const [loading, setLoading] = useState(false);
-  
+
   // Form state
   const [formData, setFormData] = useState({
     name: '',
@@ -28,18 +32,19 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     phone: '',
     interest: ''
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
+    const {
+      id,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [id]: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email) {
       toast({
@@ -49,25 +54,24 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
       });
       return;
     }
-
     setLoading(true);
-    
     try {
       // Call the Supabase function to add to demo_requests table
-      const { error } = await supabase.rpc('request_demo', {
+      const {
+        error
+      } = await supabase.rpc('request_demo', {
         p_name: formData.name,
         p_email: formData.email,
-        p_company: formData.interest || null, // Map interest field to company
-        p_message: formData.phone || null     // Map phone number to message
+        p_company: formData.interest || null,
+        // Map interest field to company
+        p_message: formData.phone || null // Map phone number to message
       });
-      
       if (error) throw error;
-      
       toast({
         title: t('waitlist.success'),
         description: t('waitlist.successMessage')
       });
-      
+
       // Reset form and close modal
       setFormData({
         name: '',
@@ -75,9 +79,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
         phone: '',
         interest: ''
       });
-      
       onOpenChange(false);
-      
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -89,14 +91,11 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
       setLoading(false);
     }
   };
-
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+  return <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[900px] p-0 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Left side: Contact Info - Only shown on desktop */}
-          {!isMobile && (
-            <div className="bg-primary text-white p-8 flex flex-col justify-between">
+          {!isMobile && <div className="bg-primary text-white p-8 flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-6">Información de Contacto</h2>
                 <p className="text-gray-200 mb-8">
@@ -106,7 +105,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
               </div>
               
               {/* Contact Information Section */}
-              <div className="mt-auto pt-8">
+              <div className="mt-auto pt-8 py-0">
                 <h3 className="font-bold text-xl mb-3">Información de Contacto</h3>
                 <p className="text-sm text-gray-200 mb-6">
                   ¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o 
@@ -130,8 +129,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
           
           {/* Right side: Form */}
           <div className="p-8">
@@ -146,14 +144,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-medium">{t('waitlist.nameLabel')}</label>
                 <div className="relative">
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={t('waitlist.namePlaceholder')}
-                    className="pl-10"
-                    required
-                  />
+                  <Input id="name" value={formData.name} onChange={handleChange} placeholder={t('waitlist.namePlaceholder')} className="pl-10" required />
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 </div>
               </div>
@@ -161,15 +152,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
               <div className="space-y-2">
                 <label htmlFor="email" className="block text-sm font-medium">{t('waitlist.emailLabel')}</label>
                 <div className="relative">
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={t('waitlist.emailPlaceholder')}
-                    className="pl-10"
-                    required
-                  />
+                  <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder={t('waitlist.emailPlaceholder')} className="pl-10" required />
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 </div>
               </div>
@@ -177,13 +160,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
               <div className="space-y-2">
                 <label htmlFor="interest" className="block text-sm font-medium">{t('waitlist.interestLabel')}</label>
                 <div className="relative">
-                  <Input
-                    id="interest"
-                    value={formData.interest}
-                    onChange={handleChange}
-                    placeholder="Ej: Gestión hotelera, agencia de viajes, etc."
-                    className="pl-10"
-                  />
+                  <Input id="interest" value={formData.interest} onChange={handleChange} placeholder="Ej: Gestión hotelera, agencia de viajes, etc." className="pl-10" />
                   <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 </div>
               </div>
@@ -191,37 +168,21 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
               <div className="space-y-2">
                 <label htmlFor="phone" className="block text-sm font-medium">{t('waitlist.phoneLabel')}</label>
                 <div className="relative">
-                  <Input
-                    id="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder={t('waitlist.phonePlaceholder')}
-                    className="pl-10"
-                  />
+                  <Input id="phone" value={formData.phone} onChange={handleChange} placeholder={t('waitlist.phonePlaceholder')} className="pl-10" />
                   <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 </div>
               </div>
 
-              <Button 
-                type="submit" 
-                className="w-full mt-6" 
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
+              <Button type="submit" className="w-full mt-6" disabled={loading}>
+                {loading ? <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     {t('waitlist.submitting')}
-                  </>
-                ) : (
-                  t('waitlist.submit')
-                )}
+                  </> : t('waitlist.submit')}
               </Button>
             </form>
           </div>
         </div>
       </DialogContent>
-    </Dialog>
-  );
+    </Dialog>;
 };
-
 export default WaitlistDialog;
