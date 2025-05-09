@@ -4,12 +4,14 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 interface LanguageContextProps {
   language: string;
   t: (key: string) => string;
+  setLanguage: (lang: 'en' | 'es' | 'pt') => void; // Add this line to fix the error
   changeLanguage: (lang: string) => void;
 }
 
 const LanguageContext = createContext<LanguageContextProps>({
   language: 'en',
   t: () => '',
+  setLanguage: () => {}, // Add this line to fix the error
   changeLanguage: () => {},
 });
 
@@ -266,13 +268,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const [language, setLanguage] = useState(() => {
     // Try to get the language from localStorage
     const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'es')) {
+    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'es' || savedLanguage === 'pt')) {
       return savedLanguage;
     }
     
     // If not found, try to detect from browser
     const browserLang = navigator.language.split('-')[0];
-    return browserLang === 'es' ? 'es' : 'en'; // Default to English
+    if (browserLang === 'es' || browserLang === 'pt') return browserLang;
+    return 'en'; // Default to English
   });
 
   useEffect(() => {
@@ -301,13 +304,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   };
 
   const changeLanguage = (lang: string) => {
-    if (lang === 'en' || lang === 'es') {
-      setLanguage(lang);
+    if (lang === 'en' || lang === 'es' || lang === 'pt') {
+      setLanguage(lang as 'en' | 'es' | 'pt');
     }
   };
 
   return (
-    <LanguageContext.Provider value={{ language, t, changeLanguage }}>
+    <LanguageContext.Provider value={{ language, t, setLanguage, changeLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
