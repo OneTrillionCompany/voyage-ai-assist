@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
@@ -164,38 +163,11 @@ const HeroSection: React.FC = () => {
           />
         </div>
 
-        {/* UPDATED: More Concise Sales Pitch - Bottom Left */}
-        <div className="absolute bottom-16 md:bottom-20 md:left-10 max-w-md md:max-w-lg lg:max-w-xl">
-          <div className={`transition-colors duration-500 ${currentScene === 2 ? 'text-white' : 'text-secondary'}`}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
-              <span className="block">Transforma tu Agencia: 75%</span>
-              <span className="block text-blue-600">Menos Tiempo, 90% Más</span>
-              <span className="block">Conversiones</span>
-            </h2>
-            
-            <ul className="mt-4 space-y-2">
-              <li className="flex items-center">
-                <span className="mr-2 text-xl text-blue-500">•</span>
-                <span>Vende 3 veces más</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2 text-xl text-blue-500">•</span>
-                <span>Responde 10 veces más rápido</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2 text-xl text-blue-500">•</span>
-                <span>Convierte 4 veces más leads</span>
-              </li>
-            </ul>
-            
-            <div className="mt-3">
-              <p className="font-bold">Y además... te obsequiamos un vendedor de IA:</p>
-              <p className="text-sm md:text-base opacity-90">
-                Trabaja 24/7, nunca se cansa y responde a todos tus clientes.<br />
-                Cuesta menos que un humano y vende 3 veces más.
-              </p>
-            </div>
-          </div>
+        {/* Description - Bottom Left */}
+        <div className="absolute bottom-10 md:left-10 max-w-md md:max-w-lg">
+          <p className={`text-base md:text-lg lg:text-xl transition-colors duration-500 ${currentScene === 2 ? 'text-white' : 'text-secondary'}`}>
+            {t('hero.description')}
+          </p>
         </div>
 
         {/* CTA Button - Bottom Right */}
