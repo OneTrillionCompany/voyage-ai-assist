@@ -164,35 +164,35 @@ const HeroSection: React.FC = () => {
           />
         </div>
 
-        {/* NEW: Sales Pitch Content - Bottom Left */}
-        <div className="absolute bottom-10 md:left-10 max-w-md md:max-w-lg lg:max-w-xl">
+        {/* UPDATED: More Concise Sales Pitch - Bottom Left */}
+        <div className="absolute bottom-16 md:bottom-20 md:left-10 max-w-md md:max-w-lg lg:max-w-xl">
           <div className={`transition-colors duration-500 ${currentScene === 2 ? 'text-white' : 'text-secondary'}`}>
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 flex items-center">
-              <span className="h-5 w-5 bg-blue-500 mr-2 inline-block flex-shrink-0"></span>
-              <span>Potencia tu equipo de ventas con Inteligencia Artificial, multiplicando tus ingresos sin multiplicar tu equipo:</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+              <span className="block">Transforma tu Agencia: 75%</span>
+              <span className="block text-blue-600">Menos Tiempo, 90% Más</span>
+              <span className="block">Conversiones</span>
             </h2>
             
-            <ul className="ml-7 mb-3 space-y-1.5">
-              <li className="flex items-start">
-                <span className="mr-2 text-xl">•</span>
+            <ul className="mt-4 space-y-2">
+              <li className="flex items-center">
+                <span className="mr-2 text-xl text-blue-500">•</span>
                 <span>Vende 3 veces más</span>
               </li>
-              <li className="flex items-start">
-                <span className="mr-2 text-xl">•</span>
+              <li className="flex items-center">
+                <span className="mr-2 text-xl text-blue-500">•</span>
                 <span>Responde 10 veces más rápido</span>
               </li>
-              <li className="flex items-start">
-                <span className="mr-2 text-xl">•</span>
+              <li className="flex items-center">
+                <span className="mr-2 text-xl text-blue-500">•</span>
                 <span>Convierte 4 veces más leads</span>
               </li>
             </ul>
             
-            <div className="ml-0 mt-2">
-              <p className="font-semibold mb-1">Y además... te obsequiamos un vendedor de IA:</p>
-              <p className="ml-0 text-sm md:text-base">
-                Trabaja 24/7, nunca se cansa y jamás deja a un cliente sin respuesta.<br />
-                Cuesta menos que un vendedor humano y vende 3 veces más.<br />
-                Responde mejor. Escala sin contratar. Exprime cada dólar de tu inversión en publicidad.
+            <div className="mt-3">
+              <p className="font-bold">Y además... te obsequiamos un vendedor de IA:</p>
+              <p className="text-sm md:text-base opacity-90">
+                Trabaja 24/7, nunca se cansa y responde a todos tus clientes.<br />
+                Cuesta menos que un humano y vende 3 veces más.
               </p>
             </div>
           </div>
