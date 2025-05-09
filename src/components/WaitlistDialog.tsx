@@ -105,7 +105,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({
               </div>
               
               {/* Contact Information Section */}
-              <div className="mt-auto pt-8 py-0">
+              <div className="mt-auto pt-8 py-px">
                 <h3 className="font-bold text-xl mb-3">Información de Contacto</h3>
                 <p className="text-sm text-gray-200 mb-6">
                   ¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o 
