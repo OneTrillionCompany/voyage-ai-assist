@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from '@/contexts/LanguageContext';
-import { User, Mail, Phone } from 'lucide-react';
+import { User, Mail, Phone, Building2 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from 'lucide-react';
@@ -53,7 +53,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     setLoading(true);
     
     try {
-      // Call the Supabase function to add to demo_requests instead of waitlist
+      // Call the Supabase function to add to demo_requests table
       const { error } = await supabase.rpc('request_demo', {
         p_name: formData.name,
         p_email: formData.email,
@@ -175,6 +175,20 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
               </div>
 
               <div className="space-y-2">
+                <label htmlFor="interest" className="block text-sm font-medium">{t('waitlist.interestLabel')}</label>
+                <div className="relative">
+                  <Input
+                    id="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    placeholder="Ej: Gestión hotelera, agencia de viajes, etc."
+                    className="pl-10"
+                  />
+                  <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
                 <label htmlFor="phone" className="block text-sm font-medium">{t('waitlist.phoneLabel')}</label>
                 <div className="relative">
                   <Input
@@ -186,16 +200,6 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
                   />
                   <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="interest" className="block text-sm font-medium">{t('waitlist.interestLabel')}</label>
-                <Input
-                  id="interest"
-                  value={formData.interest}
-                  onChange={handleChange}
-                  placeholder="Ej: Gestión hotelera, agencia de viajes, etc."
-                />
               </div>
 
               <Button 
