@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Check, User, Mail, Phone } from 'lucide-react';
+import { User, Mail, Phone } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from 'lucide-react';
@@ -92,33 +92,19 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     }
   };
 
-  const benefits = [
-    { icon: Check, text: t('waitlist.benefit1') },
-    { icon: Check, text: t('waitlist.benefit2') },
-    { icon: Check, text: t('waitlist.benefit3') }
-  ];
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[900px] p-0 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left side: Benefits and Contact Info */}
+          {/* Left side: Contact Info - Only shown on desktop */}
           {!isMobile && (
             <div className="bg-primary text-white p-8 flex flex-col justify-between">
               <div>
-                <h2 className="text-2xl font-bold mb-6">{t('waitlist.joinTitle')}</h2>
-                <p className="text-gray-200 mb-8">{t('waitlist.joinSubtitle')}</p>
-                
-                <div className="space-y-6">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="flex-shrink-0 h-6 w-6 bg-white rounded-full flex items-center justify-center mr-3">
-                        <benefit.icon className="h-4 w-4 text-primary" />
-                      </div>
-                      <p className="text-gray-200">{benefit.text}</p>
-                    </div>
-                  ))}
-                </div>
+                <h2 className="text-2xl font-bold mb-6">Información de Contacto</h2>
+                <p className="text-gray-200 mb-8">
+                  ¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o 
+                  contáctanos directamente utilizando la información a continuación.
+                </p>
               </div>
               
               {/* Contact Information Section */}
