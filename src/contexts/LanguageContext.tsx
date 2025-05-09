@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'es' | 'pt';
@@ -643,4 +644,96 @@ const defaultTranslations = {
   'faq.items.item5.answer': {
     en: 'Yes, our AI solutions are designed to be highly customizable. We can adapt the system to match your brand voice, preferred suppliers, commission structures, and business workflow. The AI learns from your business patterns over time, becoming increasingly tailored to your specific needs.',
     es: 'Sí, nuestras soluciones de IA están diseñadas para ser altamente personalizables. Podemos adaptar el sistema para que coincida con la voz de su marca, proveedores preferidos, estructuras de comisiones y flujo de trabajo comercial. La IA aprende de los patrones de su negocio con el tiempo, volviéndose cada vez más adaptada a sus necesidades específicas.',
-    pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho
+    pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho comercial. A IA aprende com os padrões do seu negócio ao longo do tempo, tornando-se cada vez mais adaptada às suas necessidades específicas.'
+  },
+  'stats.title': {
+    en: 'Impressive Results',
+    es: 'Resultados Impactantes',
+    pt: 'Resultados Impressionantes'
+  },
+  'stats.sales': {
+    en: 'Increase in Sales',
+    es: 'Aumento en ventas',
+    pt: 'Aumento em vendas'
+  },
+  'stats.time': {
+    en: 'Time saved per week',
+    es: 'Tiempo ahorrado por semana',
+    pt: 'Tempo economizado por semana'
+  },
+  'stats.satisfaction': {
+    en: 'Customer Satisfaction',
+    es: 'Satisfacción del cliente',
+    pt: 'Satisfação do cliente'
+  }
+};
+
+// Create the context
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+// Create the provider component
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [language, setLanguageState] = useState<Language>('en');
+  const [translations, setTranslations] = useState(defaultTranslations);
+
+  // Set the language and save to local storage
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('preferred-language', lang);
+  };
+
+  // Load language preference from localStorage on initial load
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('preferred-language') as Language;
+    if (savedLanguage && ['en', 'es', 'pt'].includes(savedLanguage)) {
+      setLanguageState(savedLanguage);
+    } else if (navigator.language) {
+      // Set language based on browser settings if no saved preference
+      if (navigator.language.startsWith('es')) {
+        setLanguageState('es');
+      } else if (navigator.language.startsWith('pt')) {
+        setLanguageState('pt');
+      } else {
+        setLanguageState('en');
+      }
+    }
+  }, []);
+
+  // Translation function
+  const t = (key: string) => {
+    if (translations[key] && translations[key][language]) {
+      return translations[key][language];
+    }
+    console.warn(`Translation missing for key: ${key} in language: ${language}`);
+    
+    // Fallback to English if available
+    if (translations[key] && translations[key].en) {
+      return translations[key].en;
+    }
+    
+    // Last resort fallback
+    return key;
+  };
+
+  const value = {
+    language,
+    setLanguage,
+    translations,
+    t,
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+// Custom hook to use the language context
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
