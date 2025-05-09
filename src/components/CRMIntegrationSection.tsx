@@ -23,38 +23,39 @@ const CRMIntegrationSection: React.FC = () => {
   const { t } = useLanguage();
   const carouselRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [activeSlide, setActiveSlide] = React.useState(0);
 
   // CRM Dashboard images with descriptions
   const crmSlides: CarouselSlide[] = [
     {
       image: "/lovable-uploads/87b0e882-0fa2-4475-932f-12b9ea2cae7f.png",
-      title: t('crm.slides.slide1.title', 'Sales Metrics Dashboard'),
-      description: t('crm.slides.slide1.description', 'Monitor all sales activity, track unresponded messages, sales in progress, and completed sales.')
+      title: t('crm.slides.slide1.title'),
+      description: t('crm.slides.slide1.description')
     },
     {
       image: "/lovable-uploads/c15a8878-7862-4395-92b5-f1cff742e5b0.png",
-      title: t('crm.slides.slide2.title', 'Top Destinations Analysis'),
-      description: t('crm.slides.slide2.description', 'Track your top performing destinations, bookings, revenue and market share metrics.')
+      title: t('crm.slides.slide2.title'),
+      description: t('crm.slides.slide2.description')
     },
     {
       image: "/lovable-uploads/2080a18a-8bc8-48ed-a0a6-0c509ac7fc2d.png",
-      title: t('crm.slides.slide3.title', 'Metrics & Analytics'),
-      description: t('crm.slides.slide3.description', 'View comprehensive income analytics, sales completed, profit margins and weekly performance.')
+      title: t('crm.slides.slide3.title'),
+      description: t('crm.slides.slide3.description')
     },
     {
       image: "/lovable-uploads/2a93b8a1-8682-419d-b375-1ad7f551b191.png",
-      title: t('crm.slides.slide4.title', 'Customer Service Team'),
-      description: t('crm.slides.slide4.description', 'Monitor your service team performance, active time, and support ticket management.')
+      title: t('crm.slides.slide4.title'),
+      description: t('crm.slides.slide4.description')
     },
     {
       image: "/lovable-uploads/477c3a28-df0d-4b19-88e5-8b5e3af3ae20.png",
-      title: t('crm.slides.slide5.title', 'Sales Agent Dashboard'),
-      description: t('crm.slides.slide5.description', 'Personal dashboard for sales agents to track commissions, customer lists and performance.')
+      title: t('crm.slides.slide5.title'),
+      description: t('crm.slides.slide5.description')
     },
     {
       image: "/lovable-uploads/b4eb495d-3b87-4cf5-908a-de29dedc7527.png",
-      title: t('crm.slides.slide6.title', 'Sales Management Kanban'),
-      description: t('crm.slides.slide6.description', 'Kanban view of the sales pipeline showing deals in progress, successful deals and canceled deals.')
+      title: t('crm.slides.slide6.title'),
+      description: t('crm.slides.slide6.description')
     }
   ];
 
@@ -71,8 +72,10 @@ const CRMIntegrationSection: React.FC = () => {
           if (api) {
             if (api.canScrollNext()) {
               api.scrollNext();
+              setActiveSlide((prev) => (prev + 1) % crmSlides.length);
             } else {
               api.scrollTo(0);
+              setActiveSlide(0);
             }
           }
         }
@@ -86,7 +89,7 @@ const CRMIntegrationSection: React.FC = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, []);
+  }, [crmSlides.length]);
 
   // Function to scroll to contact form
   const scrollToContact = () => {
@@ -113,6 +116,9 @@ const CRMIntegrationSection: React.FC = () => {
               opts={{
                 align: "start",
                 loop: true,
+              }}
+              onSelect={(index) => {
+                setActiveSlide(index);
               }}
             >
               <CarouselContent>
@@ -143,11 +149,14 @@ const CRMIntegrationSection: React.FC = () => {
                 {crmSlides.map((_, index) => (
                   <button 
                     key={index}
-                    className="h-2 w-12 rounded-full bg-gray-300 transition-all duration-300 hover:bg-primary focus:outline-none"
+                    className={`h-2 w-12 rounded-full transition-all duration-300 focus:outline-none ${
+                      activeSlide === index ? 'bg-primary' : 'bg-gray-300 hover:bg-primary/50'
+                    }`}
                     onClick={() => {
                       const api = (carouselRef.current as any)?.api;
                       if (api) {
                         api.scrollTo(index);
+                        setActiveSlide(index);
                       }
                     }}
                     aria-label={`Go to slide ${index + 1}`}
