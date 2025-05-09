@@ -1,177 +1,189 @@
-
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { useMediaQuery } from '@/hooks/use-mobile';
+import { ArrowRight } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
+import { Card, CardContent } from "@/components/ui/card";
+import { useRef } from 'react';
+import WaitlistDialog from './WaitlistDialog';
+
+type CarouselSlide = {
+  image: string;
+  description: string;
+  title: string;
+  alt: string;
+};
 
 const CRMIntegrationSection: React.FC = () => {
   const { t } = useLanguage();
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const isMobile = useMediaQuery('(max-width: 768px)');
-  
-  // Slides data
-  const slides = [
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [activeSlide, setActiveSlide] = React.useState(0);
+
+  // CRM Dashboard images with descriptions
+  const crmSlides: CarouselSlide[] = [
     {
+      image: "/lovable-uploads/87b0e882-0fa2-4475-932f-12b9ea2cae7f.png",
       title: t('crm.slides.slide1.title'),
       description: t('crm.slides.slide1.description'),
-      imageSrc: '/lovable-uploads/c15a8878-7862-4395-92b5-f1cff742e5b0.png',
-      imageAlt: t('crm.slides.slide1.alt'),
+      alt: t('crm.slides.slide1.alt')
     },
     {
+      image: "/lovable-uploads/c15a8878-7862-4395-92b5-f1cff742e5b0.png",
       title: t('crm.slides.slide2.title'),
       description: t('crm.slides.slide2.description'),
-      imageSrc: '/lovable-uploads/87b0e882-0fa2-4475-932f-12b9ea2cae7f.png',
-      imageAlt: t('crm.slides.slide2.alt'),
+      alt: t('crm.slides.slide2.alt')
     },
     {
+      image: "/lovable-uploads/2080a18a-8bc8-48ed-a0a6-0c509ac7fc2d.png",
       title: t('crm.slides.slide3.title'),
       description: t('crm.slides.slide3.description'),
-      imageSrc: '/lovable-uploads/2a93b8a1-8682-419d-b375-1ad7f551b191.png',
-      imageAlt: t('crm.slides.slide3.alt'),
+      alt: t('crm.slides.slide3.alt')
     },
     {
+      image: "/lovable-uploads/2a93b8a1-8682-419d-b375-1ad7f551b191.png",
       title: t('crm.slides.slide4.title'),
       description: t('crm.slides.slide4.description'),
-      imageSrc: '/lovable-uploads/477c3a28-df0d-4b19-88e5-8b5e3af3ae20.png',
-      imageAlt: t('crm.slides.slide4.alt'),
+      alt: t('crm.slides.slide4.alt')
     },
     {
+      image: "/lovable-uploads/477c3a28-df0d-4b19-88e5-8b5e3af3ae20.png",
       title: t('crm.slides.slide5.title'),
       description: t('crm.slides.slide5.description'),
-      imageSrc: '/lovable-uploads/2080a18a-8bc8-48ed-a0a6-0c509ac7fc2d.png',
-      imageAlt: t('crm.slides.slide5.alt'),
+      alt: t('crm.slides.slide5.alt')
     },
     {
+      image: "/lovable-uploads/b4eb495d-3b87-4cf5-908a-de29dedc7527.png",
       title: t('crm.slides.slide6.title'),
       description: t('crm.slides.slide6.description'),
-      imageSrc: '/lovable-uploads/b4eb495d-3b87-4cf5-908a-de29dedc7527.png',
-      imageAlt: t('crm.slides.slide6.alt'),
-    },
+      alt: t('crm.slides.slide6.alt')
+    }
   ];
 
-  const scrollToPrevious = () => {
-    if (carouselRef.current) {
-      const scrollAmount = isMobile ? carouselRef.current.offsetWidth : carouselRef.current.offsetWidth * 0.33;
-      carouselRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      
-      if (currentSlide > 0) {
-        setCurrentSlide(currentSlide - 1);
+  // Auto-advance carousel every 4 seconds
+  useEffect(() => {
+    const startAutoplay = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
       }
-    }
-  };
 
-  const scrollToNext = () => {
-    if (carouselRef.current) {
-      const scrollAmount = isMobile ? carouselRef.current.offsetWidth : carouselRef.current.offsetWidth * 0.33;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      
-      if (currentSlide < slides.length - 1) {
-        setCurrentSlide(currentSlide + 1);
-      }
-    }
-  };
+      intervalRef.current = setInterval(() => {
+        if (carouselRef.current) {
+          const api = (carouselRef.current as any)?.api;
+          if (api) {
+            if (api.canScrollNext()) {
+              api.scrollNext();
+              setActiveSlide((prev) => (prev + 1) % crmSlides.length);
+            } else {
+              api.scrollTo(0);
+              setActiveSlide(0);
+            }
+          }
+        }
+      }, 4000); // 4 seconds interval
+    };
 
-  // Fixed: Properly handle the scroll event type
-  const handleScroll = () => {
-    if (carouselRef.current) {
-      const scrollPosition = carouselRef.current.scrollLeft;
-      const slideWidth = isMobile 
-        ? carouselRef.current.offsetWidth 
-        : carouselRef.current.offsetWidth * 0.33;
-      
-      const newSlideIndex = Math.round(scrollPosition / slideWidth);
-      
-      if (newSlideIndex !== currentSlide) {
-        setCurrentSlide(newSlideIndex);
+    startAutoplay();
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
       }
-    }
+    };
+  }, [crmSlides.length]);
+
+  // Add state for waitlist dialog
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
+  // Function to scroll to contact form
+  const scrollToContact = () => {
+    setIsWaitlistOpen(true);
   };
 
   return (
-    <section className="section-container bg-gray-50">
-      <div className="text-center mb-16 reveal-animation">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('crm.title')}</h2>
-        <p className="text-secondary text-lg max-w-2xl mx-auto">
-          {t('crm.description')}
-        </p>
-      </div>
-      
-      <div className="relative">
-        {/* Carousel navigation buttons */}
-        <Button 
-          onClick={scrollToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white text-primary hover:bg-gray-100 rounded-full shadow-md -ml-4 md:-ml-6"
-          size="icon"
-          disabled={currentSlide === 0}
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </Button>
-        
-        <Button 
-          onClick={scrollToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white text-primary hover:bg-gray-100 rounded-full shadow-md -mr-4 md:-mr-6"
-          size="icon"
-          disabled={currentSlide === slides.length - (isMobile ? 1 : 3)}
-        >
-          <ChevronRight className="h-6 w-6" />
-        </Button>
-        
-        {/* Carousel */}
-        <div 
-          ref={carouselRef}
-          className="flex overflow-x-auto gap-4 snap-x snap-mandatory hide-scrollbar pb-8"
-          onScroll={handleScroll} // Fixed: Now using the corrected event handler
-        >
-          {slides.map((slide, index) => (
-            <div 
-              key={index} 
-              className={`flex-none snap-center ${isMobile ? 'w-full' : 'w-1/3'}`}
-            >
-              <Card className="h-full">
-                <div className="p-6 flex flex-col h-full">
-                  <div className="mb-4 aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                    <img 
-                      src={slide.imageSrc} 
-                      alt={slide.imageAlt} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{slide.title}</h3>
-                  <p className="text-gray-600 flex-grow">{slide.description}</p>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </div>
-        
-        {/* Dots indicator */}
-        <div className="flex justify-center mt-4 gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full ${
-                index === currentSlide ? 'bg-primary' : 'bg-gray-300'
-              }`}
-              onClick={() => {
-                if (carouselRef.current) {
-                  const scrollAmount = isMobile
-                    ? carouselRef.current.offsetWidth * index
-                    : carouselRef.current.offsetWidth * 0.33 * index;
-                  carouselRef.current.scrollTo({
-                    left: scrollAmount,
-                    behavior: 'smooth',
-                  });
-                  setCurrentSlide(index);
+    <>
+      {/* CRM Integration */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 reveal-animation">{t('crm.title')}</h2>
+          <p className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16 reveal-animation">
+            {t('crm.description')}
+          </p>
+
+          <div className="reveal-animation max-w-5xl mx-auto">
+            <Carousel
+              className="w-full"
+              ref={carouselRef}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              onSelect={(api) => {
+                if (api) {
+                  setActiveSlide(api.selectedScrollSnap());
                 }
               }}
-            />
-          ))}
+            >
+              <CarouselContent>
+                {crmSlides.map((slide, index) => (
+                  <CarouselItem key={index} className="basis-full md:basis-full">
+                    <Card className="border-none shadow-lg overflow-hidden">
+                      <CardContent className="p-0 relative">
+                        <img
+                          src={slide.image}
+                          alt={slide.alt}
+                          className="w-full h-auto object-cover rounded-t-lg"
+                        />
+                        <div className="bg-black/80 text-white p-4 md:p-6 rounded-b-lg">
+                          <h3 className="font-medium text-lg md:text-xl mb-1">{slide.title}</h3>
+                          <p className="text-sm md:text-base text-gray-200">{slide.description}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
+              <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
+            </Carousel>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-primary text-white">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal-animation">{t('cta.title')}</h2>
+            <p className="text-xl mb-8 reveal-animation">
+              {t('cta.description')}
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 reveal-animation">
+              <Button
+                className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-6 w-full sm:w-auto"
+                onClick={() => window.open('https://wa.me/573159381236?text=Hola,%20estoy%20interesado%20en%20saber%20más%20sobre%20el%20asistente%20de%20ventas', '_blank')}
+              >
+                {t('cta.whatsapp')} <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                className="bg-white hover:bg-gray-100 text-primary text-lg px-8 py-6 w-full sm:w-auto"
+                onClick={scrollToContact}
+              >
+                {t('cta.demo')}
+              </Button>
+            </div>
+          </div>
+        </div>
+        {/* Waitlist Dialog */}
+        <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
+      </section>
+    </>
   );
 };
 
