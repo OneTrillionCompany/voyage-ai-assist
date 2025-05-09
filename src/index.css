@@ -49,11 +49,20 @@
 
   html {
     scroll-behavior: smooth;
+    @apply overflow-x-hidden;
+  }
+  
+  html.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
   }
 
   body {
     font-family: 'Inter', sans-serif;
-    @apply bg-white text-primary;
+    @apply bg-white text-primary overflow-x-hidden;
   }
 
   .section-container {
@@ -67,4 +76,18 @@
   .reveal-animation.active {
     @apply opacity-100 translate-y-0;
   }
+  
+  /* Full-screen section styling */
+  .snap-y {
+    scroll-snap-type: y mandatory;
+  }
+  
+  .snap-center {
+    scroll-snap-align: center;
+  }
+}
+
+/* Prevent content overflow */
+section > div {
+  @apply w-full max-w-full overflow-hidden;
 }
