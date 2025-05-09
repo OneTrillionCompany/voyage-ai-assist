@@ -2,11 +2,8 @@
 import React, { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
 import BeforeAfterComparisonSection from '@/components/BeforeAfterComparisonSection';
-import ProcessVisualizationSection from '@/components/ProcessVisualizationSection';
 import FAQSection from '@/components/FAQSection';
-import ContactSection from '@/components/ContactSection';
 import TeamSection from '@/components/TeamSection';
 import Footer from '@/components/Footer';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -45,8 +42,6 @@ const Index = () => {
       <BeforeAfterComparisonSection />
       <CRMIntegrationSection />
       <FAQSection />
-
-      <ContactSection />
       <TeamSection />
       <Footer />
 

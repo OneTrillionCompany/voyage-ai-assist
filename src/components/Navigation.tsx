@@ -6,10 +6,12 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+import WaitlistDialog from './WaitlistDialog';
 
 const Navigation: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const { t } = useLanguage();
   const isMobile = useIsMobile();
 
@@ -44,13 +46,9 @@ const Navigation: React.FC = () => {
     }
   }, [isMobile, isMenuOpen]);
 
-  // Function to scroll to contact form
-  const scrollToContact = (e: React.MouseEvent) => {
+  const openWaitlistDialog = (e: React.MouseEvent) => {
     e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    setIsWaitlistOpen(true);
   };
 
   return (
@@ -76,8 +74,8 @@ const Navigation: React.FC = () => {
               <LanguageSwitcher />
             </div>
 
-            <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100" onClick={scrollToContact}>
-              <span className="whitespace-nowrap">{t('nav.contact')}</span>
+            <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100" onClick={openWaitlistDialog}>
+              <span className="whitespace-nowrap">{t('nav.joinWaitlist')}</span>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -129,14 +127,17 @@ const Navigation: React.FC = () => {
               className="bg-white hover:bg-gray-100 text-primary hover:text-primary text-base px-6 py-4 mt-2 flex items-center justify-center"
               onClick={(e) => {
                 setIsMenuOpen(false);
-                scrollToContact(e);
+                openWaitlistDialog(e);
               }}
             >
-              {t('nav.contact')} <ArrowRight className="ml-2 h-5 w-5" />
+              {t('nav.joinWaitlist')} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         )}
       </div>
+
+      {/* Waitlist Dialog */}
+      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
     </nav>
   );
 };

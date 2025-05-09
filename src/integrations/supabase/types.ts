@@ -164,7 +164,9 @@ export type Database = {
           country_code: string | null
           created_at: string
           email: string
+          full_phone: string | null
           id: string
+          interest: string | null
           name: string
           phone: string | null
           updated_at: string
@@ -173,7 +175,9 @@ export type Database = {
           country_code?: string | null
           created_at?: string
           email: string
+          full_phone?: string | null
           id?: string
+          interest?: string | null
           name: string
           phone?: string | null
           updated_at?: string
@@ -182,7 +186,9 @@ export type Database = {
           country_code?: string | null
           created_at?: string
           email?: string
+          full_phone?: string | null
           id?: string
+          interest?: string | null
           name?: string
           phone?: string | null
           updated_at?: string
@@ -202,6 +208,14 @@ export type Database = {
               p_email: string
               p_country_code?: string
               p_phone?: string
+            }
+          | {
+              p_name: string
+              p_email: string
+              p_country_code?: string
+              p_phone?: string
+              p_interest?: string
+              p_full_phone?: string
             }
         Returns: undefined
       }
