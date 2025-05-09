@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -17,6 +16,7 @@ type CarouselSlide = {
   image: string;
   description: string;
   title: string;
+  alt: string;
 };
 
 const CRMIntegrationSection: React.FC = () => {
@@ -30,32 +30,38 @@ const CRMIntegrationSection: React.FC = () => {
     {
       image: "/lovable-uploads/87b0e882-0fa2-4475-932f-12b9ea2cae7f.png",
       title: t('crm.slides.slide1.title'),
-      description: t('crm.slides.slide1.description')
+      description: t('crm.slides.slide1.description'),
+      alt: t('crm.slides.slide1.alt')
     },
     {
       image: "/lovable-uploads/c15a8878-7862-4395-92b5-f1cff742e5b0.png",
       title: t('crm.slides.slide2.title'),
-      description: t('crm.slides.slide2.description')
+      description: t('crm.slides.slide2.description'),
+      alt: t('crm.slides.slide2.alt')
     },
     {
       image: "/lovable-uploads/2080a18a-8bc8-48ed-a0a6-0c509ac7fc2d.png",
       title: t('crm.slides.slide3.title'),
-      description: t('crm.slides.slide3.description')
+      description: t('crm.slides.slide3.description'),
+      alt: t('crm.slides.slide3.alt')
     },
     {
       image: "/lovable-uploads/2a93b8a1-8682-419d-b375-1ad7f551b191.png",
       title: t('crm.slides.slide4.title'),
-      description: t('crm.slides.slide4.description')
+      description: t('crm.slides.slide4.description'),
+      alt: t('crm.slides.slide4.alt')
     },
     {
       image: "/lovable-uploads/477c3a28-df0d-4b19-88e5-8b5e3af3ae20.png",
       title: t('crm.slides.slide5.title'),
-      description: t('crm.slides.slide5.description')
+      description: t('crm.slides.slide5.description'),
+      alt: t('crm.slides.slide5.alt')
     },
     {
       image: "/lovable-uploads/b4eb495d-3b87-4cf5-908a-de29dedc7527.png",
       title: t('crm.slides.slide6.title'),
-      description: t('crm.slides.slide6.description')
+      description: t('crm.slides.slide6.description'),
+      alt: t('crm.slides.slide6.alt')
     }
   ];
 
@@ -128,7 +134,7 @@ const CRMIntegrationSection: React.FC = () => {
                       <CardContent className="p-0 relative">
                         <img 
                           src={slide.image} 
-                          alt={slide.title} 
+                          alt={slide.alt} 
                           className="w-full h-auto object-cover rounded-t-lg" 
                         />
                         <div className="bg-black/80 text-white p-4 md:p-6 rounded-b-lg">
@@ -144,7 +150,7 @@ const CRMIntegrationSection: React.FC = () => {
               <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
             </Carousel>
             
-            <div className="mt-8 flex justify-center">
+            {/* <div className="mt-8 flex justify-center">
               <div className="flex gap-1">
                 {crmSlides.map((_, index) => (
                   <button 
@@ -163,7 +169,7 @@ const CRMIntegrationSection: React.FC = () => {
                   />
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

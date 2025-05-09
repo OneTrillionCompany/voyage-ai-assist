@@ -258,7 +258,7 @@ const defaultTranslations = {
   'problems.organization.before.4': {
     en: 'No prospect categorization',
     es: 'Sin categorización de prospectos',
-    pt: 'Sin categorización de leads'
+    pt: 'Sin categorização de leads'
   },
   'problems.organization.after.1': {
     en: 'Chats organized by client and stage',
@@ -456,74 +456,104 @@ const defaultTranslations = {
     pt: 'Obrigado! Estou interessado na opção 2. Como posso reservar?'
   },
   'crm.title': {
-    en: 'CRM Integration',
-    es: 'Integración con CRM',
-    pt: 'Integração com CRM'
+    en: 'Comprehensive CRM Integration',
+    es: 'Integración Completa con CRM',
+    pt: 'Integração Completa com CRM'
   },
   'crm.description': {
-    en: 'All your data automatically synchronized with your CRM system for complete analysis.',
-    es: 'Todos tus datos sincronizados automáticamente con tu sistema CRM para un análisis completo.',
-    pt: 'Todos os seus dados sincronizados automaticamente com seu sistema CRM para uma análise completa.'
+    en: 'Our platform seamlessly integrates with your existing CRM systems to streamline customer management and sales processes.',
+    es: 'Nuestra plataforma se integra perfectamente con tus sistemas CRM existentes para optimizar la gestión de clientes y procesos de ventas.',
+    pt: 'Nossa plataforma se integra perfeitamente com seus sistemas CRM existentes para otimizar o gerenciamento de clientes e processos de vendas.'
   },
-  'crm.whatsapp.data': {
-    en: 'WhatsApp Data',
-    es: 'Datos de WhatsApp',
-    pt: 'Dados do WhatsApp'
+  'crm.slides.slide1.title': {
+    en: 'Customer Dashboard',
+    es: 'Panel de Clientes',
+    pt: 'Painel de Clientes'
   },
-  'crm.dashboard': {
-    en: 'CRM Dashboard',
-    es: 'CRM Dashboard',
-    pt: 'CRM Dashboard'
+  'crm.slides.slide1.description': {
+    en: 'Comprehensive view of all your customer information, travel preferences, and booking history in one place.',
+    es: 'Vista completa de toda la información de tus clientes, preferencias de viaje e historial de reservas en un solo lugar.',
+    pt: 'Visão completa de todas as informações dos seus clientes, preferências de viagem e histórico de reservas em um só lugar.'
   },
-  'crm.stats.newLeads': {
-    en: 'New Leads',
-    es: 'Leads Nuevos',
-    pt: 'Novos Leads'
+  'crm.slides.slide1.alt': {
+    en: 'CRM Dashboard showing customer profiles and travel preferences',
+    es: 'Panel de CRM mostrando perfiles de clientes y preferencias de viaje',
+    pt: 'Painel de CRM mostrando perfis de clientes e preferências de viagem'
   },
-  'crm.stats.closedSales': {
-    en: 'Closed Sales',
-    es: 'Ventas Cerradas',
-    pt: 'Vendas Fechadas'
+  'crm.slides.slide2.title': {
+    en: 'Sales Pipeline',
+    es: 'Pipeline de Ventas',
+    pt: 'Pipeline de Vendas'
   },
-  'crm.stats.conversionRate': {
-    en: 'Conversion Rate',
-    es: 'Tasa de Conversión',
-    pt: 'Taxa de Conversão'
+  'crm.slides.slide2.description': {
+    en: 'Track potential deals from initial contact to booking confirmation with our intuitive sales pipeline.',
+    es: 'Rastrea acuerdos potenciales desde el contacto inicial hasta la confirmación de reserva con nuestro intuitivo pipeline de ventas.',
+    pt: 'Acompanhe negócios potenciais desde o contato inicial até a confirmação de reserva com nosso pipeline de vendas intuitivo.'
   },
-  'crm.stats.recentClients': {
-    en: 'Recent Clients',
-    es: 'Clientes Recientes',
-    pt: 'Clientes Recentes'
+  'crm.slides.slide2.alt': {
+    en: 'Sales pipeline view showing travel deals at different stages',
+    es: 'Vista de pipeline de ventas mostrando acuerdos de viaje en diferentes etapas',
+    pt: 'Visualização do pipeline de vendas mostrando acordos de viagem em diferentes estágios'
   },
-  'crm.clients.client1.name': {
-    en: 'Maria Lopez',
-    es: 'María López',
-    pt: 'Maria Lopez'
+  'crm.slides.slide3.title': {
+    en: 'Automated Marketing',
+    es: 'Marketing Automatizado',
+    pt: 'Marketing Automatizado'
   },
-  'crm.clients.client1.status': {
-    en: 'Booked',
-    es: 'Reservado',
-    pt: 'Reservado'
+  'crm.slides.slide3.description': {
+    en: 'Create targeted campaigns based on customer preferences and travel history to increase conversions.',
+    es: 'Crea campañas dirigidas basadas en preferencias de clientes e historial de viajes para aumentar conversiones.',
+    pt: 'Crie campanhas direcionadas com base nas preferências dos clientes e histórico de viagens para aumentar conversões.'
   },
-  'crm.clients.client2.name': {
-    en: 'Carlos Garcia',
-    es: 'Carlos García',
-    pt: 'Carlos Garcia'
+  'crm.slides.slide3.alt': {
+    en: 'Marketing automation dashboard with campaign analytics and customer segments',
+    es: 'Panel de automatización de marketing con análisis de campañas y segmentos de clientes',
+    pt: 'Painel de automação de marketing com análise de campanhas e segmentos de clientes'
   },
-  'crm.clients.client2.status': {
-    en: 'Quote sent',
-    es: 'Cotización enviada',
-    pt: 'Orçamento enviado'
+  'crm.slides.slide4.title': {
+    en: 'Performance Analytics',
+    es: 'Análisis de Rendimiento',
+    pt: 'Análise de Desempenho'
   },
-  'crm.clients.client3.name': {
-    en: 'Andrea Ruiz',
-    es: 'Andrea Ruiz',
-    pt: 'Andrea Ruiz'
+  'crm.slides.slide4.description': {
+    en: 'Gain insights into sales performance, customer acquisition costs, and booking conversion rates.',
+    es: 'Obtén información sobre el rendimiento de ventas, costos de adquisición de clientes y tasas de conversión de reservas.',
+    pt: 'Obtenha insights sobre desempenho de vendas, custos de aquisição de clientes e taxas de conversão de reservas.'
   },
-  'crm.clients.client3.status': {
-    en: 'Interested',
-    es: 'Interesado',
-    pt: 'Interessado'
+  'crm.slides.slide4.alt': {
+    en: 'Performance analytics dashboard with key metrics and conversion data',
+    es: 'Panel de análisis de rendimiento con métricas clave y datos de conversión',
+    pt: 'Painel de análise de desempenho com métricas-chave e dados de conversão'
+  },
+  'crm.slides.slide5.title': {
+    en: 'Task Management',
+    es: 'Gestión de Tareas',
+    pt: 'Gestão de Tarefas'
+  },
+  'crm.slides.slide5.description': {
+    en: 'Efficiently manage follow-ups, reminders, and customer service tasks to ensure nothing falls through the cracks.',
+    es: 'Gestiona eficientemente seguimientos, recordatorios y tareas de servicio al cliente para asegurar que nada se pase por alto.',
+    pt: 'Gerencie com eficiência acompanhamentos, lembretes e tarefas de atendimento ao cliente para garantir que nada seja esquecido.'
+  },
+  'crm.slides.slide5.alt': {
+    en: 'Task management interface showing schedules, reminders and task assignments',
+    es: 'Interfaz de gestión de tareas mostrando horarios, recordatorios y asignaciones de tareas',
+    pt: 'Interface de gestão de tarefas mostrando horários, lembretes e atribuições de tarefas'
+  },
+  'crm.slides.slide6.title': {
+    en: 'Customer Communication',
+    es: 'Comunicación con Clientes',
+    pt: 'Comunicação com Clientes'
+  },
+  'crm.slides.slide6.description': {
+    en: 'Centralize all customer communications including emails, calls, and chat messages in one unified inbox.',
+    es: 'Centraliza todas las comunicaciones con clientes incluyendo correos electrónicos, llamadas y mensajes de chat en una bandeja de entrada unificada.',
+    pt: 'Centralize todas as comunicações com clientes, incluindo e-mails, chamadas e mensagens de chat em uma caixa de entrada unificada.'
+  },
+  'crm.slides.slide6.alt': {
+    en: 'Customer communication hub showing email, chat and call history',
+    es: 'Centro de comunicación con clientes mostrando historial de correos, chats y llamadas',
+    pt: 'Central de comunicação com clientes mostrando histórico de e-mails, chats e chamadas'
   },
   'cta.title': {
     en: 'Ready to boost your sales?',

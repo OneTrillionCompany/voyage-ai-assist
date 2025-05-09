@@ -86,28 +86,28 @@ const AITravelServicesSection: React.FC = () => {
       title: "Cotiza en segundos",
       description: "Nuestros algoritmos buscan el vuelo y el hotel que mas se ajuste a tus planes y estilo de viaje. Con un simple mensaje te devolvera el vuelo y el hotel para que inicies a disfrutar más rapido.",
       statistic: "90% más rapido que un humano",
-      videoSrc: "",
+      videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     },
     {
       title: "Confirma tu viaje",
       description: "Convierte tus leads sin que tengan que salir de whatsapp. Con solo unos datos más pueden pasar al cierre de la venta y Paga sin complicaciones mediante pse con el monto exacto.",
       statistic: "4X más alta la taza de cierre",
-      videoSrc: "",
+      videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     },
     {
       title: "Contratos y facturas al instante",
       description: "Crea automáticamente contratos legales con tu formato y los datos de tu cliente y crea una factura correcta cuando los pagos están validados.",
       statistic: "11 horas ahorradas en la semana",
-      videoSrc: "",
+      videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     },
     {
       title: "Seguimiento",
       description: "Nunca pierdas un potencial cliente por falta de organización, centraliza tus agentes y lead en nuestra plataforma",
       statistic: "31+ clientes recuperados en un solo día",
-      videoSrc: "",
+      videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     }
   ];
