@@ -173,7 +173,7 @@ const defaultTranslations = {
   'problems.description': {
     en: 'The travel industry faces numerous challenges that our AI technology is uniquely positioned to address.',
     es: 'La industria de viajes enfrenta numerosos desafíos que nuestra tecnología de IA está en una posición única para abordar.',
-    pt: 'A indústria de viajes enfrenta numerosos desafios que nossa tecnologia de IA está exclusivamente posicionada para resolver.'
+    pt: 'A indústria de viajes enfrenta numerosos desafios que nossa tecnologia de IA está em uma posição única para resolver.'
   },
   'problems.tabs.quotation': {
     en: 'Quotations',
@@ -258,7 +258,7 @@ const defaultTranslations = {
   'problems.organization.before.4': {
     en: 'No prospect categorization',
     es: 'Sin categorización de prospectos',
-    pt: 'Sin categorización de leads'
+    pt: 'Sin categorização de leads'
   },
   'problems.organization.after.1': {
     en: 'Chats organized by client and stage',
@@ -643,117 +643,4 @@ const defaultTranslations = {
   'faq.items.item5.answer': {
     en: 'Yes, our AI solutions are designed to be highly customizable. We can adapt the system to match your brand voice, preferred suppliers, commission structures, and business workflow. The AI learns from your business patterns over time, becoming increasingly tailored to your specific needs.',
     es: 'Sí, nuestras soluciones de IA están diseñadas para ser altamente personalizables. Podemos adaptar el sistema para que coincida con la voz de su marca, proveedores preferidos, estructuras de comisiones y flujo de trabajo comercial. La IA aprende de los patrones de su negocio con el tiempo, volviéndose cada vez más adaptada a sus necesidades específicas.',
-    pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho do negócio. A IA aprende com os padrões do seu negócio ao longo do tempo, tornando-se cada vez mais adaptada às suas necessidades específicas.'
-  },
-  'aitravel.title': {
-    en: 'Our AI Travel Services',
-    es: 'Nuestros Servicios de IA para Viajes',
-    pt: 'Nossos Serviços de IA para Viagens'
-  },
-  'aitravel.description': {
-    en: 'Discover how our AI assistants can transform your travel business and delight your customers.',
-    es: 'Descubre cómo nuestros asistentes de IA pueden transformar tu negocio de viajes y deleitar a tus clientes.',
-    pt: 'Descubra como nossos assistentes de IA podem transformar seu negócio de viagens e encantar seus clientes.'
-  },
-  'aitravel.quote.title': {
-    en: 'Quote in Seconds',
-    es: 'Cotiza en segundos',
-    pt: 'Cotação em segundos'
-  },
-  'aitravel.quote.description': {
-    en: 'Our algorithms find the flights and hotels that best match your travel plans and style. With a simple message, you\'ll receive flight and hotel options to start enjoying your trip sooner.',
-    es: 'Nuestros algoritmos buscan el vuelo y el hotel que mas se ajuste a tus planes y estilo de viaje. Con un simple mensaje te devolvera el vuelo y el hotel para que inicies a disfrutar más rapido.',
-    pt: 'Nossos algoritmos encontram voos e hotéis que melhor se adaptam aos seus planos e estilo de viagem. Com uma simples mensagem, você receberá opções de voo e hotel para começar a aproveitar sua viagem mais cedo.'
-  },
-  'aitravel.quote.statistic': {
-    en: '90% faster than human agents',
-    es: '90% más rapido que un humano',
-    pt: '90% mais rápido que um humano'
-  },
-  'aitravel.confirm.title': {
-    en: 'Confirm Your Trip',
-    es: 'Confirma tu viaje',
-    pt: 'Confirme sua viagem'
-  },
-  'aitravel.confirm.description': {
-    en: 'Convert leads without clients leaving WhatsApp. With just a few more details, they can complete the sale and pay effortlessly via secure payment methods with the exact amount.',
-    es: 'Convierte tus leads sin que tengan que salir de whatsapp. Con solo unos datos más pueden pasar al cierre de la venta y Paga sin complicaciones mediante pse con el monto exacto.',
-    pt: 'Converta leads sem que os clientes precisem sair do WhatsApp. Com apenas alguns detalhes adicionais, eles podem concluir a venda e pagar sem esforço por métodos seguros com o valor exato.'
-  },
-  'aitravel.confirm.statistic': {
-    en: '4X higher closing rate',
-    es: '4X más alta la taza de cierre',
-    pt: '4X taxa de fechamento mais alta'
-  },
-  'aitravel.contracts.title': {
-    en: 'Instant Contracts and Invoices',
-    es: 'Contratos y facturas al instante',
-    pt: 'Contratos e faturas instantâneos'
-  },
-  'aitravel.contracts.description': {
-    en: 'Automatically create legal contracts with your format and customer data, and generate accurate invoices when payments are validated.',
-    es: 'Crea automáticamente contratos legales con tu formato y los datos de tu cliente y crea una factura correcta cuando los pagos están validados.',
-    pt: 'Crie automaticamente contratos legais com seu formato e dados do cliente, e gere faturas precisas quando os pagamentos forem validados.'
-  },
-  'aitravel.contracts.statistic': {
-    en: '11 hours saved per week',
-    es: '11 horas ahorradas en la semana',
-    pt: '11 horas economizadas por semana'
-  },
-  'aitravel.tracking.title': {
-    en: 'Follow-up',
-    es: 'Seguimiento',
-    pt: 'Acompanhamento'
-  },
-  'aitravel.tracking.description': {
-    en: 'Never lose a potential customer due to lack of organization. Centralize your agents and leads in our platform.',
-    es: 'Nunca pierdas un potencial cliente por falta de organización, centraliza tus agentes y lead en nuestra plataforma',
-    pt: 'Nunca perca um cliente potencial por falta de organização. Centralize seus agentes e leads em nossa plataforma.'
-  },
-  'aitravel.tracking.statistic': {
-    en: '31+ customers recovered in a single day',
-    es: '31+ clientes recuperados en un solo día',
-    pt: '31+ clientes recuperados em um único dia'
-  },
-};
-
-const LanguageContext = createContext<LanguageContextType>({
-  language: 'en',
-  setLanguage: () => {},
-  translations: defaultTranslations,
-  t: () => '',
-});
-
-export const useLanguage = () => useContext(LanguageContext);
-
-export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
-  
-  // Initialize language from localStorage if available
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem('language');
-    if (storedLanguage && (storedLanguage === 'en' || storedLanguage === 'es' || storedLanguage === 'pt')) {
-      setLanguage(storedLanguage as Language);
-    }
-  }, []);
-  
-  // Save language preference to localStorage
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
-  
-  const t = (key: string) => {
-    if (defaultTranslations[key]?.[language]) {
-      return defaultTranslations[key][language];
-    }
-    
-    console.warn(`Translation missing for key: ${key} in language: ${language}`);
-    return key;
-  };
-  
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, translations: defaultTranslations, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
+    pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho
