@@ -4,22 +4,23 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 interface ServiceItemProps {
-  title: string;
-  description: string;
-  statistic: string;
+  titleKey: string;
+  descriptionKey: string;
+  statisticKey: string;
   videoSrc?: string;
   placeholder?: string;
   index: number;
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({ 
-  title, 
-  description, 
-  statistic, 
+  titleKey, 
+  descriptionKey, 
+  statisticKey, 
   videoSrc, 
   placeholder,
   index 
 }) => {
+  const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver({
@@ -47,10 +48,10 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
     >
       {/* Content Section - Swap order based on index */}
       <div className={`${!isEven && 'lg:order-2'}`}>
-        <h3 className="text-2xl md:text-3xl font-bold mb-4">{title}</h3>
-        <p className="text-gray-600 mb-6 text-lg">{description}</p>
+        <h3 className="text-2xl md:text-3xl font-bold mb-4">{t(titleKey)}</h3>
+        <p className="text-gray-600 mb-6 text-lg">{t(descriptionKey)}</p>
         <div className="bg-primary/10 p-4 inline-block rounded-lg">
-          <p className="text-primary font-bold text-lg">{statistic}</p>
+          <p className="text-primary font-bold text-lg">{t(statisticKey)}</p>
         </div>
       </div>
 
@@ -83,30 +84,30 @@ const AITravelServicesSection: React.FC = () => {
   
   const services = [
     {
-      title: "Cotiza en segundos",
-      description: "Nuestros algoritmos buscan el vuelo y el hotel que mas se ajuste a tus planes y estilo de viaje. Con un simple mensaje te devolvera el vuelo y el hotel para que inicies a disfrutar más rapido.",
-      statistic: "90% más rapido que un humano",
+      titleKey: "aitravel.quote.title",
+      descriptionKey: "aitravel.quote.description",
+      statisticKey: "aitravel.quote.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     },
     {
-      title: "Confirma tu viaje",
-      description: "Convierte tus leads sin que tengan que salir de whatsapp. Con solo unos datos más pueden pasar al cierre de la venta y Paga sin complicaciones mediante pse con el monto exacto.",
-      statistic: "4X más alta la taza de cierre",
+      titleKey: "aitravel.confirm.title",
+      descriptionKey: "aitravel.confirm.description",
+      statisticKey: "aitravel.confirm.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     },
     {
-      title: "Contratos y facturas al instante",
-      description: "Crea automáticamente contratos legales con tu formato y los datos de tu cliente y crea una factura correcta cuando los pagos están validados.",
-      statistic: "11 horas ahorradas en la semana",
+      titleKey: "aitravel.contracts.title",
+      descriptionKey: "aitravel.contracts.description",
+      statisticKey: "aitravel.contracts.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     },
     {
-      title: "Seguimiento",
-      description: "Nunca pierdas un potencial cliente por falta de organización, centraliza tus agentes y lead en nuestra plataforma",
-      statistic: "31+ clientes recuperados en un solo día",
+      titleKey: "aitravel.tracking.title",
+      descriptionKey: "aitravel.tracking.description",
+      statisticKey: "aitravel.tracking.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
       placeholder: ""
     }
@@ -116,9 +117,9 @@ const AITravelServicesSection: React.FC = () => {
     <section className="section-container py-20">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16 reveal-animation">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios de IA para Viajes</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('aitravel.title')}</h2>
           <p className="text-secondary text-lg max-w-2xl mx-auto">
-            Descubre cómo nuestros asistentes de IA pueden transformar tu negocio de viajes y deleitar a tus clientes.
+            {t('aitravel.description')}
           </p>
         </div>
 
@@ -127,9 +128,9 @@ const AITravelServicesSection: React.FC = () => {
             <ServiceItem
               key={index}
               index={index}
-              title={service.title}
-              description={service.description}
-              statistic={service.statistic}
+              titleKey={service.titleKey}
+              descriptionKey={service.descriptionKey}
+              statisticKey={service.statisticKey}
               videoSrc={service.videoSrc}
               placeholder={service.placeholder}
             />

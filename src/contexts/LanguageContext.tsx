@@ -537,7 +537,7 @@ const defaultTranslations = {
   },
   'crm.slides.slide5.alt': {
     en: 'Task management interface showing schedules, reminders and task assignments',
-    es: 'Interfaz de gestión de tareas mostrando horarios, recordatorios y asignaciones de tareas',
+    es: 'Interfaz de gestión de tareas mostrando horarios, recordatorios y asignaciones de tarefas',
     pt: 'Interface de gestão de tarefas mostrando horários, lembretes e atribuições de tarefas'
   },
   'crm.slides.slide6.title': {
@@ -633,7 +633,7 @@ const defaultTranslations = {
   'faq.items.item4.answer': {
     en: 'Our secure payment system integrates with major payment processors and provides multiple payment options for customers. The system handles deposits, installment payments, and full payments, with automated receipts and confirmation emails. Travel advisors receive immediate notification of completed transactions.',
     es: 'Nuestro sistema de pago seguro se integra con los principales procesadores de pago y proporciona múltiples opciones de pago para los clientes. El sistema maneja depósitos, pagos en cuotas y pagos completos, con recibos automatizados y correos electrónicos de confirmación. Los asesores de viaje reciben notificación inmediata de las transacciones completadas.',
-    pt: 'Nosso sistema de pagamento seguro se integra com los principales processadores de pagamento e ofrece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
+    pt: 'Nosso sistema de pagamento seguro se integra com los principales processadores de pagamento e oferece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
   },
   'faq.items.item5.question': {
     en: 'Can the AI assistant be customized for my travel business?',
@@ -645,70 +645,70 @@ const defaultTranslations = {
     es: 'Sí, nuestras soluciones de IA están diseñadas para ser altamente personalizables. Podemos adaptar el sistema para que coincida con la voz de su marca, proveedores preferidos, estructuras de comisiones y flujo de trabajo comercial. La IA aprende de los patrones de su negocio con el tiempo, volviéndose cada vez más adaptada a sus necesidades específicas.',
     pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho do negócio. A IA aprende com os padrões do seu negócio ao longo do tempo, tornando-se cada vez mais adaptada às suas necessidades específicas.'
   },
-  'faq.items.item6.question': {
-    en: 'Is training required to use the system?',
-    es: '¿Se requiere capacitación para usar el sistema?',
-    pt: 'É necessário treinamento para usar o sistema?'
+  'aitravel.title': {
+    en: 'Our AI Travel Services',
+    es: 'Nuestros Servicios de IA para Viajes',
+    pt: 'Nossos Serviços de IA para Viagens'
   },
-  'faq.items.item6.answer': {
-    en: 'We provide comprehensive onboarding and training, but the system is designed to be intuitive and user-friendly. Most travel advisors can begin using the basic features within hours, while more advanced capabilities might require additional familiarization. Our support team is always available to help with questions or challenges.',
-    es: 'Proporcionamos una incorporación y capacitación integral, pero el sistema está diseñado para ser intuitivo y fácil de usar. La mayoría de los asesores de viajes pueden comenzar a usar las funciones básicas en cuestión de horas, mientras que las capacidades más avanzadas podrían requerir una familiarización adicional. Nuestro equipo de soporte siempre está disponible para ayudar con preguntas o desafíos.',
-    pt: 'Fornecemos integração e treinamento abrangentes, mas o sistema é projetado para ser intuitivo e fácil de usar. A maioria dos consultores de viagem pode começar a usar os recursos básicos em poucas horas, enquanto recursos mais avançados podem exigir familiarização adicional. Nossa equipe de suporte está sempre disponível para ajudar com perguntas ou desafios.'
+  'aitravel.description': {
+    en: 'Discover how our AI assistants can transform your travel business and delight your customers.',
+    es: 'Descubre cómo nuestros asistentes de IA pueden transformar tu negocio de viajes y deleitar a tus clientes.',
+    pt: 'Descubra como nossos assistentes de IA podem transformar seu negócio de viagens e encantar seus clientes.'
   },
-  'contact.title': {
-    en: 'Contact Us',
-    es: 'Contáctanos',
-    pt: 'Contate-nos'
+  'aitravel.quote.title': {
+    en: 'Quote in Seconds',
+    es: 'Cotiza en segundos',
+    pt: 'Cotação em segundos'
   },
-  'contact.description': {
-    en: 'Get in touch with our team and discover how we can transform your travel business',
-    es: 'Ponte en contacto con nuestro equipo y descubre cómo podemos transformar tu negocio de viajes',
-    pt: 'Entre em contato com nossa equipe e descubra como podemos transformar seu negócio de viagens'
+  'aitravel.quote.description': {
+    en: 'Our algorithms find the flights and hotels that best match your travel plans and style. With a simple message, you\'ll receive flight and hotel options to start enjoying your trip sooner.',
+    es: 'Nuestros algoritmos buscan el vuelo y el hotel que mas se ajuste a tus planes y estilo de viaje. Con un simple mensaje te devolvera el vuelo y el hotel para que inicies a disfrutar más rapido.',
+    pt: 'Nossos algoritmos encontram voos e hotéis que melhor se adaptam aos seus planos e estilo de viagem. Com uma simples mensagem, você receberá opções de voo e hotel para começar a aproveitar sua viagem mais cedo.'
   },
-  'contact.info.title': {
-    en: 'Contact Information',
-    es: 'Información de Contacto',
-    pt: 'Informações de Contato'
+  'aitravel.quote.statistic': {
+    en: '90% faster than human agents',
+    es: '90% más rapido que un humano',
+    pt: '90% mais rápido que um humano'
   },
-  'contact.info.description': {
-    en: 'Have questions about our AI solutions? Fill out the form or contact us directly using the information below.',
-    es: '¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o contáctanos directamente utilizando la información a continuación.',
-    pt: 'Tem perguntas sobre nossas soluções de IA? Preencha o formulário ou contate-nos diretamente usando as informações abaixo.'
+  'aitravel.confirm.title': {
+    en: 'Confirm Your Trip',
+    es: 'Confirma tu viaje',
+    pt: 'Confirme sua viagem'
   },
-  'contact.info.email.label': {
-    en: 'Email',
-    es: 'Correo Electrónico',
-    pt: 'Email'
+  'aitravel.confirm.description': {
+    en: 'Convert leads without clients leaving WhatsApp. With just a few more details, they can complete the sale and pay effortlessly via secure payment methods with the exact amount.',
+    es: 'Convierte tus leads sin que tengan que salir de whatsapp. Con solo unos datos más pueden pasar al cierre de la venta y Paga sin complicaciones mediante pse con el monto exacto.',
+    pt: 'Converta leads sem que os clientes precisem sair do WhatsApp. Com apenas alguns detalhes adicionais, eles podem concluir a venda e pagar sem esforço por métodos seguros com o valor exato.'
   },
-  'contact.info.email.value': {
-    en: 'manuel.gruezo@uao.edu.co',
-    es: 'manuel.gruezo@uao.edu.co',
-    pt: 'manuel.gruezo@uao.edu.co'
+  'aitravel.confirm.statistic': {
+    en: '4X higher closing rate',
+    es: '4X más alta la taza de cierre',
+    pt: '4X taxa de fechamento mais alta'
   },
-  'contact.info.whatsapp.label': {
-    en: 'WhatsApp',
-    es: 'WhatsApp',
-    pt: 'WhatsApp'
+  'aitravel.contracts.title': {
+    en: 'Instant Contracts and Invoices',
+    es: 'Contratos y facturas al instante',
+    pt: 'Contratos e faturas instantâneos'
   },
-  'contact.info.whatsapp.value': {
-    en: '+573159381236',
-    es: '+573159381236',
-    pt: '+573159381236'
+  'aitravel.contracts.description': {
+    en: 'Automatically create legal contracts with your format and customer data, and generate accurate invoices when payments are validated.',
+    es: 'Crea automáticamente contratos legales con tu formato y los datos de tu cliente y crea una factura correcta cuando los pagos están validados.',
+    pt: 'Crie automaticamente contratos legais com seu formato e dados do cliente, e gere faturas precisas quando os pagamentos forem validados.'
   },
-  'contact.info.hours.label': {
-    en: 'Office Hours',
-    es: 'Horario de Oficina',
-    pt: 'Horário de Funcionamento'
+  'aitravel.contracts.statistic': {
+    en: '11 hours saved per week',
+    es: '11 horas ahorradas en la semana',
+    pt: '11 horas economizadas por semana'
   },
-  'contact.info.hours.value': {
-    en: 'Monday to Friday, 9AM - 5PM EST',
-    es: 'Lunes a Viernes, 9AM - 5PM EST',
-    pt: 'Segunda a Sexta, 9AM - 5PM EST'
+  'aitravel.tracking.title': {
+    en: 'Follow-up',
+    es: 'Seguimiento',
+    pt: 'Acompanhamento'
   },
-  'crm.carousel.slide1.title': {
-    en: 'Dashboard Overview',
-    es: 'Vista general del Dashboard',
-    pt: 'Visão geral do Dashboard'
+  'aitravel.tracking.description': {
+    en: 'Never lose a potential customer due to lack of organization. Centralize your agents and leads in our platform.',
+    es: 'Nunca pierdas un potencial cliente por falta de organización, centraliza tus agentes y lead en nuestra plataforma',
+    pt: 'Nunca perca um cliente potencial por falta de organização. Centralize seus agentes e leads em nossa plataforma.'
   },
   'crm.carousel.slide1.description': {
     en: 'Complete view of your sales performance and customer activity',
@@ -851,6 +851,11 @@ const defaultTranslations = {
     es: 'Ingeniero de IA',
     pt: 'Engenheiro de IA'
   },
+  'aitravel.tracking.statistic': {
+    en: '31+ customers recovered in a single day',
+    es: '31+ clientes recuperados en un solo día',
+    pt: '31+ clientes recuperados em um único dia'
+  },
   'stats.title': {
     en: 'Impactful Results',
     es: 'Resultados Impactantes',
@@ -873,41 +878,43 @@ const defaultTranslations = {
   }
 };
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+const LanguageContext = createContext<LanguageContextType>({
+  language: 'en',
+  setLanguage: () => {},
+  translations: defaultTranslations,
+  t: () => '',
+});
 
-export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const useLanguage = () => useContext(LanguageContext);
+
+export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
-  const [translations, setTranslations] = useState<Record<string, Record<string, string>>>(defaultTranslations);
-
+  
+  // Initialize language from localStorage if available
   useEffect(() => {
-    // ... keep existing code (fetch translations from API or other source)
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage && (storedLanguage === 'en' || storedLanguage === 'es' || storedLanguage === 'pt')) {
+      setLanguage(storedLanguage as Language);
+    }
   }, []);
-
-  const t = (key: string): string => {
-    if (!translations[key]) {
-      console.warn(`Translation key not found: ${key}`);
-      return key;
+  
+  // Save language preference to localStorage
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+  
+  const t = (key: string) => {
+    if (defaultTranslations[key]?.[language]) {
+      return defaultTranslations[key][language];
     }
-
-    if (!translations[key][language]) {
-      console.warn(`Translation not available in ${language} for key: ${key}`);
-      return translations[key]['en'] || key;
-    }
-
-    return translations[key][language];
+    
+    console.warn(`Translation missing for key: ${key} in language: ${language}`);
+    return key;
   };
-
+  
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, translations, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, translations: defaultTranslations, t }}>
       {children}
     </LanguageContext.Provider>
   );
-};
-
-export const useLanguage = (): LanguageContextType => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
 };
