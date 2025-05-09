@@ -1,319 +1,918 @@
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
-interface LanguageContextProps {
-  language: string;
+type Language = 'en' | 'es' | 'pt';
+
+type LanguageContextType = {
+  language: Language;
+  setLanguage: (language: Language) => void;
+  translations: Record<string, Record<string, string>>;
   t: (key: string) => string;
-  setLanguage: (lang: 'en' | 'es' | 'pt') => void; // Add this line to fix the error
-  changeLanguage: (lang: string) => void;
-}
+};
 
-const LanguageContext = createContext<LanguageContextProps>({
-  language: 'en',
-  t: () => '',
-  setLanguage: () => {}, // Add this line to fix the error
-  changeLanguage: () => {},
-});
-
-interface LanguageProviderProps {
-  children: ReactNode;
-}
-
-const translations = {
-  en: {
-    'nav.problems': 'Problems',
-    'nav.services': 'Services',
-    'nav.howItWorks': 'How It Works',
-    'nav.pricing': 'Plans',
-    'nav.faq': 'FAQ',
-    'nav.team': 'Team',
-    'nav.contact': 'Contact Us',
-    'nav.joinWaitlist': 'Join Waitlist',
-    
-    'hero.title': 'Boost your travel agency\'s productivity with AI',
-    'hero.subtitle': 'SellMoreTrips.AI transforms how travel advisors work by offering intelligent automation, personalized trip recommendations, and seamless client communication—all on a single platform.',
-    'hero.cta': 'Get Started',
-    
-    'stats.title': 'Impactful Results',
-    'stats.salesIncrease': 'Sales Increase',
-    'stats.timeSaved': 'Hours Saved per Week',
-    'stats.satisfaction': 'Client Satisfaction',
-
-    'before.title': 'Transform Your Travel Agency',
-    'before.subtitle': 'See how our AI technology revolutionizes the way you serve clients',
-    'before.beforeTitle': 'BEFORE',
-    'before.afterTitle': 'AFTER',
-    'before.item1.before': 'Manual searching across multiple booking platforms',
-    'before.item1.after': 'Unified search with AI-driven recommendations',
-    'before.item2.before': 'Hours spent creating basic itineraries',
-    'before.item2.after': 'Generate detailed itineraries in minutes',
-    'before.item3.before': 'Disjointed communication with clients',
-    'before.item3.after': 'Seamless client interaction and real-time updates',
-
-    'crm.title': 'Smart CRM Integration',
-    'crm.subtitle': 'Say goodbye to time-consuming client management',
-    'crm.feature1.title': 'Client Relationship Management',
-    'crm.feature1.description': 'Easily manage your client relationships with our integrated CRM system.',
-    'crm.feature2.title': 'Smart Email Marketing',
-    'crm.feature2.description': 'Automatically send personalized emails to your clients based on their preferences.',
-    'crm.feature3.title': 'Automated Follow-ups',
-    'crm.feature3.description': 'Never miss a follow-up opportunity with our automated reminder system.',
-    'crm.cta': 'Learn More',
-
-    'faq.title': 'Frequently Asked Questions',
-    'faq.subtitle': 'Find answers to the most common questions about sellmoretrips.AI',
-    'faq.q1': 'How does sellmoretrips.AI help travel agencies?',
-    'faq.a1': 'Our platform helps travel agencies increase efficiency through AI-powered search, automated itinerary creation, personalized recommendations, and unified client communication.',
-    'faq.q2': 'Is sellmoretrips.AI suitable for agencies of all sizes?',
-    'faq.a2': 'Yes! Our platform is designed to scale with your business. Whether you\'re a solo travel advisor or part of a large agency, our tools adapt to your needs.',
-    'faq.q3': 'How long does it take to implement sellmoretrips.AI?',
-    'faq.a3': 'Most agencies are up and running within days. Our onboarding team provides comprehensive training to ensure a smooth transition.',
-    'faq.q4': 'Can sellmoretrips.AI integrate with my existing systems?',
-    'faq.a4': 'We offer integrations with popular travel agency tools and CRM systems. Our team can help determine the best integration path for your specific setup.',
-
-    'contact.title': 'Get In Touch',
-    'contact.description': 'Have questions or ready to transform your travel agency? Reach out to us!',
-    'contact.info.title': 'Contact Information',
-    'contact.info.description': 'Our team is here to help you with any questions about our platform.',
-    'contact.info.email.label': 'Email',
-    'contact.info.email.value': 'contact@sellmoretrips.ai',
-    'contact.info.whatsapp.label': 'WhatsApp',
-    'contact.info.whatsapp.value': '+57 315 938 1236',
-    'contact.info.hours.label': 'Business Hours',
-    'contact.info.hours.value': 'Monday - Friday, 9am - 6pm EST',
-    'contact.form.name.label': 'Name',
-    'contact.form.name.placeholder': 'Your name',
-    'contact.form.email.label': 'Email',
-    'contact.form.email.placeholder': 'your@email.com',
-    'contact.form.company.label': 'Company',
-    'contact.form.company.placeholder': 'Your travel agency',
-    'contact.form.message.label': 'Message',
-    'contact.form.message.placeholder': 'How can we help you?',
-    'contact.form.submit': 'Send Message',
-    'contact.form.submitting': 'Sending...',
-    
-    'team.title': 'Meet Our Team',
-    'team.subtitle': 'The minds behind sellmoretrips.AI',
-    'team.member1.name': 'Gregory Ramirez',
-    'team.member1.role': 'Founder & CEO',
-    'team.member1.bio': 'Former travel agent with 12+ years of experience. Tech enthusiast passionate about revolutionizing the travel industry.',
-    'team.member2.name': 'Luisa Hernandez',
-    'team.member2.role': 'Head of Product',
-    'team.member2.bio': 'Product specialist with expertise in building intuitive solutions for service industries.',
-    'team.member3.name': 'Carlos Rodriguez',
-    'team.member3.role': 'Lead Developer',
-    'team.member3.bio': 'Seasoned developer with a background in AI and machine learning applications.',
-    
-    'footer.copyright': '© 2025 sellmoretrips.AI. All rights reserved.',
-    'footer.company': 'Company',
-    'footer.about': 'About Us',
-    'footer.careers': 'Careers',
-    'footer.legal': 'Legal',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
-    'footer.connect': 'Connect',
-
-    'waitlist.joinTitle': 'Join Our Waitlist Today',
-    'waitlist.joinSubtitle': 'Get exclusive early access to sellmoretrips.AI and transform how you manage your travel business.',
-    'waitlist.benefit1': 'Be among the first to experience our AI-powered platform',
-    'waitlist.benefit2': 'Receive special early adopter pricing',
-    'waitlist.benefit3': 'Get personalized onboarding support',
-    'waitlist.formTitle': 'Sign up for early access',
-    'waitlist.formDescription': 'Fill in your details below to join our waitlist and be notified when we launch.',
-    'waitlist.nameLabel': 'Full Name',
-    'waitlist.namePlaceholder': 'Enter your name',
-    'waitlist.emailLabel': 'Email Address',
-    'waitlist.emailPlaceholder': 'Enter your email',
-    'waitlist.phoneLabel': 'Phone Number (optional)',
-    'waitlist.phonePlaceholder': 'Enter your phone number',
-    'waitlist.selectCountry': 'Country',
-    'waitlist.interestLabel': 'Your Interest',
-    'waitlist.interestPlaceholder': 'Select your interest',
-    'waitlist.interests.hotel': 'Hotel Management',
-    'waitlist.interests.agency': 'Travel Agency',
-    'waitlist.interests.destination': 'Destination Management',
-    'waitlist.interests.other': 'Other',
-    'waitlist.submit': 'Join Waitlist',
-    'waitlist.submitting': 'Submitting...',
-    'waitlist.success': 'Success!',
-    'waitlist.successMessage': 'You\'ve been added to our waitlist. We\'ll notify you when we launch!',
-    'waitlist.error': 'Submission Error',
-    'waitlist.errorMessage': 'There was a problem with your submission. Please try again.',
-    'waitlist.errorRequired': 'Please fill in all required fields.'
+const defaultTranslations = {
+  'hero.title': {
+    en: 'Transform Your Agency: 75% Less Time, 90% More Conversions', // Vende tres veces más viajes con IA
+    es: 'Transforma tu Agencia: 75% Menos Tiempo, 90% Más Conversiones', // Vende tres veces más viajes con IA
+    pt: 'Transforme sua Agência: 75% Menos Tempo, 90% Mais Conversões' //Vende tres veces más viajes con IA
   },
-  es: {
-    'nav.problems': 'Problemas',
-    'nav.services': 'Servicios',
-    'nav.howItWorks': 'Cómo Funciona',
-    'nav.pricing': 'Planes',
-    'nav.faq': 'Preguntas',
-    'nav.team': 'Equipo',
-    'nav.contact': 'Contáctenos',
-    'nav.joinWaitlist': 'Únete a la Lista',
-    
-    'hero.title': 'Impulsa la productividad de tu agencia de viajes con IA',
-    'hero.subtitle': 'SellMoreTrips.AI transforma cómo los asesores de viajes trabajan ofreciendo automatización inteligente, recomendaciones de viajes personalizadas y comunicación perfecta con los clientes, todo en una sola plataforma.',
-    'hero.cta': 'Comenzar',
-    
-    'stats.title': 'Resultados Impactantes',
-    'stats.salesIncrease': 'Aumento en Ventas',
-    'stats.timeSaved': 'Horas Ahorradas por Semana',
-    'stats.satisfaction': 'Satisfacción del Cliente',
-
-    'before.title': 'Transforma Tu Agencia de Viajes',
-    'before.subtitle': 'Mira cómo nuestra tecnología de IA revoluciona la forma en que atiendes a tus clientes',
-    'before.beforeTitle': 'ANTES',
-    'before.afterTitle': 'DESPUÉS',
-    'before.item1.before': 'Búsqueda manual en múltiples plataformas',
-    'before.item1.after': 'Búsqueda unificada con recomendaciones basadas en IA',
-    'before.item2.before': 'Horas creando itinerarios básicos',
-    'before.item2.after': 'Genera itinerarios detallados en minutos',
-    'before.item3.before': 'Comunicación desconectada con clientes',
-    'before.item3.after': 'Interacción perfecta y actualizaciones en tiempo real',
-
-    'crm.title': 'Integración Inteligente con CRM',
-    'crm.subtitle': 'Dile adiós a la gestión de clientes que consume tiempo',
-    'crm.feature1.title': 'Gestión de Relaciones con Clientes',
-    'crm.feature1.description': 'Administra fácilmente tus relaciones con clientes con nuestro sistema CRM integrado.',
-    'crm.feature2.title': 'Email Marketing Inteligente',
-    'crm.feature2.description': 'Envía automáticamente emails personalizados a tus clientes basados en sus preferencias.',
-    'crm.feature3.title': 'Seguimientos Automatizados',
-    'crm.feature3.description': 'Nunca pierdas una oportunidad de seguimiento con nuestro sistema de recordatorios automatizados.',
-    'crm.cta': 'Saber Más',
-
-    'faq.title': 'Preguntas Frecuentes',
-    'faq.subtitle': 'Encuentra respuestas a las preguntas más comunes sobre sellmoretrips.AI',
-    'faq.q1': '¿Cómo ayuda sellmoretrips.AI a las agencias de viajes?',
-    'faq.a1': 'Nuestra plataforma ayuda a las agencias de viajes a aumentar la eficiencia a través de búsquedas potenciadas por IA, creación automatizada de itinerarios, recomendaciones personalizadas y comunicación unificada con los clientes.',
-    'faq.q2': '¿Es sellmoretrips.AI adecuado para agencias de todos los tamaños?',
-    'faq.a2': '¡Sí! Nuestra plataforma está diseñada para escalar con tu negocio. Ya seas un asesor de viajes independiente o parte de una gran agencia, nuestras herramientas se adaptan a tus necesidades.',
-    'faq.q3': '¿Cuánto tiempo lleva implementar sellmoretrips.AI?',
-    'faq.a3': 'La mayoría de las agencias están operativas en cuestión de días. Nuestro equipo de incorporación proporciona una capacitación completa para garantizar una transición sin problemas.',
-    'faq.q4': '¿Puede sellmoretrips.AI integrarse con mis sistemas existentes?',
-    'faq.a4': 'Ofrecemos integraciones con herramientas populares para agencias de viajes y sistemas CRM. Nuestro equipo puede ayudar a determinar la mejor ruta de integración para tu configuración específica.',
-
-    'contact.title': 'Ponte en Contacto',
-    'contact.description': '¿Tienes preguntas o estás listo para transformar tu agencia de viajes? ¡Contáctanos!',
-    'contact.info.title': 'Información de Contacto',
-    'contact.info.description': 'Nuestro equipo está aquí para ayudarte con cualquier pregunta sobre nuestra plataforma.',
-    'contact.info.email.label': 'Email',
-    'contact.info.email.value': 'contacto@sellmoretrips.ai',
-    'contact.info.whatsapp.label': 'WhatsApp',
-    'contact.info.whatsapp.value': '+57 315 938 1236',
-    'contact.info.hours.label': 'Horario de Atención',
-    'contact.info.hours.value': 'Lunes - Viernes, 9am - 6pm EST',
-    'contact.form.name.label': 'Nombre',
-    'contact.form.name.placeholder': 'Tu nombre',
-    'contact.form.email.label': 'Email',
-    'contact.form.email.placeholder': 'tu@email.com',
-    'contact.form.company.label': 'Empresa',
-    'contact.form.company.placeholder': 'Tu agencia de viajes',
-    'contact.form.message.label': 'Mensaje',
-    'contact.form.message.placeholder': '¿Cómo podemos ayudarte?',
-    'contact.form.submit': 'Enviar Mensaje',
-    'contact.form.submitting': 'Enviando...',
-    
-    'team.title': 'Conoce a Nuestro Equipo',
-    'team.subtitle': 'Las mentes detrás de sellmoretrips.AI',
-    'team.member1.name': 'Gregory Ramirez',
-    'team.member1.role': 'Fundador y CEO',
-    'team.member1.bio': 'Ex agente de viajes con más de 12 años de experiencia. Entusiasta de la tecnología apasionado por revolucionar la industria de viajes.',
-    'team.member2.name': 'Luisa Hernandez',
-    'team.member2.role': 'Jefa de Producto',
-    'team.member2.bio': 'Especialista en productos con experiencia en la construcción de soluciones intuitivas para industrias de servicios.',
-    'team.member3.name': 'Carlos Rodriguez',
-    'team.member3.role': 'Desarrollador Principal',
-    'team.member3.bio': 'Desarrollador experimentado con formación en aplicaciones de IA y aprendizaje automático.',
-    
-    'footer.copyright': '© 2025 sellmoretrips.AI. Todos los derechos reservados.',
-    'footer.company': 'Empresa',
-    'footer.about': 'Sobre Nosotros',
-    'footer.careers': 'Carreras',
-    'footer.legal': 'Legal',
-    'footer.privacy': 'Política de Privacidad',
-    'footer.terms': 'Términos de Servicio',
-    'footer.connect': 'Conecta',
-
-    'waitlist.joinTitle': 'Únete a Nuestra Lista Hoy',
-    'waitlist.joinSubtitle': 'Obtén acceso anticipado exclusivo a sellmoretrips.AI y transforma la gestión de tu negocio de viajes.',
-    'waitlist.benefit1': 'Sé de los primeros en experimentar nuestra plataforma impulsada por IA',
-    'waitlist.benefit2': 'Recibe precios especiales para primeros usuarios',
-    'waitlist.benefit3': 'Obtén soporte de integración personalizado',
-    'waitlist.formTitle': 'Regístrate para acceso anticipado',
-    'waitlist.formDescription': 'Completa tus datos a continuación para unirte a nuestra lista de espera y recibir notificaciones cuando lancemos.',
-    'waitlist.nameLabel': 'Nombre Completo',
-    'waitlist.namePlaceholder': 'Ingresa tu nombre',
-    'waitlist.emailLabel': 'Correo Electrónico',
-    'waitlist.emailPlaceholder': 'Ingresa tu correo',
-    'waitlist.phoneLabel': 'Número de Teléfono (opcional)',
-    'waitlist.phonePlaceholder': 'Ingresa tu número de teléfono',
-    'waitlist.selectCountry': 'País',
-    'waitlist.interestLabel': 'Tu Interés',
-    'waitlist.interestPlaceholder': 'Selecciona tu interés',
-    'waitlist.interests.hotel': 'Gestión de Hoteles',
-    'waitlist.interests.agency': 'Agencia de Viajes',
-    'waitlist.interests.destination': 'Gestión de Destinos',
-    'waitlist.interests.other': 'Otro',
-    'waitlist.submit': 'Unirse a la Lista',
-    'waitlist.submitting': 'Enviando...',
-    'waitlist.success': '¡Éxito!',
-    'waitlist.successMessage': 'Has sido añadido a nuestra lista de espera. ¡Te notificaremos cuando lancemos!',
-    'waitlist.error': 'Error de Envío',
-    'waitlist.errorMessage': 'Hubo un problema con tu envío. Por favor, intenta de nuevo.',
-    'waitlist.errorRequired': 'Por favor, completa todos los campos requeridos.'
+  'hero.description': {
+    en: 'Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.',
+    es: 'Aprovecha la tecnología avanzada de IA para ayudar a los asesores de viajes a encontrar las mejores ofertas y asistir a los clientes en la reserva de sus viajes soñados.',
+    pt: 'Aproveite a tecnologia avançada de IA para ajudar consultores de viagens a encontrar as melhores ofertas e auxiliar os clientes na reserva de suas viagens dos sonhos.'
+  },
+  'hero.cta': {
+    en: 'Connect with Us',
+    es: 'Conéctate con Nosotros',
+    pt: 'Conecte-se Conosco'
+  },
+  'hero.city.bogota': {
+    en: 'Discover Bogotá',
+    es: 'Descubre Bogotá',
+    pt: 'Descubra Bogotá'
+  },
+  'hero.city.cartagena': {
+    en: 'Enjoy Cartagena',
+    es: 'Disfruta Cartagena',
+    pt: 'Aproveite Cartagena'
+  },
+  'hero.city.medellin': {
+    en: 'Explore Medellín',
+    es: 'Explora Medellín',
+    pt: 'Explore Medellín'
+  },
+  'hero.city.tayrona': {
+    en: 'Experience Tayrona',
+    es: 'Vive Tayrona',
+    pt: 'Vivencie Tayrona'
+  },
+  'hero.city.cali': {
+    en: 'Dance in Cali',
+    es: 'Baila en Cali',
+    pt: 'Dance em Cali'
+  },
+  'hero.city.santamarta': {
+    en: 'Relax in Santa Marta',
+    es: 'Relájate en Santa Marta',
+    pt: 'Relaxe em Santa Marta'
+  },
+  'hero.city.sanandres': {
+    en: 'Sail San Andrés',
+    es: 'Navega San Andrés',
+    pt: 'Navegue em San Andrés'
+  },
+  'nav.services': {
+    en: 'Services',
+    es: 'Servicios',
+    pt: 'Serviços'
+  },
+  'nav.problems': {
+    en: 'Problems',
+    es: 'Problemas',
+    pt: 'Problemas'
+  },
+  'nav.usecases': {
+    en: 'Use Cases',
+    es: 'Casos de Uso',
+    pt: 'Casos de Uso'
+  },
+  'nav.faq': {
+    en: 'FAQ',
+    es: 'Preguntas',
+    pt: 'Perguntas'
+  },
+  'nav.team': {
+    en: 'Team',
+    es: 'Equipo',
+    pt: 'Equipe'
+  },
+  'nav.contact': {
+    en: 'Contact Us',
+    es: 'Contáctanos',
+    pt: 'Contate-nos'
+  },
+  'nav.joinWaitlist': {
+    en: 'Join Waitlist',
+    es: 'Únete a la Lista',
+    pt: 'Junte-se à Lista'
+  },
+  'services.title': {
+    en: 'Our AI Travel Services',
+    es: 'Nuestros Servicios de Viaje con IA',
+    pt: 'Nossos Serviços de Viagem com IA'
+  },
+  'services.description': {
+    en: 'Discover how our dual AI assistants can transform your travel business and delight your customers.',
+    es: 'Descubre cómo nuestros asistentes de IA pueden transformar tu negocio de viajes y deleitar a tus clientes.',
+    pt: 'Descubra como nossos assistentes de IA podem transformar seu negócio de viagens e encantar seus clientes.'
+  },
+  'services.advisor.title': {
+    en: 'AI Travel Advisor Assistant',
+    es: 'Asistente de Asesor de Viajes IA',
+    pt: 'Assistente de Consultor de Viagens IA'
+  },
+  'services.advisor.description': {
+    en: 'Help travel advisors quickly find the best deals and information for customers, reducing research time dramatically.',
+    es: 'Ayuda a los asesores de viajes a encontrar rápidamente las mejores ofertas e información para los clientes, reduciendo drásticamente el tiempo de investigación.',
+    pt: 'Ajude consultores de viagens a encontrar rapidamente as melhores ofertas e informações para clientes, reduzindo drasticamente o tempo de pesquisa.'
+  },
+  'services.booking.title': {
+    en: 'Customer Booking Assistant',
+    es: 'Asistente de Reserva para Clientes',
+    pt: 'Assistente de Reserva para Clientes'
+  },
+  'services.booking.description': {
+    en: 'Guide customers through the booking process, from searching for trips to payment and confirmation.',
+    es: 'Guía a los clientes a través del proceso de reserva, desde la búsqueda de viajes hasta el pago y la confirmación.',
+    pt: 'Guie os clientes através do processo de reserva, desde a busca de viagens até o pagamento e confirmação.'
+  },
+  'services.finder.title': {
+    en: 'Smart Trip Finder',
+    es: 'Buscador Inteligente de Viajes',
+    pt: 'Localizador Inteligente de Viagens'
+  },
+  'services.finder.description': {
+    en: 'Analyze thousands of options to find the perfect match for customer preferences and budget constraints.',
+    es: 'Analiza miles de opciones para encontrar la combinación perfecta según preferencias y restricciones presupuestarias del cliente.',
+    pt: 'Analise milhares de opções para encontrar a combinação perfeita para as preferências do cliente e restrições orçamentárias.'
+  },
+  'services.support.title': {
+    en: '24/7 Customer Support',
+    es: 'Soporte al Cliente 24/7',
+    pt: 'Suporte ao Cliente 24/7'
+  },
+  'services.support.description': {
+    en: 'Provide instant responses to common questions and concerns, even outside business hours.',
+    es: 'Proporciona respuestas instantáneas a preguntas y preocupaciones comunes, incluso fuera del horario laboral.',
+    pt: 'Forneça respostas instantâneas a perguntas e preocupações comuns, mesmo fora do horário comercial.'
+  },
+  'services.intelligence.title': {
+    en: 'Market Intelligence',
+    es: 'Inteligencia de Mercado',
+    pt: 'Inteligência de Mercado'
+  },
+  'services.intelligence.description': {
+    en: 'Stay ahead of trends and competition with AI-powered analytics and insights.',
+    es: 'Mantente por delante de las tendencias y la competencia con análisis e insights impulsados por IA.',
+    pt: 'Mantenha-se à frente das tendências e da concorrência com análises e insights baseados em IA.'
+  },
+  'services.payment.title': {
+    en: 'Secure Payment Processing',
+    es: 'Procesamiento de Pago Seguro',
+    pt: 'Processamento de Pagamento Seguro'
+  },
+  'services.payment.description': {
+    en: 'Facilitate safe and easy transactions between customers and travel providers.',
+    es: 'Facilita transacciones seguras y fáciles entre clientes y proveedores de viajes.',
+    pt: 'Facilite transações seguras e fáceis entre clientes e fornecedores de viagens.'
+  },
+  'problems.title': {
+    en: 'Problems We\'re Solving',
+    es: 'Problemas Que Estamos Resolviendo',
+    pt: 'Problemas Que Estamos Resolvendo'
+  },
+  'problems.description': {
+    en: 'The travel industry faces numerous challenges that our AI technology is uniquely positioned to address.',
+    es: 'La industria de viajes enfrenta numerosos desafíos que nuestra tecnología de IA está en una posición única para abordar.',
+    pt: 'A indústria de viajes enfrenta numerosos desafios que nossa tecnologia de IA está exclusivamente posicionada para resolver.'
+  },
+  'problems.tabs.quotation': {
+    en: 'Quotations',
+    es: 'Cotizaciones',
+    pt: 'Cotações'
+  },
+  'problems.tabs.organization': {
+    en: 'Organization',
+    es: 'Organización',
+    pt: 'Organização'
+  },
+  'problems.tabs.tracking': {
+    en: 'Tracking',
+    es: 'Seguimiento',
+    pt: 'Acompanhamento'
+  },
+  'problems.before': {
+    en: 'Before',
+    es: 'Antes',
+    pt: 'Antes'
+  },
+  'problems.after': {
+    en: 'After',
+    es: 'Después',
+    pt: 'Depois'
+  },
+  'problems.quotation.before.1': {
+    en: 'Manual quotations taking 30+ minutes',
+    es: 'Cotizaciones manuales que toman 30+ minutos',
+    pt: 'Cotações manuais que levam mais de 30 minutos'
+  },
+  'problems.quotation.before.2': {
+    en: 'Errors in calculations and pricing',
+    es: 'Errores en los cálculos y precios',
+    pt: 'Erros nos cálculos e preços'
+  },
+  'problems.quotation.before.3': {
+    en: 'Inconsistent formats',
+    es: 'Formatos inconsistentes',
+    pt: 'Formatos inconsistentes'
+  },
+  'problems.quotation.before.4': {
+    en: 'Difficulty tracking progress',
+    es: 'Dificultad para hacer seguimiento',
+    pt: 'Dificuldade para fazer acompanhamento'
+  },
+  'problems.quotation.after.1': {
+    en: 'Automated quotations in seconds',
+    es: 'Cotizaciones automáticas en segundos',
+    pt: 'Cotações automáticas em segundos'
+  },
+  'problems.quotation.after.2': {
+    en: 'Precise calculations without errors',
+    es: 'Cálculos precisos sin errores',
+    pt: 'Cálculos precisos sem erros'
+  },
+  'problems.quotation.after.3': {
+    en: 'Consistent professional format',
+    es: 'Formato profesional consistente',
+    pt: 'Formato profissional consistente'
+  },
+  'problems.quotation.after.4': {
+    en: 'Automatic tracking and reminders',
+    es: 'Seguimiento automático y recordatorios',
+    pt: 'Acompanhamento automático e lembretes'
+  },
+  'problems.organization.before.1': {
+    en: 'Mixed conversations with clients',
+    es: 'Conversaciones mezcladas con clientes',
+    pt: 'Conversas misturadas com clientes'
+  },
+  'problems.organization.before.2': {
+    en: 'Information scattered in notes and chats',
+    es: 'Información dispersa en notas y chats',
+    pt: 'Informações dispersas em notas e chats'
+  },
+  'problems.organization.before.3': {
+    en: 'Difficult to find customer history',
+    es: 'Difícil encontrar historiales de clientes',
+    pt: 'Difícil encontrar históricos de clientes'
+  },
+  'problems.organization.before.4': {
+    en: 'No prospect categorization',
+    es: 'Sin categorización de prospectos',
+    pt: 'Sin categorização de leads'
+  },
+  'problems.organization.after.1': {
+    en: 'Chats organized by client and stage',
+    es: 'Chats organizados por cliente y etapa',
+    pt: 'Chats organizados por cliente e fase'
+  },
+  'problems.organization.after.2': {
+    en: 'All information centralized',
+    es: 'Toda la información centralizada',
+    pt: 'Todas as informações centralizadas'
+  },
+  'problems.organization.after.3': {
+    en: 'Complete history and quick search',
+    es: 'Historial completo y búsqueda rápida',
+    pt: 'Histórico completo e busca rápida'
+  },
+  'problems.organization.after.4': {
+    en: 'Automatic prospect classification',
+    es: 'Clasificación automática de prospectos',
+    pt: 'Classificação automática de leads'
+  },
+  'problems.tracking.before.1': {
+    en: 'Inconsistent manual tracking',
+    es: 'Seguimiento manual poco consistente',
+    pt: 'Acompanhamento manual inconsistente'
+  },
+  'problems.tracking.before.2': {
+    en: 'Potential clients are forgotten',
+    es: 'Se olvidan clientes potenciales',
+    pt: 'Clientes potenciales são esquecidos'
+  },
+  'problems.tracking.before.3': {
+    en: 'No performance metrics',
+    es: 'Sin métricas de desempeño',
+    pt: 'Sin métricas de desempenho'
+  },
+  'problems.tracking.before.4': {
+    en: 'Slow response times',
+    es: 'Tiempos de respuesta lentos',
+    pt: 'Tempos de resposta lentos'
+  },
+  'problems.tracking.after.1': {
+    en: 'Automated tracking with reminders',
+    es: 'Seguimiento automatizado con recordatorios',
+    pt: 'Acompanhamento automatizado com lembretes'
+  },
+  'problems.tracking.after.2': {
+    en: 'No client is left without attention',
+    es: 'Ningún cliente se queda sin atención',
+    pt: 'Nenhum cliente fica sem atenção'
+  },
+  'problems.tracking.after.3': {
+    en: 'Dashboard with real-time metrics',
+    es: 'Dashboard con métricas en tiempo real',
+    pt: 'Dashboard com métricas em tempo real'
+  },
+  'problems.tracking.after.4': {
+    en: 'Quick pre-configured responses',
+    es: 'Respuestas rápidas preconfiguradas',
+    pt: 'Respostas rápidas pré-configuradas'
+  },
+  'usecases.title': {
+    en: 'How Our AI Works in Action',
+    es: 'Cómo Funciona Nuestra IA en Acción',
+    pt: 'Como Nossa IA Funciona em Ação'
+  },
+  'usecases.description': {
+    en: 'Explore practical applications of our AI assistants in real-world travel scenarios.',
+    es: 'Explora aplicaciones prácticas de nuestros asistentes de IA en escenarios de viaje del mundo real.',
+    pt: 'Explore aplicações práticas dos nossos assistentes de IA em cenários de viagem do mundo real.'
+  },
+  'usecases.advisors': {
+    en: 'For Travel Advisors',
+    es: 'Para Asesores de Viajes',
+    pt: 'Para Consultores de Viagens'
+  },
+  'usecases.travelers': {
+    en: 'For Travelers',
+    es: 'Para Viajeros',
+    pt: 'Para Viajantes'
+  },
+  'process.step1.title': {
+    en: 'Quotation',
+    es: 'Cotización',
+    pt: 'Cotação'
+  },
+  'process.step1.description': {
+    en: 'Generate professional quotes automatically with just a few clicks',
+    es: 'Genera cotizaciones profesionales automáticamente con solo unos clics',
+    pt: 'Gere orçamentos profissionais automaticamente com apenas alguns cliques'
+  },
+  'process.step2.title': {
+    en: 'Confirmation',
+    es: 'Confirmación',
+    pt: 'Confirmação'
+  },
+  'process.step2.description': {
+    en: 'Process confirmations and payments directly through WhatsApp',
+    es: 'Procesa confirmaciones y pagos directamente a través de WhatsApp',
+    pt: 'Processe confirmações e pagamentos diretamente pelo WhatsApp'
+  },
+  'process.step3.title': {
+    en: 'Documents',
+    es: 'Documentos',
+    pt: 'Documentos'
+  },
+  'process.step3.description': {
+    en: 'Send itineraries and necessary documentation automatically',
+    es: 'Envía itinerarios y documentación necesaria automáticamente',
+    pt: 'Envie itinerários e documentação necessária automaticamente'
+  },
+  'process.step4.title': {
+    en: 'Monitoring',
+    es: 'Seguimiento',
+    pt: 'Monitoramento'
+  },
+  'process.step4.description': {
+    en: 'Keep your customers informed with scheduled updates',
+    es: 'Mantén a tus clientes informados con actualizaciones programadas',
+    pt: 'Mantenha seus clientes informados com atualizações programadas'
+  },
+  'whatsapp.experience.title': {
+    en: 'Fluid WhatsApp Experience',
+    es: 'Experiencia WhatsApp Fluida',
+    pt: 'Experiência Fluida no WhatsApp'
+  },
+  'whatsapp.experience.instant.title': {
+    en: 'Instant Responses',
+    es: 'Respuestas instantáneas',
+    pt: 'Respostas instantâneas'
+  },
+  'whatsapp.experience.instant.description': {
+    en: 'Your customers receive immediate responses, even when you are busy with other matters.',
+    es: 'Tus clientes reciben respuestas inmediatas, incluso cuando estás ocupado con otros asuntos.',
+    pt: 'Seus clientes recebem respostas imediatas, mesmo quando você está ocupado com outros assuntos.'
+  },
+  'whatsapp.experience.personalization.title': {
+    en: 'Automatic Personalization',
+    es: 'Personalización automática',
+    pt: 'Personalização automática'
+  },
+  'whatsapp.experience.personalization.description': {
+    en: 'Each message adapts to the client, including their name and specific details of their inquiry.',
+    es: 'Cada mensaje se adapta al cliente, incluyendo su nombre y detalles específicos de su consulta.',
+    pt: 'Cada mensagem se adapta ao cliente, incluindo seu nome e detalhes específicos de sua consulta.'
+  },
+  'whatsapp.experience.languages.title': {
+    en: 'Multiple Languages',
+    es: 'Múltiples idiomas',
+    pt: 'Múltiplos idiomas'
+  },
+  'whatsapp.experience.languages.description': {
+    en: 'Communicate with international customers with support for English, Spanish and other languages.',
+    es: 'Comunícate con clientes internacionales con soporte para español, inglés y otros idiomas.',
+    pt: 'Comunique-se com clientes internacionais com suporte para português, inglês, espanhol e outros idiomas.'
+  },
+  'whatsapp.header.title': {
+    en: 'Travel Assistant',
+    es: 'Asistente de Viajes',
+    pt: 'Assistente de Viagens'
+  },
+  'whatsapp.header.status': {
+    en: 'typing...',
+    es: 'escribiendo...',
+    pt: 'digitando...'
+  },
+  'whatsapp.conversation.message1': {
+    en: 'Hello, could you send me information about packages to Cancun?',
+    es: 'Hola, ¿podrían enviarme información sobre paquetes a Cancún?',
+    pt: 'Olá, poderia me enviar informações sobre pacotes para Cancún?'
+  },
+  'whatsapp.conversation.response1': {
+    en: 'Hello! Of course, we have excellent options for Cancun. For how many people and on what dates are you thinking of traveling?',
+    es: '¡Hola! Por supuesto, tenemos excelentes opciones para Cancún. ¿Para cuántas personas y en qué fechas estás pensando viajar?',
+    pt: 'Olá! Claro, temos excelentes opções para Cancún. Para quantas pessoas e em quais datas você está pensando em viajar?'
+  },
+  'whatsapp.conversation.message2': {
+    en: 'For 2 adults, from July 15 to 22',
+    es: 'Para 2 adultos, del 15 al 22 de julio',
+    pt: 'Para 2 adultos, de 15 a 22 de julho'
+  },
+  'whatsapp.conversation.response2': {
+    en: 'Perfect! Here are our 3 best options for those dates:',
+    es: '¡Perfecto! Aquí tienes nuestras 3 mejores opciones para esas fechas:',
+    pt: 'Perfeito! Aqui estão nossas 3 melhores opções para essas datas:'
+  },
+  'whatsapp.conversation.quote': {
+    en: '[PDF Quote] Cancun Options Jul 15-22',
+    es: '[Cotización PDF] Opciones Cancún Jul 15-22',
+    pt: '[Orçamento PDF] Opções Cancún Jul 15-22'
+  },
+  'whatsapp.conversation.message3': {
+    en: 'Thank you! I\'m interested in option 2. How can I book?',
+    es: '¡Gracias! Me interesa la opción 2. ¿Cómo puedo reservar?',
+    pt: 'Obrigado! Estou interessado na opção 2. Como posso reservar?'
+  },
+  'crm.title': {
+    en: 'CRM Integration',
+    es: 'Integración con CRM',
+    pt: 'Integração com CRM'
+  },
+  'crm.description': {
+    en: 'All your data automatically synchronized with your CRM system for complete analysis.',
+    es: 'Todos tus datos sincronizados automáticamente con tu sistema CRM para un análisis completo.',
+    pt: 'Todos os seus dados sincronizados automaticamente com seu sistema CRM para uma análise completa.'
+  },
+  'crm.whatsapp.data': {
+    en: 'WhatsApp Data',
+    es: 'Datos de WhatsApp',
+    pt: 'Dados do WhatsApp'
+  },
+  'crm.dashboard': {
+    en: 'CRM Dashboard',
+    es: 'CRM Dashboard',
+    pt: 'CRM Dashboard'
+  },
+  'crm.stats.newLeads': {
+    en: 'New Leads',
+    es: 'Leads Nuevos',
+    pt: 'Novos Leads'
+  },
+  'crm.stats.closedSales': {
+    en: 'Closed Sales',
+    es: 'Ventas Cerradas',
+    pt: 'Vendas Fechadas'
+  },
+  'crm.stats.conversionRate': {
+    en: 'Conversion Rate',
+    es: 'Tasa de Conversión',
+    pt: 'Taxa de Conversão'
+  },
+  'crm.stats.recentClients': {
+    en: 'Recent Clients',
+    es: 'Clientes Recientes',
+    pt: 'Clientes Recentes'
+  },
+  'crm.clients.client1.name': {
+    en: 'Maria Lopez',
+    es: 'María López',
+    pt: 'Maria Lopez'
+  },
+  'crm.clients.client1.status': {
+    en: 'Booked',
+    es: 'Reservado',
+    pt: 'Reservado'
+  },
+  'crm.clients.client2.name': {
+    en: 'Carlos Garcia',
+    es: 'Carlos García',
+    pt: 'Carlos Garcia'
+  },
+  'crm.clients.client2.status': {
+    en: 'Quote sent',
+    es: 'Cotización enviada',
+    pt: 'Orçamento enviado'
+  },
+  'crm.clients.client3.name': {
+    en: 'Andrea Ruiz',
+    es: 'Andrea Ruiz',
+    pt: 'Andrea Ruiz'
+  },
+  'crm.clients.client3.status': {
+    en: 'Interested',
+    es: 'Interesado',
+    pt: 'Interessado'
+  },
+  'cta.title': {
+    en: 'Ready to boost your sales?',
+    es: '¿Listo para impulsar tus ventas?',
+    pt: 'Pronto para impulsionar suas vendas?'
+  },
+  'cta.description': {
+    en: 'Start using our WhatsApp sales assistant today and transform your sales process.',
+    es: 'Comienza a utilizar nuestro asistente de ventas por WhatsApp hoy mismo y transforma tu proceso de ventas.',
+    pt: 'Comece a usar nosso assistente de vendas por WhatsApp hoje mesmo e transforme seu processo de vendas.'
+  },
+  'cta.whatsapp': {
+    en: 'Contact via WhatsApp',
+    es: 'Contactar por WhatsApp',
+    pt: 'Contato via WhatsApp'
+  },
+  'cta.demo': {
+    en: 'Request Demo',
+    es: 'Solicitar Demo',
+    pt: 'Solicitar Demo'
+  },
+  'whatsapp.chat': {
+    en: 'Chat with us',
+    es: 'Chatea con nosotros',
+    pt: 'Converse conosco'
+  },
+  'whatsapp.message': {
+    en: 'Hello, I would like more information about your travel services.',
+    es: 'Hola, me gustaría más información sobre sus servicios de viaje.',
+    pt: 'Olá, eu gostaria de mais informações sobre seus serviços de viagem.'
+  },
+  'faq.title': {
+    en: 'Frequently Asked Questions',
+    es: 'Preguntas Frecuentes',
+    pt: 'Perguntas Frequentes'
+  },
+  'faq.description': {
+    en: 'Find answers to common questions about our AI travel solutions',
+    es: 'Encuentra respuestas a preguntas comunes sobre nuestras soluciones de viaje con IA',
+    pt: 'Encontre respostas para perguntas comuns sobre nossas soluções de viagem com IA'
+  },
+  'faq.items.item1.question': {
+    en: 'How does the AI advisor assistant work?',
+    es: '¿Cómo funciona el asistente de IA para asesores?',
+    pt: 'Como funciona o assistente de IA para consultores?'
+  },
+  'faq.items.item1.answer': {
+    en: 'Our AI advisor assistant uses advanced natural language processing and machine learning to analyze thousands of travel options across multiple providers. It quickly filters results based on specific client requirements, price ranges, and preferences, presenting advisors with the most relevant options and saving hours of research time.',
+    es: 'Nuestro asistente de IA para asesores utiliza procesamiento avanzado de lenguaje natural y aprendizaje automático para analizar miles de opciones de viaje de múltiples proveedores. Filtra rápidamente los resultados según los requisitos específicos del cliente, rangos de precios y preferencias, presentando a los asesores las opciones más relevantes y ahorrando horas de tiempo de investigación.',
+    pt: 'Nosso assistente de IA para consultores usa processamento avançado de linguagem natural e aprendizado de máquina para analisar milhares de opções de viagem em vários provedores. Ele filtra rapidamente os resultados com base nos requisitos específicos do cliente, faixas de preço e preferências, apresentando aos consultores as opções mais relevantes e economizando horas de tempo de pesquisa.'
+  },
+  'faq.items.item2.question': {
+    en: 'Is customer data kept secure?',
+    es: '¿Se mantienen seguros los datos de los clientes?',
+    pt: 'Os dados dos clientes são mantidos seguros?'
+  },
+  'faq.items.item2.answer': {
+    en: 'Absolutely. We implement enterprise-grade security measures including encryption, secure authentication, and regular security audits. All customer data is protected in compliance with global privacy standards, and we never share personal information with third parties without explicit consent.',
+    es: 'Absolutamente. Implementamos medidas de seguridad de nivel empresarial que incluyen cifrado, autenticación segura y auditorías de seguridad regulares. Todos los datos de los clientes están protegidos en cumplimiento con los estándares globales de privacidad, y nunca compartimos información personal con terceros sin consentimiento explícito.',
+    pt: 'Absolutamente. Implementamos medidas de segurança de nível empresarial, incluindo criptografia, autenticação segura e auditorias regulares de segurança. Todos os dados dos clientes são protegidos em conformidade com os padrões globais de privacidade, e nunca compartilhamos informações pessoais com terceiros sem consentimento explícito.'
+  },
+  'faq.items.item3.question': {
+    en: 'Can the AI handle complex itineraries?',
+    es: '¿Puede la IA manejar itinerarios complejos?',
+    pt: 'A IA consegue lidar com itinerários complexos?'
+  },
+  'faq.items.item3.answer': {
+    en: 'Yes, our AI excels at managing complex multi-destination itineraries with various transportation methods, accommodation types, and activities. It can coordinate complicated logistics while optimizing for factors like cost, convenience, and customer preferences.',
+    es: 'Sí, nuestra IA se destaca en la gestión de itinerarios complejos con múltiples destinos, diversos métodos de transporte, tipos de alojamiento y actividades. Puede coordinar logísticas complicadas mientras optimiza factores como costo, conveniencia y preferencias del cliente.',
+    pt: 'Sim, nossa IA se destaca no gerenciamento de itinerários complexos com múltiplos destinos, vários métodos de transporte, tipos de acomodação e atividades. Ela pode coordenar logísticas complicadas enquanto otimiza fatores como custo, conveniência e preferências do cliente.'
+  },
+  'faq.items.item4.question': {
+    en: 'How do payments work through the platform?',
+    es: '¿Cómo funcionan los pagos a través de la plataforma?',
+    pt: 'Como funcionam os pagamentos através da plataforma?'
+  },
+  'faq.items.item4.answer': {
+    en: 'Our secure payment system integrates with major payment processors and provides multiple payment options for customers. The system handles deposits, installment payments, and full payments, with automated receipts and confirmation emails. Travel advisors receive immediate notification of completed transactions.',
+    es: 'Nuestro sistema de pago seguro se integra con los principales procesadores de pago y proporciona múltiples opciones de pago para los clientes. El sistema maneja depósitos, pagos en cuotas y pagos completos, con recibos automatizados y correos electrónicos de confirmación. Los asesores de viaje reciben notificación inmediata de las transacciones completadas.',
+    pt: 'Nosso sistema de pagamento seguro se integra com los principales processadores de pagamento e oferece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
+  },
+  'faq.items.item5.question': {
+    en: 'Can the AI assistant be customized for my travel business?',
+    es: '¿Se puede personalizar el asistente de IA para mi negocio de viajes?',
+    pt: 'O assistente de IA pode ser personalizado para o meu negócio de viagens?'
+  },
+  'faq.items.item5.answer': {
+    en: 'Yes, our AI solutions are designed to be highly customizable. We can adapt the system to match your brand voice, preferred suppliers, commission structures, and business workflow. The AI learns from your business patterns over time, becoming increasingly tailored to your specific needs.',
+    es: 'Sí, nuestras soluciones de IA están diseñadas para ser altamente personalizables. Podemos adaptar el sistema para que coincida con la voz de su marca, proveedores preferidos, estructuras de comisiones y flujo de trabajo comercial. La IA aprende de los patrones de su negocio con el tiempo, volviéndose cada vez más adaptada a sus necesidades específicas.',
+    pt: 'Sim, nossas soluções de IA são projetadas para serem altamente personalizáveis. Podemos adaptar o sistema para corresponder à voz da sua marca, fornecedores preferidos, estruturas de comissão e fluxo de trabalho do negócio. A IA aprende com os padrões do seu negócio ao longo do tempo, tornando-se cada vez mais adaptada às suas necessidades específicas.'
+  },
+  'faq.items.item6.question': {
+    en: 'Is training required to use the system?',
+    es: '¿Se requiere capacitación para usar el sistema?',
+    pt: 'É necessário treinamento para usar o sistema?'
+  },
+  'faq.items.item6.answer': {
+    en: 'We provide comprehensive onboarding and training, but the system is designed to be intuitive and user-friendly. Most travel advisors can begin using the basic features within hours, while more advanced capabilities might require additional familiarization. Our support team is always available to help with questions or challenges.',
+    es: 'Proporcionamos una incorporación y capacitación integral, pero el sistema está diseñado para ser intuitivo y fácil de usar. La mayoría de los asesores de viajes pueden comenzar a usar las funciones básicas en cuestión de horas, mientras que las capacidades más avanzadas podrían requerir una familiarización adicional. Nuestro equipo de soporte siempre está disponible para ayudar con preguntas o desafíos.',
+    pt: 'Fornecemos integração e treinamento abrangentes, mas o sistema é projetado para ser intuitivo e fácil de usar. A maioria dos consultores de viagem pode começar a usar os recursos básicos em poucas horas, enquanto recursos mais avançados podem exigir familiarização adicional. Nossa equipe de suporte está sempre disponível para ajudar com perguntas ou desafios.'
+  },
+  'contact.title': {
+    en: 'Contact Us',
+    es: 'Contáctanos',
+    pt: 'Contate-nos'
+  },
+  'contact.description': {
+    en: 'Get in touch with our team and discover how we can transform your travel business',
+    es: 'Ponte en contacto con nuestro equipo y descubre cómo podemos transformar tu negocio de viajes',
+    pt: 'Entre em contato com nossa equipe e descubra como podemos transformar seu negócio de viagens'
+  },
+  'contact.info.title': {
+    en: 'Contact Information',
+    es: 'Información de Contacto',
+    pt: 'Informações de Contato'
+  },
+  'contact.info.description': {
+    en: 'Have questions about our AI solutions? Fill out the form or contact us directly using the information below.',
+    es: '¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o contáctanos directamente utilizando la información a continuación.',
+    pt: 'Tem perguntas sobre nossas soluções de IA? Preencha o formulário ou contate-nos diretamente usando as informações abaixo.'
+  },
+  'contact.info.email.label': {
+    en: 'Email',
+    es: 'Correo Electrónico',
+    pt: 'Email'
+  },
+  'contact.info.email.value': {
+    en: 'manuel.gruezo@uao.edu.co',
+    es: 'manuel.gruezo@uao.edu.co',
+    pt: 'manuel.gruezo@uao.edu.co'
+  },
+  'contact.info.whatsapp.label': {
+    en: 'WhatsApp',
+    es: 'WhatsApp',
+    pt: 'WhatsApp'
+  },
+  'contact.info.whatsapp.value': {
+    en: '+573159381236',
+    es: '+573159381236',
+    pt: '+573159381236'
+  },
+  'contact.info.hours.label': {
+    en: 'Office Hours',
+    es: 'Horario de Oficina',
+    pt: 'Horário de Funcionamento'
+  },
+  'contact.info.hours.value': {
+    en: 'Monday to Friday, 9AM - 5PM EST',
+    es: 'Lunes a Viernes, 9AM - 5PM EST',
+    pt: 'Segunda a Sexta, 9AM - 5PM EST'
+  },
+  'contact.form.name.label': {
+    en: 'Name',
+    es: 'Nombre',
+    pt: 'Nome'
+  },
+  'contact.form.name.placeholder': {
+    en: 'Your name',
+    es: 'Tu nombre',
+    pt: 'Seu nome'
+  },
+  'contact.form.email.label': {
+    en: 'Email',
+    es: 'Correo Electrónico',
+    pt: 'Email'
+  },
+  'contact.form.email.placeholder': {
+    en: 'your@email.com',
+    es: 'tu@email.com',
+    pt: 'seu@email.com'
+  },
+  'contact.form.company.label': {
+    en: 'Company',
+    es: 'Empresa',
+    pt: 'Empresa'
+  },
+  'contact.form.company.placeholder': {
+    en: 'Your company name',
+    es: 'Nombre de tu empresa',
+    pt: 'Nome da sua empresa'
+  },
+  'contact.form.message.label': {
+    en: 'Message',
+    es: 'Mensaje',
+    pt: 'Mensagem'
+  },
+  'contact.form.message.placeholder': {
+    en: 'How can we help you?',
+    es: '¿Cómo podemos ayudarte?',
+    pt: 'Como podemos ajudá-lo?'
+  },
+  'contact.form.submit': {
+    en: 'Send Message',
+    es: 'Enviar Mensaje',
+    pt: 'Enviar Mensagem'
+  },
+  'contact.form.submitting': {
+    en: 'Sending...',
+    es: 'Enviando...',
+    pt: 'Enviando...'
+  },
+  'team.title': {
+    en: 'Our Team',
+    es: 'Nuestro Equipo',
+    pt: 'Nossa Equipe'
+  },
+  'team.description': {
+    en: 'Meet the talented individuals behind our AI travel solutions',
+    es: 'Conoce a las personas talentosas detrás de nuestras soluciones de viaje con IA',
+    pt: 'Conheça os talentosos indivíduos por trás de nossas soluções de viagem com IA'
+  },
+  'team.role.ceo': {
+    en: 'CEO',
+    es: 'CEO',
+    pt: 'CEO'
+  },
+  'team.role.cdo': {
+    en: 'CDO',
+    es: 'CDO',
+    pt: 'CDO'
+  },
+  'team.role.cto': {
+    en: 'CTO',
+    es: 'CTO',
+    pt: 'CTO'
+  },
+  'team.role.ai': {
+    en: 'AI Engineer',
+    es: 'Ingeniero de IA',
+    pt: 'Engenheiro de IA'
+  },
+  'waitlist.formTitle': {
+    en: 'Sign up for early access',
+    es: 'Regístrate para acceso anticipado',
+    pt: 'Cadastre-se para acesso antecipado'
+  },
+  'waitlist.formDescription': {
+    en: 'Fill in your details below to join our waitlist and be notified when we launch.',
+    es: 'Completa tus datos a continuación para unirte a nuestra lista de espera y recibir notificaciones cuando lancemos.',
+    pt: 'Preencha seus dados abaixo para entrar em nossa lista de espera e ser notificado quando lançarmos.'
+  },
+  'waitlist.nameLabel': {
+    en: 'Full Name',
+    es: 'Nombre Completo',
+    pt: 'Nome Completo'
+  },
+  'waitlist.namePlaceholder': {
+    en: 'Enter your name',
+    es: 'Ingresa tu nombre',
+    pt: 'Digite seu nome'
+  },
+  'waitlist.emailLabel': {
+    en: 'Email Address',
+    es: 'Correo Electrónico',
+    pt: 'Endereço de Email'
+  },
+  'waitlist.emailPlaceholder': {
+    en: 'Enter your email',
+    es: 'Ingresa tu correo',
+    pt: 'Digite seu email'
+  },
+  'waitlist.phoneLabel': {
+    en: 'Phone Number (optional)',
+    es: 'Número de Teléfono (opcional)',
+    pt: 'Número de Telefone (opcional)'
+  },
+  'waitlist.phonePlaceholder': {
+    en: 'Enter your phone number',
+    es: 'Ingresa tu número de teléfono',
+    pt: 'Digite seu número de telefone'
+  },
+  'waitlist.interestLabel': {
+    en: 'Your Interest',
+    es: 'Tu Interés',
+    pt: 'Seu Interesse'
+  },
+  'waitlist.interestPlaceholder': {
+    en: 'E.g. Hotel management, travel agency, etc.',
+    es: 'Ej: Gestión hotelera, agencia de viajes, etc.',
+    pt: 'Ex: Gestão hoteleira, agência de viagens, etc.'
+  },
+  'waitlist.submit': {
+    en: 'Join Waitlist',
+    es: 'Unirse a la Lista',
+    pt: 'Entrar na Lista'
+  },
+  'waitlist.submitting': {
+    en: 'Submitting...',
+    es: 'Enviando...',
+    pt: 'Enviando...'
+  },
+  'waitlist.success': {
+    en: 'Success!',
+    es: '¡Éxito!',
+    pt: 'Sucesso!'
+  },
+  'waitlist.successMessage': {
+    en: 'You\'ve been added to our waitlist. We\'ll notify you when we launch!',
+    es: 'Has sido añadido a nuestra lista de espera. ¡Te notificaremos cuando lancemos!',
+    pt: 'Você foi adicionado à nossa lista de espera. Iremos notificá-lo quando lançarmos!'
+  },
+  'waitlist.error': {
+    en: 'Submission Error',
+    es: 'Error de Envío',
+    pt: 'Erro de Envio'
+  },
+  'waitlist.errorMessage': {
+    en: 'There was a problem with your submission. Please try again.',
+    es: 'Hubo un problema con tu envío. Por favor, intenta de nuevo.',
+    pt: 'Houve um problema com seu envio. Por favor, tente novamente.'
+  },
+  'waitlist.errorRequired': {
+    en: 'Please fill in all required fields.',
+    es: 'Por favor, completa todos los campos requeridos.',
+    pt: 'Por favor, preencha todos os campos obrigatórios.'
   }
 };
 
-export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState(() => {
-    // Try to get the language from localStorage
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'es' || savedLanguage === 'pt')) {
+const LanguageContext = createContext<LanguageContextType>({
+  language: 'en',
+  setLanguage: () => {},
+  translations: defaultTranslations,
+  t: () => '',
+});
+
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // Detect browser language or use stored preference
+  const detectLanguage = (): Language => {
+    const savedLanguage = localStorage.getItem('preferred-language');
+    if (savedLanguage === 'en' || savedLanguage === 'es' || savedLanguage === 'pt') {
       return savedLanguage;
     }
     
-    // If not found, try to detect from browser
-    const browserLang = navigator.language.split('-')[0];
-    if (browserLang === 'es' || browserLang === 'pt') return browserLang;
-    return 'en'; // Default to English
-  });
+    // Check browser language
+    const browserLang = navigator.language.toLowerCase();
+    if (browserLang.startsWith('es')) {
+      return 'es';
+    }
+    if (browserLang.startsWith('pt')) {
+      return 'pt';
+    }
+    
+    return 'en';
+  };
 
+  const [language, setLanguageState] = useState<Language>(detectLanguage());
+  
   useEffect(() => {
-    // Save the language preference to localStorage
-    localStorage.setItem('language', language);
     // Update html lang attribute for SEO
     document.documentElement.lang = language;
   }, [language]);
 
-  const t = (key: string): string => {
-    // Split the key by dots to access nested properties
-    const keys = key.split('.');
-    let value: any = translations[language as keyof typeof translations];
-    
-    // Try to find the key in the translations
-    for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
-      } else {
-        // Key not found, fallback to the key itself
-        return key;
-      }
-    }
-    
-    return value || key;
+  const setLanguage = (newLanguage: Language) => {
+    localStorage.setItem('preferred-language', newLanguage);
+    setLanguageState(newLanguage);
   };
 
-  const changeLanguage = (lang: string) => {
-    if (lang === 'en' || lang === 'es' || lang === 'pt') {
-      setLanguage(lang as 'en' | 'es' | 'pt');
+  // Translate function
+  const t = (key: string): string => {
+    if (!defaultTranslations[key]) {
+      console.warn(`Translation missing for key: ${key}`);
+      return key;
     }
+    
+    if (!defaultTranslations[key][language]) {
+      console.warn(`Missing ${language} translation for key: ${key}`);
+      return defaultTranslations[key]['en'] || key;
+    }
+    
+    return defaultTranslations[key][language];
   };
 
   return (
-    <LanguageContext.Provider value={{ language, t, setLanguage, changeLanguage }}>
+    <LanguageContext.Provider value={{ 
+      language, 
+      setLanguage, 
+      translations: defaultTranslations,
+      t 
+    }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-export const useLanguage = () => useContext(LanguageContext);
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
