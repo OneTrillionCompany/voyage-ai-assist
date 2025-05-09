@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'es' | 'pt';
@@ -12,9 +11,9 @@ type LanguageContextType = {
 
 const defaultTranslations = {
   'hero.title': {
-    en: 'Transform Your Agency: 75% Less Time, 90% More Conversions', // Vende tres veces más viajes con IA
-    es: 'Transforma tu Agencia: 75% Menos Tiempo, 90% Más Conversiones', // Vende tres veces más viajes con IA
-    pt: 'Transforme sua Agência: 75% Menos Tempo, 90% Mais Conversões' //Vende tres veces más viajes con IA
+    en: 'Sell 3x More Trips with AI Agent', // Updated from 'Transform Your Agency: 75% Less Time, 90% More Conversions'
+    es: 'Vende 3x veces más viajes con IA agent', // Updated as requested
+    pt: 'Venda 3x mais viagens com Agente de IA' // Updated equivalent in Portuguese
   },
   'hero.description': {
     en: 'Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.',
@@ -259,7 +258,7 @@ const defaultTranslations = {
   'problems.organization.before.4': {
     en: 'No prospect categorization',
     es: 'Sin categorización de prospectos',
-    pt: 'Sin categorização de leads'
+    pt: 'Sin categorización de leads'
   },
   'problems.organization.after.1': {
     en: 'Chats organized by client and stage',
@@ -379,7 +378,7 @@ const defaultTranslations = {
   'process.step4.description': {
     en: 'Keep your customers informed with scheduled updates',
     es: 'Mantén a tus clientes informados con actualizaciones programadas',
-    pt: 'Mantenha seus clientes informados com actualizaciones programadas'
+    pt: 'Mantenha seus clientes informados con actualizaciones programadas'
   },
   'whatsapp.experience.title': {
     en: 'Fluid WhatsApp Experience',
@@ -549,7 +548,7 @@ const defaultTranslations = {
   'crm.slides.slide6.description': {
     en: 'Centralize all customer communications including emails, calls, and chat messages in one unified inbox.',
     es: 'Centraliza todas las comunicaciones con clientes incluyendo correos electrónicos, llamadas y mensajes de chat en una bandeja de entrada unificada.',
-    pt: 'Centralize todas as comunicações com clientes, incluindo e-mails, chamadas e mensagens de chat em uma caixa de entrada unificada.'
+    pt: 'Centralize todas las comunicações con clientes, incluindo e-mails, chamadas y mensagens de chat em una caixa de entrada unificada.'
   },
   'crm.slides.slide6.alt': {
     en: 'Customer communication hub showing email, chat and call history',
@@ -634,7 +633,7 @@ const defaultTranslations = {
   'faq.items.item4.answer': {
     en: 'Our secure payment system integrates with major payment processors and provides multiple payment options for customers. The system handles deposits, installment payments, and full payments, with automated receipts and confirmation emails. Travel advisors receive immediate notification of completed transactions.',
     es: 'Nuestro sistema de pago seguro se integra con los principales procesadores de pago y proporciona múltiples opciones de pago para los clientes. El sistema maneja depósitos, pagos en cuotas y pagos completos, con recibos automatizados y correos electrónicos de confirmación. Los asesores de viaje reciben notificación inmediata de las transacciones completadas.',
-    pt: 'Nosso sistema de pagamento seguro se integra com los principales processadores de pagamento e oferece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
+    pt: 'Nosso sistema de pagamento seguro se integra com los principales processadores de pagamento e ofrece múltiplas opções de pagamento para os clientes. O sistema gerencia depósitos, pagamentos parcelados e pagamentos completos, com recibos automatizados e e-mails de confirmação. Consultores de viagem recebem notificação imediata das transações concluídas.'
   },
   'faq.items.item5.question': {
     en: 'Can the AI assistant be customized for my travel business?',
@@ -714,7 +713,7 @@ const defaultTranslations = {
   'crm.carousel.slide1.description': {
     en: 'Complete view of your sales performance and customer activity',
     es: 'Vista completa de tu rendimiento de ventas y actividad de clientes',
-    pt: 'Visão completa do seu desempenho de vendas e atividade do cliente'
+    pt: 'Visão completa do seu desempenho de vendas y atividade do cliente'
   },
   'crm.carousel.slide2.title': {
     en: 'Client Management',

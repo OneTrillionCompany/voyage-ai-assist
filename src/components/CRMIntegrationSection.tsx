@@ -106,10 +106,6 @@ const CRMIntegrationSection: React.FC = () => {
     setIsWaitlistOpen(true);
   };
 
-
-
-
-
   return (
     <>
       {/* CRM Integration */}
@@ -128,8 +124,11 @@ const CRMIntegrationSection: React.FC = () => {
                 align: "start",
                 loop: true,
               }}
-              onSelect={(index: any) => {
-                setActiveSlide(index);
+              onSelect={(api) => {
+                if (api && typeof api.selectedScrollSnap === 'function') {
+                  const index = api.selectedScrollSnap();
+                  setActiveSlide(index);
+                }
               }}
             >
               <CarouselContent>
@@ -154,27 +153,6 @@ const CRMIntegrationSection: React.FC = () => {
               <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
               <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary" />
             </Carousel>
-
-            {/* <div className="mt-8 flex justify-center">
-              <div className="flex gap-1">
-                {crmSlides.map((_, index) => (
-                  <button 
-                    key={index}
-                    className={`h-2 w-12 rounded-full transition-all duration-300 focus:outline-none ${
-                      activeSlide === index ? 'bg-primary' : 'bg-gray-300 hover:bg-primary/50'
-                    }`}
-                    onClick={() => {
-                      const api = (carouselRef.current as any)?.api;
-                      if (api) {
-                        api.scrollTo(index);
-                        setActiveSlide(index);
-                      }
-                    }}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
