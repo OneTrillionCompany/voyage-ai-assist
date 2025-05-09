@@ -15,10 +15,24 @@ import { Button } from '@/components/ui/button';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import StatsSection from '@/components/StatsSection';
 import CRMIntegrationSection from '@/components/CRMIntegrationSection';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import FullScreenSection from '@/components/FullScreenSection';
+import SectionNavigation from '@/components/SectionNavigation';
+
+const sectionIds = [
+  'hero',
+  'stats',
+  'comparison',
+  'crm',
+  'faq',
+  'contact',
+  'team'
+];
 
 const Index = () => {
   useScrollReveal();
-
+  useSmoothScroll(); // Initialize smooth scrolling with Lenis
+  
   const [showScrollTop, setShowScrollTop] = React.useState(false);
 
   useEffect(() => {
@@ -38,16 +52,38 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden scroll-snap-container">
       <Navigation />
-      <HeroSection />
-      <StatsSection />
-      <BeforeAfterComparisonSection />
-      <CRMIntegrationSection />
-      <FAQSection />
-
-      <ContactSection />
-      <TeamSection />
+      <SectionNavigation sections={sectionIds} />
+      
+      <FullScreenSection id="hero" messageStyle fromRight>
+        <HeroSection />
+      </FullScreenSection>
+      
+      <FullScreenSection id="stats" messageStyle fromLeft>
+        <StatsSection />
+      </FullScreenSection>
+      
+      <FullScreenSection id="comparison" messageStyle fromRight>
+        <BeforeAfterComparisonSection />
+      </FullScreenSection>
+      
+      <FullScreenSection id="crm" messageStyle fromLeft dark>
+        <CRMIntegrationSection />
+      </FullScreenSection>
+      
+      <FullScreenSection id="faq" messageStyle fromRight>
+        <FAQSection />
+      </FullScreenSection>
+      
+      <FullScreenSection id="contact" messageStyle fromLeft>
+        <ContactSection />
+      </FullScreenSection>
+      
+      <FullScreenSection id="team" messageStyle fromRight>
+        <TeamSection />
+      </FullScreenSection>
+      
       <Footer />
 
       {showScrollTop && (

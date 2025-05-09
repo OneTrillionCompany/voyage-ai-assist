@@ -53,7 +53,7 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    @apply bg-white text-primary;
+    @apply bg-white text-primary overflow-x-hidden;
   }
 
   .section-container {
@@ -66,5 +66,61 @@
 
   .reveal-animation.active {
     @apply opacity-100 translate-y-0;
+  }
+
+  /* Scroll Snap styles */
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+  }
+
+  /* WhatsApp Chat-like styles */
+  .message-container {
+    @apply max-w-4xl mx-auto py-6 px-4;
+  }
+
+  /* Message animation styles */
+  .message-container.from-right {
+    @apply translate-x-10 opacity-0 transition-all duration-700;
+  }
+
+  .message-container.from-left {
+    @apply -translate-x-10 opacity-0 transition-all duration-700;
+  }
+
+  section.active .message-container.from-right,
+  section.active .message-container.from-left {
+    @apply translate-x-0 opacity-100;
+  }
+
+  /* WhatsApp-like bubble styles */
+  .message-bubble {
+    @apply rounded-lg p-4 mb-4 relative shadow-sm;
+  }
+
+  .message-bubble.right {
+    @apply bg-primary text-white ml-auto rounded-tr-none;
+    max-width: 80%;
+  }
+
+  .message-bubble.left {
+    @apply bg-gray-100 text-gray-800 mr-auto rounded-tl-none;
+    max-width: 80%;
+  }
+
+  .message-bubble.right:before {
+    content: "";
+    @apply absolute -top-2 right-0 w-4 h-4 bg-primary;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+
+  .message-bubble.left:before {
+    content: "";
+    @apply absolute -top-2 left-0 w-4 h-4 bg-gray-100;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
   }
 }
