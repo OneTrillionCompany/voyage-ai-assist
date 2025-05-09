@@ -258,7 +258,7 @@ const defaultTranslations = {
   'problems.organization.before.4': {
     en: 'No prospect categorization',
     es: 'Sin categorización de prospectos',
-    pt: 'Sin categorização de leads'
+    pt: 'Sin categorización de leads'
   },
   'problems.organization.after.1': {
     en: 'Chats organized by client and stage',
@@ -378,7 +378,7 @@ const defaultTranslations = {
   'process.step4.description': {
     en: 'Keep your customers informed with scheduled updates',
     es: 'Mantén a tus clientes informados con actualizaciones programadas',
-    pt: 'Mantenha seus clientes informados com atualizações programadas'
+    pt: 'Mantenha seus clientes informados com actualizaciones programadas'
   },
   'whatsapp.experience.title': {
     en: 'Fluid WhatsApp Experience',
@@ -673,4 +673,75 @@ const defaultTranslations = {
   'contact.info.hours.value': {
     en: 'Monday to Friday, 9AM - 5PM EST',
     es: 'Lunes a Viernes, 9AM - 5PM EST',
-    pt:
+    pt: 'Segunda a Sexta, 9AM - 5PM EST'
+  },
+  'crm.carousel.slide1.title': {
+    en: 'Dashboard Overview',
+    es: 'Vista general del Dashboard',
+    pt: 'Visão geral do Dashboard'
+  },
+  'crm.carousel.slide1.description': {
+    en: 'Complete view of your sales performance and customer activity',
+    es: 'Vista completa de tu rendimiento de ventas y actividad de clientes',
+    pt: 'Visão completa do seu desempenho de vendas e atividade do cliente'
+  },
+  'crm.carousel.slide2.title': {
+    en: 'Client Management',
+    es: 'Gestión de Clientes',
+    pt: 'Gestão de Clientes'
+  },
+  'crm.carousel.slide2.description': {
+    en: 'Organize and track all client interactions in one place',
+    es: 'Organiza y hace seguimiento a todas las interacciones con clientes en un solo lugar',
+    pt: 'Organize e acompanhe todas as interações com clientes em um só lugar'
+  },
+  'crm.carousel.slide3.title': {
+    en: 'Analytics Dashboard',
+    es: 'Panel de Análisis',
+    pt: 'Painel de Análise'
+  },
+  'crm.carousel.slide3.description': {
+    en: 'Data-driven insights to optimize your sales process',
+    es: 'Información basada en datos para optimizar tu proceso de ventas',
+    pt: 'Insights baseados em dados para otimizar seu processo de vendas'
+  }
+};
+
+const LanguageContext = createContext<LanguageContextType | null>(null);
+
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [language, setLanguage] = useState<Language>('en');
+  const [translations, setTranslations] = useState<Record<string, Record<string, string>>>(defaultTranslations);
+
+  useEffect(() => {
+    // ... keep existing code (fetch translations from API or other source)
+  }, []);
+
+  const t = (key: string): string => {
+    if (!translations[key]) {
+      console.warn(`Translation key not found: ${key}`);
+      return key;
+    }
+
+    if (!translations[key][language]) {
+      console.warn(`Translation not available in ${language} for key: ${key}`);
+      return translations[key]['en'] || key;
+    }
+
+    return translations[key][language];
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, translations, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = (): LanguageContextType => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
