@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -125,7 +126,7 @@ const CRMIntegrationSection: React.FC = () => {
                 loop: true,
               }}
               onSelect={(api) => {
-                if (api && typeof api.selectedScrollSnap === 'function') {
+                if (api) {
                   const index = api.selectedScrollSnap();
                   setActiveSlide(index);
                 }

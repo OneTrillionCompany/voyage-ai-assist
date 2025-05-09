@@ -16,9 +16,9 @@ const defaultTranslations = {
     pt: 'Venda 3x mais viagens com Agente de IA' // Updated equivalent in Portuguese
   },
   'hero.description': {
-    en: 'Leverage advanced AI technology to help travel advisors find the perfect deals and assist customers in booking their dream trips.',
-    es: 'Aprovecha la tecnología avanzada de IA para ayudar a los asesores de viajes a encontrar las mejores ofertas y asistir a los clientes en la reserva de sus viajes soñados.',
-    pt: 'Aproveite a tecnologia avançada de IA para ajudar consultores de viagens a encontrar as melhores ofertas e auxiliar os clientes na reserva de suas viagens dos sonhos.'
+    en: 'Power up your sales team with AI, multiplying your revenue without expanding your team: Sell 3x more, respond 10x faster, convert 4x more leads. Get an AI agent that works 24/7 and never leaves a customer unanswered.',
+    es: 'Potencia tu equipo de ventas con IA, multiplicando tus ingresos sin multiplicar tu equipo: Vende 3 veces más, responde 10 veces más rápido, convierte 4 veces más leads. Obtén un agente de IA que trabaja 24/7 sin dejar clientes sin respuesta.',
+    pt: 'Potencialize sua equipe de vendas com IA, multiplicando sua receita sem expandir sua equipe: Venda 3x mais, responda 10x mais rápido, converta 4x mais leads. Obtenha um agente de IA que trabalha 24/7 e nunca deixa um cliente sem resposta.'
   },
   'hero.cta': {
     en: 'Connect with Us',
