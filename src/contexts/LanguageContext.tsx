@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'es' | 'pt';
@@ -734,6 +735,91 @@ const defaultTranslations = {
     en: 'Data-driven insights to optimize your sales process',
     es: 'Información basada en datos para optimizar tu proceso de ventas',
     pt: 'Insights baseados em dados para otimizar seu processo de vendas'
+  },
+  'waitlist.formTitle': {
+    en: 'Join our Waitlist',
+    es: 'Únete a nuestra Lista de Espera',
+    pt: 'Junte-se à nossa Lista de Espera'
+  },
+  'waitlist.formDescription': {
+    en: 'Fill out this form to get early access to our AI travel solutions',
+    es: 'Completa este formulario para obtener acceso anticipado a nuestras soluciones de viaje con IA',
+    pt: 'Preencha este formulário para obter acesso antecipado às nossas soluções de viagem com IA'
+  },
+  'waitlist.nameLabel': {
+    en: 'Full Name',
+    es: 'Nombre Completo',
+    pt: 'Nome Completo'
+  },
+  'waitlist.namePlaceholder': {
+    en: 'Enter your name',
+    es: 'Ingresa tu nombre',
+    pt: 'Digite seu nome'
+  },
+  'waitlist.emailLabel': {
+    en: 'Email',
+    es: 'Correo Electrónico',
+    pt: 'Email'
+  },
+  'waitlist.emailPlaceholder': {
+    en: 'Enter your email',
+    es: 'Ingresa tu correo electrónico',
+    pt: 'Digite seu email'
+  },
+  'waitlist.interestLabel': {
+    en: 'Business Type',
+    es: 'Tipo de Negocio',
+    pt: 'Tipo de Negócio'
+  },
+  'waitlist.interestPlaceholder': {
+    en: 'E.g., Hotel management, travel agency, etc.',
+    es: 'Ej: Gestión hotelera, agencia de viajes, etc.',
+    pt: 'Ex: Gestão hoteleira, agência de viagens, etc.'
+  },
+  'waitlist.phoneLabel': {
+    en: 'Phone Number',
+    es: 'Número de Teléfono',
+    pt: 'Número de Telefone'
+  },
+  'waitlist.phonePlaceholder': {
+    en: 'Enter your phone number',
+    es: 'Ingresa tu número de teléfono',
+    pt: 'Digite seu número de telefone'
+  },
+  'waitlist.submit': {
+    en: 'Submit Request',
+    es: 'Enviar Solicitud',
+    pt: 'Enviar Solicitação'
+  },
+  'waitlist.submitting': {
+    en: 'Submitting...',
+    es: 'Enviando...',
+    pt: 'Enviando...'
+  },
+  'waitlist.success': {
+    en: 'Request Submitted',
+    es: 'Solicitud Enviada',
+    pt: 'Solicitação Enviada'
+  },
+  'waitlist.successMessage': {
+    en: "Thank you for your interest! We'll contact you soon with more information.",
+    es: "¡Gracias por tu interés! Te contactaremos pronto con más información.",
+    pt: "Obrigado pelo seu interesse! Entraremos em contato em breve com mais informações."
+  },
+  'waitlist.error': {
+    en: 'Submission Error',
+    es: 'Error de Envío',
+    pt: 'Erro de Envio'
+  },
+  'waitlist.errorRequired': {
+    en: 'Please fill in all required fields',
+    es: 'Por favor completa todos los campos requeridos',
+    pt: 'Por favor, preencha todos os campos obrigatórios'
+  },
+  'waitlist.errorMessage': {
+    en: 'There was an error submitting your request. Please try again.',
+    es: 'Hubo un error al enviar tu solicitud. Por favor intenta de nuevo.',
+    pt: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente.'
   }
 };
 
