@@ -53,14 +53,12 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     setLoading(true);
     
     try {
-      // Call the Supabase function to add to waitlist
-      const { error } = await supabase.rpc('add_to_waitlist', {
+      // Call the Supabase function to add to demo_requests instead of waitlist
+      const { error } = await supabase.rpc('request_demo', {
         p_name: formData.name,
         p_email: formData.email,
-        p_country_code: '', // Sending empty as we're now using a single phone field
-        p_phone: '',
-        p_interest: formData.interest,
-        p_full_phone: formData.phone
+        p_company: formData.interest || null, // Map interest field to company
+        p_message: formData.phone || null     // Map phone number to message
       });
       
       if (error) throw error;
@@ -81,7 +79,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
       onOpenChange(false);
       
     } catch (error) {
-      console.error('Error submitting waitlist form:', error);
+      console.error('Error submitting form:', error);
       toast({
         title: t('waitlist.error'),
         description: t('waitlist.errorMessage'),
