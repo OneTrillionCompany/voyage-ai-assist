@@ -3,34 +3,12 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Check, User, Mail, Phone } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from 'lucide-react';
-
-// List of country codes
-const countryCodes = [
-  { code: '+1', label: 'US (+1)' },
-  { code: '+57', label: 'CO (+57)' },
-  { code: '+55', label: 'BR (+55)' },
-  { code: '+34', label: 'ES (+34)' },
-  { code: '+52', label: 'MX (+52)' },
-  { code: '+54', label: 'AR (+54)' },
-  { code: '+56', label: 'CL (+56)' },
-  { code: '+51', label: 'PE (+51)' },
-  { code: '+58', label: 'VE (+58)' },
-  { code: '+593', label: 'EC (+593)' },
-];
-
-// Interest options
-const interestOptions = [
-  { value: 'hotel', label: 'Hotel Management' },
-  { value: 'agency', label: 'Travel Agency' },
-  { value: 'destination', label: 'Destination Management' },
-  { value: 'other', label: 'Other' },
-];
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface WaitlistDialogProps {
   open: boolean;
@@ -40,14 +18,14 @@ interface WaitlistDialogProps {
 const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) => {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   const [loading, setLoading] = useState(false);
   
   // Form state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    countryCode: '+57', // Default to Colombia
-    fullPhone: '',
+    phone: '',
     interest: ''
   });
 
@@ -56,13 +34,6 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     setFormData(prev => ({
       ...prev,
       [id]: value
-    }));
-  };
-
-  const handleSelectChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
     }));
   };
 
@@ -82,17 +53,14 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     setLoading(true);
     
     try {
-      // Create the phone in international format
-      const phone = formData.fullPhone.replace(/\D/g, ''); // Remove non-digits
-      
       // Call the Supabase function to add to waitlist
       const { error } = await supabase.rpc('add_to_waitlist', {
         p_name: formData.name,
         p_email: formData.email,
-        p_country_code: formData.countryCode,
-        p_phone: phone,
+        p_country_code: '', // Sending empty as we're now using a single phone field
+        p_phone: '',
         p_interest: formData.interest,
-        p_full_phone: formData.fullPhone
+        p_full_phone: formData.phone
       });
       
       if (error) throw error;
@@ -106,8 +74,7 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
       setFormData({
         name: '',
         email: '',
-        countryCode: '+57',
-        fullPhone: '',
+        phone: '',
         interest: ''
       });
       
@@ -135,22 +102,52 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[900px] p-0 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left side: Benefits */}
-          <div className="bg-primary text-white p-8 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold mb-6">{t('waitlist.joinTitle')}</h2>
-            <p className="text-gray-200 mb-8">{t('waitlist.joinSubtitle')}</p>
-            
-            <div className="space-y-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="flex-shrink-0 h-6 w-6 bg-white rounded-full flex items-center justify-center mr-3">
-                    <benefit.icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <p className="text-gray-200">{benefit.text}</p>
+          {/* Left side: Benefits and Contact Info */}
+          {!isMobile && (
+            <div className="bg-primary text-white p-8 flex flex-col justify-between">
+              <div>
+                <h2 className="text-2xl font-bold mb-6">{t('waitlist.joinTitle')}</h2>
+                <p className="text-gray-200 mb-8">{t('waitlist.joinSubtitle')}</p>
+                
+                <div className="space-y-6">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="flex-shrink-0 h-6 w-6 bg-white rounded-full flex items-center justify-center mr-3">
+                        <benefit.icon className="h-4 w-4 text-primary" />
+                      </div>
+                      <p className="text-gray-200">{benefit.text}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              
+              {/* Contact Information Section */}
+              <div className="mt-auto pt-8">
+                <h3 className="font-bold text-xl mb-3">Información de Contacto</h3>
+                <p className="text-sm text-gray-200 mb-6">
+                  ¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o 
+                  contáctanos directamente utilizando la información a continuación.
+                </p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium">Correo Electrónico</h4>
+                    <p className="text-gray-200">manuel.gruezo@uao.edu.co</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-medium">WhatsApp</h4>
+                    <p className="text-gray-200">+573159381236</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-medium">Horario de Oficina</h4>
+                    <p className="text-gray-200">Lunes a Viernes, 9AM - 5PM EST</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
           
           {/* Right side: Form */}
           <div className="p-8">
@@ -195,53 +192,26 @@ const WaitlistDialog: React.FC<WaitlistDialogProps> = ({ open, onOpenChange }) =
 
               <div className="space-y-2">
                 <label htmlFor="phone" className="block text-sm font-medium">{t('waitlist.phoneLabel')}</label>
-                <div className="flex gap-2">
-                  <Select
-                    value={formData.countryCode}
-                    onValueChange={(value) => handleSelectChange('countryCode', value)}
-                  >
-                    <SelectTrigger className="w-[140px]">
-                      <SelectValue placeholder={t('waitlist.selectCountry')} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {countryCodes.map((country) => (
-                        <SelectItem key={country.code} value={country.code}>
-                          {country.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  
-                  <div className="relative flex-1">
-                    <Input
-                      id="fullPhone"
-                      value={formData.fullPhone}
-                      onChange={handleChange}
-                      placeholder={t('waitlist.phonePlaceholder')}
-                      className="pl-10 flex-1"
-                    />
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
-                  </div>
+                <div className="relative">
+                  <Input
+                    id="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder={t('waitlist.phonePlaceholder')}
+                    className="pl-10"
+                  />
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="interest" className="block text-sm font-medium">{t('waitlist.interestLabel')}</label>
-                <Select
+                <Input
+                  id="interest"
                   value={formData.interest}
-                  onValueChange={(value) => handleSelectChange('interest', value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder={t('waitlist.interestPlaceholder')} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {interestOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {t(`waitlist.interests.${option.value}`)}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  onChange={handleChange}
+                  placeholder="Ej: Gestión hotelera, agencia de viajes, etc."
+                />
               </div>
 
               <Button 
