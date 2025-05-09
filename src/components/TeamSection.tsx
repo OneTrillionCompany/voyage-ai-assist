@@ -71,7 +71,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Miguel Muñoz"
           role={t('team.role.ai')}
-          image="https://media.licdn.com/dms/image/v2/D4E35AQFm0As5M5kj5w/profile-framedphoto-shrink_400_400/B4EZaS3K9vHkAg-/0/1746220659201?e=1746993600&v=beta&t=kNKgdY2FRl9ia895ck5WI_9PlBxMsEuQGeL5TdVhu80"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQHdFN7Rq-1eJg/profile-displayphoto-shrink_400_400/B4EZaS3KiIHMAg-/0/1746220657163?e=1752105600&v=beta&t=bkvHx0VzCIV4pNAFWA2hmYf4ewohGTlHjXve4oP4C-Q"
           linkedin="https://www.linkedin.com/in/miguel-mu%C3%B1oz-514069283/"
         />
       </div>
