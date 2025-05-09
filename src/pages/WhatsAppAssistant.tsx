@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -9,6 +10,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { ArrowRight, FileText, CheckSquare, FileCheck, BarChart3 } from 'lucide-react';
 import { useCountAnimation } from '@/hooks/useCountAnimation';
+import WaitlistDialog from '@/components/WaitlistDialog';
 
 // Create the Counter Animation Component
 const AnimatedCounter = ({ value, label, prefix = '', suffix = '', duration = 2000 }) => {
@@ -59,6 +61,14 @@ const WhatsAppAssistant = () => {
     elementRef: phoneImageRef,
     threshold: 0.1
   });
+  
+  // Add state for waitlist dialog
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
+  // Function to open waitlist dialog
+  const openWaitlistDialog = () => {
+    setIsWaitlistOpen(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -519,7 +529,7 @@ const WhatsAppAssistant = () => {
               </Button>
               <Button 
                 className="bg-white hover:bg-gray-100 text-primary text-lg px-8 py-6 w-full sm:w-auto"
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={openWaitlistDialog}
               >
                 Solicitar Demo
               </Button>
@@ -559,7 +569,13 @@ const WhatsAppAssistant = () => {
                 <textarea id="message" rows={4} className="w-full p-3 border border-gray-300 rounded-md" placeholder="Cuéntanos más sobre tus necesidades..."></textarea>
               </div>
               
-              <Button className="w-full bg-primary hover:bg-secondary text-white py-4">
+              <Button 
+                className="w-full bg-primary hover:bg-secondary text-white py-4"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openWaitlistDialog();
+                }}
+              >
                 Enviar Solicitud
               </Button>
             </form>
@@ -569,6 +585,9 @@ const WhatsAppAssistant = () => {
       
       <Footer />
       <WhatsAppButton />
+      
+      {/* Waitlist Dialog */}
+      <WaitlistDialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
     </div>
   );
 };
