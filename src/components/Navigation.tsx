@@ -44,13 +44,12 @@ const Navigation: React.FC = () => {
     }
   }, [isMobile, isMenuOpen]);
 
-  // Function to smooth scroll to section
-  const scrollToSection = (id: string, e: React.MouseEvent) => {
+  // Function to scroll to contact form
+  const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      if (isMenuOpen) setIsMenuOpen(false);
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -68,16 +67,16 @@ const Navigation: React.FC = () => {
           <div className="flex items-center">
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-4 lg:space-x-6 mr-4">
-              <a href="#problems" className="text-white hover:text-secondary transition-colors whitespace-nowrap" onClick={(e) => scrollToSection('problems', e)}>{t('nav.problems')}</a>
-              <a href="#faq" className="text-white hover:text-secondary transition-colors whitespace-nowrap" onClick={(e) => scrollToSection('faq', e)}>{t('nav.faq')}</a>
-              <a href="#team" className="text-white hover:text-secondary transition-colors whitespace-nowrap" onClick={(e) => scrollToSection('team', e)}>{t('nav.team')}</a>
+              <a href="#problems" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.problems')}</a>
+              <a href="#faq" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.faq')}</a>
+              <a href="#team" className="text-white hover:text-secondary transition-colors whitespace-nowrap">{t('nav.team')}</a>
             </div>
 
             <div className="hidden md:block mr-4">
               <LanguageSwitcher />
             </div>
 
-            <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100" onClick={(e) => scrollToSection('contact', e)}>
+            <Button size="sm" className="hidden md:flex bg-white text-primary hover:bg-gray-100" onClick={scrollToContact}>
               <span className="whitespace-nowrap">{t('nav.contact')}</span>
             </Button>
 
@@ -107,21 +106,21 @@ const Navigation: React.FC = () => {
             <a
               href="#problems"
               className="text-white hover:text-secondary transition-colors font-medium"
-              onClick={(e) => scrollToSection('problems', e)}
+              onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.problems')}
             </a>
             <a
               href="#faq"
               className="text-white hover:text-secondary transition-colors font-medium"
-              onClick={(e) => scrollToSection('faq', e)}
+              onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.faq')}
             </a>
             <a
               href="#team"
               className="text-white hover:text-secondary transition-colors font-medium"
-              onClick={(e) => scrollToSection('team', e)}
+              onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.team')}
             </a>
@@ -130,7 +129,7 @@ const Navigation: React.FC = () => {
               className="bg-white hover:bg-gray-100 text-primary hover:text-primary text-base px-6 py-4 mt-2 flex items-center justify-center"
               onClick={(e) => {
                 setIsMenuOpen(false);
-                scrollToSection('contact', e);
+                scrollToContact(e);
               }}
             >
               {t('nav.contact')} <ArrowRight className="ml-2 h-5 w-5" />
