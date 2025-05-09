@@ -11,9 +11,9 @@ type LanguageContextType = {
 
 const defaultTranslations = {
   'hero.title': {
-    en: 'Sell 3x More Trips with AI Agent', // Updated from 'Transform Your Agency: 75% Less Time, 90% More Conversions'
-    es: 'Vende 3x veces más viajes con IA agent', // Updated as requested
-    pt: 'Venda 3x mais viagens com Agente de IA' // Updated equivalent in Portuguese
+    en: 'Sell 3x More Trips with AI Agent',
+    es: 'Vende 3x veces más viajes con un Agente de IA',
+    pt: 'Venda 3x mais viagens com um Agente de IA'
   },
   'hero.description': {
     en: 'Power up your sales team with AI, multiplying your revenue without expanding your team: Sell 3x more, respond 10x faster, convert 4x more leads. Get an AI agent that works 24/7 and never leaves a customer unanswered.',
@@ -766,14 +766,14 @@ const defaultTranslations = {
     pt: 'Digite seu email'
   },
   'waitlist.interestLabel': {
-    en: 'Business Type',
-    es: 'Tipo de Negocio',
-    pt: 'Tipo de Negócio'
+    en: 'Interest',
+    es: 'Interés',
+    pt: 'Interesse'
   },
   'waitlist.interestPlaceholder': {
-    en: 'E.g., Hotel management, travel agency, etc.',
-    es: 'Ej: Gestión hotelera, agencia de viajes, etc.',
-    pt: 'Ex: Gestão hoteleira, agência de viagens, etc.'
+    en: 'Describe your interest or how you plan to use our solution',
+    es: 'Describe tu interés o cómo planeas usar nuestra solución',
+    pt: 'Descreva seu interesse ou como planeja usar nossa solução'
   },
   'waitlist.phoneLabel': {
     en: 'Phone Number',
@@ -851,6 +851,26 @@ const defaultTranslations = {
     es: 'Ingeniero de IA',
     pt: 'Engenheiro de IA'
   },
+  'stats.title': {
+    en: 'Impactful Results',
+    es: 'Resultados Impactantes',
+    pt: 'Resultados Impactantes'
+  },
+  'stats.increasedSales': {
+    en: 'Sales increase',
+    es: 'Aumento en ventas',
+    pt: 'Aumento nas vendas'
+  },
+  'stats.timeSaved': {
+    en: 'Time saved per week',
+    es: 'Tiempo ahorrado por semana',
+    pt: 'Tempo economizado por semana'
+  },
+  'stats.customerSatisfaction': {
+    en: 'Customer satisfaction',
+    es: 'Satisfacción del cliente',
+    pt: 'Satisfação do cliente'
+  }
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);

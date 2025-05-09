@@ -177,7 +177,7 @@ const HeroSection: React.FC = () => {
         {/* CTA Button - Bottom Right */}
         <div className="absolute bottom-10 right-10" ref={whatsAppButtonRef}>
           <Button
-            className="bg-primary hover:bg-secondary text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6 md:flex"
+            className="bg-primary hover:bg-secondary hidden text-white text-base md:text-lg px-6 py-5 md:px-8 md:py-6 md:flex"
             onClick={scrollToContact}
           >
             {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
@@ -185,9 +185,9 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Mobile CTA Button - Bottom Center */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center md:hidden">
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center md:hidden">
           <Button
-            className="bg-primary hover:bg-secondary text-white text-base px-6 py-4"
+            className="bg-primary hover:bg-secondary text-white text-base px-4"
             onClick={scrollToContact}
           >
             {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
