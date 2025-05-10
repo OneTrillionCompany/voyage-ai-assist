@@ -56,9 +56,9 @@ const defaultTranslations = {
     pt: 'Responda melhor. Escale sem contratar. Aproveite ao máximo seu investimento em publicidade'
   },
   'hero.title': {
-    en: 'Sell 3x More Trips with AI Agent',
-    es: 'Vende 3x veces más viajes con un Agente de IA',
-    pt: 'Venda 3x mais viagens com um Agente de IA'
+    en: 'Sell 3 Times More Trips with AI Agent',
+    es: 'Vende 3 veces más viajes con un Agente de IA',
+    pt: 'Venda 3 mais viagens com um Agente de IA'
   },
   'hero.description': {
     en: 'Power up your sales team with AI, multiplying your revenue without expanding your team: Sell 3x more, respond 10x faster, convert 4x more leads. Get an AI agent that works 24/7 and never leaves a customer unanswered.',
