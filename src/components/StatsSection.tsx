@@ -2,7 +2,7 @@
 import React from 'react';
 import AnimatedCounter from './AnimatedCounter';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight } from 'lucide-react';
+import { Rocket, Zap, UserPlus } from 'lucide-react';
 
 const StatsSection: React.FC = () => {
   // Use the language context
@@ -31,15 +31,15 @@ const StatsSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="bg-primary/5 p-6 rounded-lg text-center">
               <p className="font-bold text-xl mb-2 text-primary">Vende 3 veces más</p>
-              <ArrowRight className="mx-auto mt-2 text-green-500" />
+              <Rocket className="mx-auto mt-2 text-green-500 h-7 w-7" />
             </div>
             <div className="bg-primary/5 p-6 rounded-lg text-center">
               <p className="font-bold text-xl mb-2 text-primary">Responde 10 veces más rápido</p>
-              <ArrowRight className="mx-auto mt-2 text-green-500" />
+              <Zap className="mx-auto mt-2 text-green-500 h-7 w-7" />
             </div>
             <div className="bg-primary/5 p-6 rounded-lg text-center">
               <p className="font-bold text-xl mb-2 text-primary">Convierte 4 veces más leads</p>
-              <ArrowRight className="mx-auto mt-2 text-green-500" />
+              <UserPlus className="mx-auto mt-2 text-green-500 h-7 w-7" />
             </div>
           </div>
           
