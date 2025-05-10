@@ -129,7 +129,8 @@ const CRMIntegrationSection: React.FC = () => {
               }}
               onSelect={(api) => {
                 if (api) {
-                  setActiveSlide(api.selectedScrollSnap());
+                  const selectedIndex = api.selectedScrollSnap();
+                  setActiveSlide(selectedIndex);
                 }
               }}
             >
