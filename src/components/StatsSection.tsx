@@ -21,46 +21,46 @@ const StatsSection: React.FC = () => {
         {/* New content block */}
         <div className="mt-20 max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 reveal-animation">
           <h3 className="text-2xl md:text-3xl font-bold mb-6 text-primary text-center">
-            Estás perdiendo hasta $2 millones usd al año por no cotizar de forma personalizada a tiempo.
+            {t('stats.moneyLoss')}
           </h3>
           
           <p className="text-lg mb-8 text-center">
-            Potencia tu equipo de ventas con Inteligencia Artificial, multiplicando tus ingresos sin multiplicar tu equipo:
+            {t('stats.empowerTeam')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="bg-primary/5 p-6 rounded-lg text-center">
-              <p className="font-bold text-xl mb-2 text-primary">Vende 3 veces más</p>
-              <Rocket className="mx-auto mt-2 text-green-500 h-7 w-7" />
+              <Rocket className="mx-auto mb-2 text-green-500 h-7 w-7" />
+              <p className="font-bold h-12 text-xl mb-2 text-primary">{t('stats.sell3x')}</p>
             </div>
             <div className="bg-primary/5 p-6 rounded-lg text-center">
-              <p className="font-bold text-xl mb-2 text-primary">Responde 10 veces más rápido</p>
-              <Zap className="mx-auto mt-2 text-green-500 h-7 w-7" />
+              <Zap className="mx-auto mb-2 text-green-500 h-7 w-7" />
+              <p className="font-bold h-12 text-xl mb-2 text-primary">{t('stats.respond10x')}</p>
             </div>
             <div className="bg-primary/5 p-6 rounded-lg text-center">
-              <p className="font-bold text-xl mb-2 text-primary">Convierte 4 veces más leads</p>
-              <UserPlus className="mx-auto mt-2 text-green-500 h-7 w-7" />
+              <UserPlus className="mx-auto mb-2 text-green-500 h-7 w-7" />
+              <p className="font-bold h-12 text-xl mb-2 text-primary">{t('stats.convert4x')}</p>
             </div>
           </div>
           
           <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-xl">
             <h4 className="text-xl md:text-2xl font-bold mb-4 text-center">
-              Y además... te obsequiamos un vendedor de IA:
+              {t('stats.aiAgentGift')}
             </h4>
             <ul className="space-y-3 text-lg">
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                <span>Trabaja 24/7, nunca se cansa y jamás deja a un cliente sin respuesta.</span>
+                <span>{t('stats.works24_7')}</span>
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                <span>Cuesta menos que un vendedor humano y vende 3 veces más.</span>
+                <span>{t('stats.costEffective')}</span>
               </li>
             </ul>
           </div>
           
           <p className="text-lg font-medium text-center mt-8 text-primary">
-            Responde mejor. Escala sin contratar. Exprime cada dólar de tu inversión en publicidad
+            {t('stats.finalMessage')}
           </p>
         </div>
       </div>

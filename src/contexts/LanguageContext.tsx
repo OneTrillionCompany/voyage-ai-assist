@@ -10,6 +10,51 @@ type LanguageContextType = {
 };
 
 const defaultTranslations = {
+  'stats.moneyLoss': {
+    en: 'You are losing up to $2 million USD per year by not providing personalized quotes on time.',
+    es: 'Estás perdiendo hasta $2 millones usd al año por no cotizar de forma personalizada a tiempo.',
+    pt: 'Você está perdendo até $2 milhões USD por ano por não fornecer cotações personalizadas no tempo certo.'
+  },
+  'stats.empowerTeam': {
+    en: 'Power up your sales team with Artificial Intelligence, multiplying your revenue without multiplying your team:',
+    es: 'Potencia tu equipo de ventas con Inteligencia Artificial, multiplicando tus ingresos sin multiplicar tu equipo:',
+    pt: 'Potencialize sua equipe de vendas com Inteligência Artificial, multiplicando sua receita sem multiplicar sua equipe:'
+  },
+  'stats.sell3x': {
+    en: 'Sell 3 times more',
+    es: 'Vende 3 veces más',
+    pt: 'Venda 3 vezes mais'
+  },
+  'stats.respond10x': {
+    en: 'Respond 10 times faster',
+    es: 'Responde 10 veces más rápido',
+    pt: 'Responda 10 vezes mais rápido'
+  },
+  'stats.convert4x': {
+    en: 'Convert 4 times more leads',
+    es: 'Convierte 4 veces más leads',
+    pt: 'Converta 4 vezes mais leads'
+  },
+  'stats.aiAgentGift': {
+    en: 'And also... we gift you an AI salesperson:',
+    es: 'Y además... te obsequiamos un vendedor de IA:',
+    pt: 'E mais... presenteamos você com um vendedor de IA:'
+  },
+  'stats.works24_7': {
+    en: 'Works 24/7, never gets tired and never leaves a customer unanswered.',
+    es: 'Trabaja 24/7, nunca se cansa y jamás deja a un cliente sin respuesta.',
+    pt: 'Trabalha 24/7, nunca se cansa e nunca deixa um cliente sem resposta.'
+  },
+  'stats.costEffective': {
+    en: 'Costs less than a human salesperson and sells 3 times more.',
+    es: 'Cuesta menos que un vendedor humano y vende 3 veces más.',
+    pt: 'Custa menos que um vendedor humano e vende 3 vezes mais.'
+  },
+  'stats.finalMessage': {
+    en: 'Respond better. Scale without hiring. Get the most out of your advertising investment',
+    es: 'Responde mejor. Escala sin contratar. Exprime cada dólar de tu inversión en publicidad',
+    pt: 'Responda melhor. Escale sem contratar. Aproveite ao máximo seu investimento em publicidade'
+  },
   'hero.title': {
     en: 'Sell 3x More Trips with AI Agent',
     es: 'Vende 3x veces más viajes con un Agente de IA',
