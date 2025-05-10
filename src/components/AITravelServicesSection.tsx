@@ -85,15 +85,15 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             <svg className="w-full" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
               {/* Monitor frame */}
               <rect x="10" y="5" width="620" height="320" rx="10" fill="#111827" stroke="#000" strokeWidth="2" />
-              
+
               {/* Screen */}
               <rect x="20" y="15" width="600" height="300" rx="4" fill="#1f2937" />
-              
+
               {/* Stand */}
               <path d="M270,325 L370,325 L390,350 L250,350 Z" fill="#111827" />
               <rect x="250" y="350" width="140" height="10" rx="3" fill="#374151" />
             </svg>
-            
+
             {/* Content inside the monitor screen */}
             <div className="absolute top-[15px] left-[0px] right-[20px] bottom-[35px] overflow-hidden h-[84%] w-[100%] lg:h-auto">
               {children}
@@ -161,7 +161,7 @@ const AITravelServicesSection: React.FC = () => {
       titleKey: "aitravel.confirm.title",
       descriptionKey: "aitravel.confirm.description",
       statisticKey: "aitravel.confirm.statistic",
-      videoSrc: "/lovable-uploads/phase2.mp4",
+      videoSrc: "/lovable-uploads/phase2.mov",
       placeholder: "",
       isVertical: true
     },
@@ -169,7 +169,7 @@ const AITravelServicesSection: React.FC = () => {
       titleKey: "aitravel.contracts.title",
       descriptionKey: "aitravel.contracts.description",
       statisticKey: "aitravel.contracts.statistic",
-      videoSrc: "/lovable-uploads/phase3.mp4",
+      videoSrc: "/lovable-uploads/phase3.MP4",
       placeholder: "",
       isVertical: true
     },
