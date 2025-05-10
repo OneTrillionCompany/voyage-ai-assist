@@ -15,11 +15,11 @@ interface ServiceItemProps {
   isVertical?: boolean;
 }
 
-const ServiceItem: React.FC<ServiceItemProps> = ({ 
-  titleKey, 
-  descriptionKey, 
-  statisticKey, 
-  videoSrc, 
+const ServiceItem: React.FC<ServiceItemProps> = ({
+  titleKey,
+  descriptionKey,
+  statisticKey,
+  videoSrc,
   placeholder,
   index,
   isVertical = false
@@ -50,64 +50,53 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   const DeviceFrame = ({ children }: { children: React.ReactNode }) => {
     if (isVertical) {
       return (
-        <div className="relative mx-auto">
+        <div className="relative mx-auto ">
           {/* Mobile Phone Frame */}
           <div className="relative">
             {/* Phone Body */}
-            <svg className="w-full max-w-[300px] mx-auto" viewBox="0 0 320 650" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-full bg max-w-[300px] mx-auto" viewBox="0 0 320 650" xmlns="http://www.w3.org/2000/svg">
               {/* Phone outline */}
               <rect x="10" y="10" width="300" height="630" rx="36" fill="#111827" stroke="#000" strokeWidth="2" />
-              
+
               {/* Screen */}
               <rect x="22" y="60" width="276" height="530" rx="3" fill="#1f2937" />
-              
+
               {/* Top speaker */}
               <rect x="130" y="35" width="60" height="6" rx="3" fill="#374151" />
-              
+
               {/* Home button/indicator */}
               <rect x="145" y="610" width="30" height="6" rx="3" fill="#374151" />
             </svg>
-            
+
             {/* Video content inside the phone screen */}
-            <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 w-[275px] h-[530px] overflow-hidden">
+            <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 w-full h-[495px] overflow-hidden">
               {children}
             </div>
-            
-            {/* Label for Mobile view */}
-            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-primary/80 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1 z-10">
-              <Smartphone size={14} />
-              <span>Mobile View</span>
-            </div>
+
           </div>
         </div>
       );
     } else {
       return (
-        <div className="relative mx-auto">
+        <div className="relative mx-auto w-full">
           {/* Desktop/Laptop Frame */}
-          <div className="relative">
+          <div className="relative w-full max-w-[1200px] mx-auto lg:w-[90%]">
             {/* Monitor/Laptop body */}
-            <svg className="w-full" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-full" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
               {/* Monitor frame */}
-              <rect x="50" y="20" width="700" height="400" rx="10" fill="#111827" stroke="#000" strokeWidth="2" />
+              <rect x="10" y="5" width="620" height="320" rx="10" fill="#111827" stroke="#000" strokeWidth="2" />
               
               {/* Screen */}
-              <rect x="70" y="40" width="660" height="360" rx="2" fill="#1f2937" />
+              <rect x="20" y="15" width="600" height="300" rx="4" fill="#1f2937" />
               
               {/* Stand */}
-              <path d="M350,420 L450,420 L480,480 L320,480 Z" fill="#111827" />
-              <rect x="320" y="480" width="160" height="10" rx="2" fill="#374151" />
+              <path d="M270,325 L370,325 L390,350 L250,350 Z" fill="#111827" />
+              <rect x="250" y="350" width="140" height="10" rx="3" fill="#374151" />
             </svg>
             
-            {/* Video content inside the monitor screen */}
-            <div className="absolute top-[40px] left-[70px] right-[70px] bottom-[100px] overflow-hidden">
+            {/* Content inside the monitor screen */}
+            <div className="absolute top-[15px] left-[0px] right-[20px] bottom-[35px] overflow-hidden h-[84%] w-[100%] lg:h-auto">
               {children}
-            </div>
-            
-            {/* Label for Desktop view */}
-            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-primary/80 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1 z-10">
-              <Monitor size={14} />
-              <span>Desktop View</span>
             </div>
           </div>
         </div>
@@ -116,7 +105,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 ${index > 0 ? 'border-t border-gray-200' : ''} reveal-animation`}
     >
@@ -130,15 +119,16 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
 
       {/* Video Section - Swap order based on index */}
-      <div className={`${!isEven && !isMobile ? 'lg:order-1' : ''} overflow-hidden shadow-lg mx-auto`}>
+      <div className={`${!isEven && !isMobile ? 'lg:order-1' : ''} overflow-hidden mx-auto w-full`}>
         <DeviceFrame>
           {videoSrc ? (
-            <video 
-              ref={videoRef} 
-              className="w-full h-full object-cover"
-              muted 
+            <video
+              ref={videoRef}
+              className="w-full h-full object-contain"
+              muted
               playsInline
               loop
+              // controls
               poster={placeholder || "https://via.placeholder.com/640x360?text=Video+Coming+Soon"}
             >
               <source src={videoSrc} type="video/mp4" />
@@ -157,7 +147,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 
 const AITravelServicesSection: React.FC = () => {
   const { t } = useLanguage();
-  
+
   const services = [
     {
       titleKey: "aitravel.quote.title",
