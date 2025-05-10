@@ -127,12 +127,6 @@ const CRMIntegrationSection: React.FC = () => {
                 align: "start",
                 loop: true,
               }}
-              onSelect={(api) => {
-                if (api) {
-                  const selectedIndex = api.selectedScrollSnap();
-                  setActiveSlide(selectedIndex);
-                }
-              }}
             >
               <CarouselContent>
                 {crmSlides.map((slide, index) => (
