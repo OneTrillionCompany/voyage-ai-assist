@@ -161,7 +161,7 @@ const AITravelServicesSection: React.FC = () => {
       titleKey: "aitravel.confirm.title",
       descriptionKey: "aitravel.confirm.description",
       statisticKey: "aitravel.confirm.statistic",
-      videoSrc: "/lovable-uploads/phase2.mov",
+      videoSrc: "/lovable-uploads/phase2.mp4",
       placeholder: "",
       isVertical: true
     },
