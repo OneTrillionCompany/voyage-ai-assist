@@ -177,9 +177,9 @@ const AITravelServicesSection: React.FC = () => {
     //   titleKey: "aitravel.tracking.title",
     //   descriptionKey: "aitravel.tracking.description",
     //   statisticKey: "aitravel.tracking.statistic",
-    //   videoSrc: "/lovable-uploads/demo.mp4",
+    //   videoSrc: "/lovable-uploads/phase4.mp4",
     //   placeholder: "",
-    //   isVertical: false
+    //   isVertical: true
     // }
   ];
 
