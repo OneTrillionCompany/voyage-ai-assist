@@ -2,6 +2,8 @@
 import React, { useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { Smartphone, Monitor } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ServiceItemProps {
   titleKey: string;
@@ -29,6 +31,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
     elementRef: containerRef,
     threshold: 0.5
   });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isVisible && videoRef.current) {
@@ -43,13 +46,82 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   // Alternate layout direction based on index
   const isEven = index % 2 === 0;
 
+  // Device frame component based on orientation
+  const DeviceFrame = ({ children }: { children: React.ReactNode }) => {
+    if (isVertical) {
+      return (
+        <div className="relative mx-auto">
+          {/* Mobile Phone Frame */}
+          <div className="relative">
+            {/* Phone Body */}
+            <svg className="w-full max-w-[300px] mx-auto" viewBox="0 0 320 650" xmlns="http://www.w3.org/2000/svg">
+              {/* Phone outline */}
+              <rect x="10" y="10" width="300" height="630" rx="36" fill="#111827" stroke="#000" strokeWidth="2" />
+              
+              {/* Screen */}
+              <rect x="22" y="60" width="276" height="530" rx="3" fill="#1f2937" />
+              
+              {/* Top speaker */}
+              <rect x="130" y="35" width="60" height="6" rx="3" fill="#374151" />
+              
+              {/* Home button/indicator */}
+              <rect x="145" y="610" width="30" height="6" rx="3" fill="#374151" />
+            </svg>
+            
+            {/* Video content inside the phone screen */}
+            <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 w-[275px] h-[530px] overflow-hidden">
+              {children}
+            </div>
+            
+            {/* Label for Mobile view */}
+            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-primary/80 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1 z-10">
+              <Smartphone size={14} />
+              <span>Mobile View</span>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="relative mx-auto">
+          {/* Desktop/Laptop Frame */}
+          <div className="relative">
+            {/* Monitor/Laptop body */}
+            <svg className="w-full" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+              {/* Monitor frame */}
+              <rect x="50" y="20" width="700" height="400" rx="10" fill="#111827" stroke="#000" strokeWidth="2" />
+              
+              {/* Screen */}
+              <rect x="70" y="40" width="660" height="360" rx="2" fill="#1f2937" />
+              
+              {/* Stand */}
+              <path d="M350,420 L450,420 L480,480 L320,480 Z" fill="#111827" />
+              <rect x="320" y="480" width="160" height="10" rx="2" fill="#374151" />
+            </svg>
+            
+            {/* Video content inside the monitor screen */}
+            <div className="absolute top-[40px] left-[70px] right-[70px] bottom-[100px] overflow-hidden">
+              {children}
+            </div>
+            
+            {/* Label for Desktop view */}
+            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-primary/80 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1 z-10">
+              <Monitor size={14} />
+              <span>Desktop View</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
     <div 
       ref={containerRef}
       className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 ${index > 0 ? 'border-t border-gray-200' : ''} reveal-animation`}
     >
       {/* Content Section - Swap order based on index */}
-      <div className={`${!isEven && 'lg:order-2'}`}>
+      <div className={`${!isEven && !isMobile ? 'lg:order-2' : ''}`}>
         <h3 className="text-2xl md:text-3xl font-bold mb-4">{t(titleKey)}</h3>
         <p className="text-gray-600 mb-6 text-lg">{t(descriptionKey)}</p>
         <div className="bg-primary/10 p-4 inline-block rounded-lg">
@@ -58,25 +130,26 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
 
       {/* Video Section - Swap order based on index */}
-      <div className={`${!isEven && 'lg:order-1'} bg-gray-100 rounded-lg overflow-hidden shadow-lg ${isVertical ? 'aspect-[9/16] max-h-[600px] mx-auto' : 'aspect-video'}`}>
-        {videoSrc ? (
-          <video 
-            ref={videoRef} 
-            className="w-full h-full object-cover"
-            muted 
-            playsInline
-            loop
-            // controls
-            poster={placeholder || "https://via.placeholder.com/640x360?text=Video+Coming+Soon"}
-          >
-            <source src={videoSrc} type="video/mp4" />
-            Tu navegador no soporta videos HTML5.
-          </video>
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gray-200">
-            <p className="text-gray-500">Video próximamente</p>
-          </div>
-        )}
+      <div className={`${!isEven && !isMobile ? 'lg:order-1' : ''} overflow-hidden shadow-lg mx-auto`}>
+        <DeviceFrame>
+          {videoSrc ? (
+            <video 
+              ref={videoRef} 
+              className="w-full h-full object-cover"
+              muted 
+              playsInline
+              loop
+              poster={placeholder || "https://via.placeholder.com/640x360?text=Video+Coming+Soon"}
+            >
+              <source src={videoSrc} type="video/mp4" />
+              Tu navegador no soporta videos HTML5.
+            </video>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gray-700 text-white">
+              <p>Video próximamente</p>
+            </div>
+          )}
+        </DeviceFrame>
       </div>
     </div>
   );
