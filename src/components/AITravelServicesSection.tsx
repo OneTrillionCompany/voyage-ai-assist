@@ -58,7 +58,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
 
       {/* Video Section - Swap order based on index */}
-      <div className={`${!isEven && 'lg:order-1'} bg-gray-100 rounded-lg overflow-hidden shadow-lg ${isVertical ? 'aspect-[9/16]' : 'aspect-video'}`}>
+      <div className={`${!isEven && 'lg:order-1'} bg-gray-100 rounded-lg overflow-hidden shadow-lg ${isVertical ? 'aspect-[9/16] max-h-[600px] mx-auto' : 'aspect-video'}`}>
         {videoSrc ? (
           <video 
             ref={videoRef} 
