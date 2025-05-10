@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -123,11 +124,6 @@ const CRMIntegrationSection: React.FC = () => {
               opts={{
                 align: "start",
                 loop: true,
-              }}
-              onSelect={(api) => {
-                if (api) {
-                  setActiveSlide(api.selectedScrollSnap());
-                }
               }}
             >
               <CarouselContent>
