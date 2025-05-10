@@ -920,7 +920,66 @@ const defaultTranslations = {
     en: 'Customer satisfaction',
     es: 'Satisfacción del cliente',
     pt: 'Satisfação do cliente'
-  }
+  },
+
+
+
+  'contact.title': {
+    en: 'Contact Us',
+    es: 'Contáctanos',
+    pt: 'Contate-nos'
+  },
+  'contact.description': {
+    en: 'Get in touch with our team and discover how we can transform your travel business',
+    es: 'Ponte en contacto con nuestro equipo y descubre cómo podemos transformar tu negocio de viajes',
+    pt: 'Entre em contato com nossa equipe e descubra como podemos transformar seu negócio de viagens'
+  },
+  'contact.info.title': {
+    en: 'Contact Information',
+    es: 'Información de Contacto',
+    pt: 'Informações de Contato'
+  },
+  'contact.info.description': {
+    en: 'Have questions about our AI solutions? Fill out the form or contact us directly using the information below.',
+    es: '¿Tienes preguntas sobre nuestras soluciones de IA? Completa el formulario o contáctanos directamente utilizando la información a continuación.',
+    pt: 'Tem perguntas sobre nossas soluções de IA? Preencha o formulário ou contate-nos diretamente usando as informações abaixo.'
+  },
+  'contact.info.email.label': {
+    en: 'Email',
+    es: 'Correo Electrónico',
+    pt: 'Email'
+  },
+  'contact.info.email.value': {
+    en: 'manuel.gruezo@uao.edu.co',
+    es: 'manuel.gruezo@uao.edu.co',
+    pt: 'manuel.gruezo@uao.edu.co'
+  },
+  'contact.info.whatsapp.label': {
+    en: 'WhatsApp',
+    es: 'WhatsApp',
+    pt: 'WhatsApp'
+  },
+  'contact.info.whatsapp.value': {
+    en: '+573159381236',
+    es: '+573159381236',
+    pt: '+573159381236'
+  },
+  'contact.info.hours.label': {
+    en: 'Office Hours',
+    es: 'Horario de Oficina',
+    pt: 'Horário de Funcionamento'
+  },
+  'contact.info.hours.value': {
+    en: 'Monday to Friday, 9AM - 5PM EST',
+    es: 'Lunes a Viernes, 9AM - 5PM EST',
+    pt: 'Segunda a Sexta, 9AM - 5PM EST'
+  },
+  'crm.carousel.slide1.title': {
+    en: 'Dashboard Overview',
+    es: 'Vista general del Dashboard',
+    pt: 'Visão geral do Dashboard'
+  },
+ 
 };
 
 const LanguageContext = createContext<LanguageContextType>({

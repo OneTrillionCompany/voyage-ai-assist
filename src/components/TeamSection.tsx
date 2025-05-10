@@ -47,7 +47,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Manuel Alejandro Gruezo"
           role={t('team.role.ceo')}
-          image="https://media.licdn.com/dms/image/v2/D4E03AQHBdbUsPq4Lqg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724384225794?e=1752105600&v=beta&t=7zBvGn9HkshExXLC7dbpu_z4bKB74mVRcBbJd63OZDc"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQEazcfikupM7g/profile-displayphoto-shrink_400_400/B4EZayPhmhHcAg-/0/1746747137115?e=1752105600&v=beta&t=sHt0eeKhR-CZdFyqHnTLOFuuKKWig_p-ZmvR2Nn1Fmc"
           linkedin="https://www.linkedin.com/in/manuel-alejandro-gruezo-perlaza-bb1970255/"
         />
         <TeamMember
