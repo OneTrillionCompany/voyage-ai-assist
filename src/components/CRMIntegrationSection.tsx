@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,6 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { useRef } from 'react';
 import WaitlistDialog from './WaitlistDialog';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 type CarouselSlide = {
   image: string;
@@ -27,7 +25,6 @@ const CRMIntegrationSection: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [activeSlide, setActiveSlide] = React.useState(0);
-  const isMobile = useIsMobile();
 
   // CRM Dashboard images with descriptions
   const crmSlides: CarouselSlide[] = [
@@ -126,6 +123,11 @@ const CRMIntegrationSection: React.FC = () => {
               opts={{
                 align: "start",
                 loop: true,
+              }}
+              onSelect={(api) => {
+                if (api) {
+                  setActiveSlide(api.selectedScrollSnap());
+                }
               }}
             >
               <CarouselContent>
