@@ -2,6 +2,8 @@
 import React, { useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Smartphone, Monitor } from 'lucide-react';
 
 interface ServiceItemProps {
   titleKey: string;
@@ -29,6 +31,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
     elementRef: containerRef,
     threshold: 0.5
   });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isVisible && videoRef.current) {
@@ -40,7 +43,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
     }
   }, [isVisible]);
 
-  // Alternate layout direction based on index
+  // Alternate layout direction based on index for desktop view
   const isEven = index % 2 === 0;
 
   return (
@@ -48,8 +51,17 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       ref={containerRef}
       className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 ${index > 0 ? 'border-t border-gray-200' : ''} reveal-animation`}
     >
-      {/* Content Section - Swap order based on index */}
-      <div className={`${!isEven && 'lg:order-2'}`}>
+      {/* Device Type Indicator */}
+      <div className="absolute top-4 right-4 flex items-center text-gray-500 text-sm">
+        {isVertical ? (
+          <><Smartphone size={16} className="mr-1" /> <span>Mobile View</span></>
+        ) : (
+          <><Monitor size={16} className="mr-1" /> <span>Desktop View</span></>
+        )}
+      </div>
+
+      {/* Content Section - Mobile always has content on top, Desktop alternates based on index */}
+      <div className={`${!isEven && !isMobile ? 'lg:order-2' : ''}`}>
         <h3 className="text-2xl md:text-3xl font-bold mb-4">{t(titleKey)}</h3>
         <p className="text-gray-600 mb-6 text-lg">{t(descriptionKey)}</p>
         <div className="bg-primary/10 p-4 inline-block rounded-lg">
@@ -57,8 +69,22 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         </div>
       </div>
 
-      {/* Video Section - Swap order based on index */}
-      <div className={`${!isEven && 'lg:order-1'} bg-gray-100 rounded-lg overflow-hidden shadow-lg ${isVertical ? 'aspect-[9/16] max-h-[600px] mx-auto' : 'aspect-video'}`}>
+      {/* Video Section - Mobile always has video on bottom, Desktop alternates based on index */}
+      <div className={`${!isEven && !isMobile ? 'lg:order-1' : ''} relative bg-gray-100 rounded-lg overflow-hidden shadow-lg ${isVertical ? 'aspect-[9/16] max-h-[600px] mx-auto' : 'aspect-video'}`}>
+        {isVertical && (
+          <div className="absolute top-2 left-2 z-10 bg-black/50 text-white px-2 py-1 rounded-full flex items-center">
+            <Smartphone size={14} className="mr-1" />
+            <span className="text-xs">Mobile</span>
+          </div>
+        )}
+        
+        {!isVertical && (
+          <div className="absolute top-2 left-2 z-10 bg-black/50 text-white px-2 py-1 rounded-full flex items-center">
+            <Monitor size={14} className="mr-1" />
+            <span className="text-xs">Desktop</span>
+          </div>
+        )}
+        
         {videoSrc ? (
           <video 
             ref={videoRef} 
@@ -84,6 +110,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 
 const AITravelServicesSection: React.FC = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   
   const services = [
     {
@@ -128,6 +155,17 @@ const AITravelServicesSection: React.FC = () => {
           <p className="text-secondary text-lg max-w-2xl mx-auto">
             {t('aitravel.description')}
           </p>
+          
+          <div className="flex justify-center mt-6 space-x-6">
+            <div className="flex items-center">
+              <Smartphone size={20} className="mr-2 text-primary" />
+              <span>Mobile View</span>
+            </div>
+            <div className="flex items-center">
+              <Monitor size={20} className="mr-2 text-primary" />
+              <span>Desktop View</span>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-8">
