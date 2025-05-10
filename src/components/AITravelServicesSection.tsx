@@ -10,6 +10,7 @@ interface ServiceItemProps {
   videoSrc?: string;
   placeholder?: string;
   index: number;
+  isVertical?: boolean;
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({ 
@@ -18,7 +19,8 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   statisticKey, 
   videoSrc, 
   placeholder,
-  index 
+  index,
+  isVertical = false
 }) => {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -56,7 +58,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
 
       {/* Video Section - Swap order based on index */}
-      <div className={`${!isEven && 'lg:order-1'} bg-gray-100 rounded-lg overflow-hidden shadow-lg aspect-video`}>
+      <div className={`${!isEven && 'lg:order-1'} bg-gray-100 rounded-lg overflow-hidden shadow-lg ${isVertical ? 'aspect-[9/16]' : 'aspect-video'}`}>
         {videoSrc ? (
           <video 
             ref={videoRef} 
@@ -64,6 +66,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             muted 
             playsInline
             loop
+            // controls
             poster={placeholder || "https://via.placeholder.com/640x360?text=Video+Coming+Soon"}
           >
             <source src={videoSrc} type="video/mp4" />
@@ -87,29 +90,33 @@ const AITravelServicesSection: React.FC = () => {
       titleKey: "aitravel.quote.title",
       descriptionKey: "aitravel.quote.description",
       statisticKey: "aitravel.quote.statistic",
-      videoSrc: "/lovable-uploads/demo.mp4",
-      placeholder: ""
+      videoSrc: "/lovable-uploads/phase1.mp4",
+      placeholder: "",
+      isVertical: true
     },
     {
       titleKey: "aitravel.confirm.title",
       descriptionKey: "aitravel.confirm.description",
       statisticKey: "aitravel.confirm.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
-      placeholder: ""
+      placeholder: "",
+      isVertical: false
     },
     {
       titleKey: "aitravel.contracts.title",
       descriptionKey: "aitravel.contracts.description",
       statisticKey: "aitravel.contracts.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
-      placeholder: ""
+      placeholder: "",
+      isVertical: false
     },
     {
       titleKey: "aitravel.tracking.title",
       descriptionKey: "aitravel.tracking.description",
       statisticKey: "aitravel.tracking.statistic",
       videoSrc: "/lovable-uploads/demo.mp4",
-      placeholder: ""
+      placeholder: "",
+      isVertical: false
     }
   ];
 
@@ -133,6 +140,7 @@ const AITravelServicesSection: React.FC = () => {
               statisticKey={service.statisticKey}
               videoSrc={service.videoSrc}
               placeholder={service.placeholder}
+              isVertical={service.isVertical}
             />
           ))}
         </div>
