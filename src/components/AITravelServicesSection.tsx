@@ -161,26 +161,26 @@ const AITravelServicesSection: React.FC = () => {
       titleKey: "aitravel.confirm.title",
       descriptionKey: "aitravel.confirm.description",
       statisticKey: "aitravel.confirm.statistic",
-      videoSrc: "/lovable-uploads/demo.mp4",
+      videoSrc: "/lovable-uploads/phase2.mp4",
       placeholder: "",
-      isVertical: false
+      isVertical: true
     },
     {
       titleKey: "aitravel.contracts.title",
       descriptionKey: "aitravel.contracts.description",
       statisticKey: "aitravel.contracts.statistic",
-      videoSrc: "/lovable-uploads/demo.mp4",
+      videoSrc: "/lovable-uploads/phase3.mp4",
       placeholder: "",
-      isVertical: false
+      isVertical: true
     },
-    {
-      titleKey: "aitravel.tracking.title",
-      descriptionKey: "aitravel.tracking.description",
-      statisticKey: "aitravel.tracking.statistic",
-      videoSrc: "/lovable-uploads/demo.mp4",
-      placeholder: "",
-      isVertical: false
-    }
+    // {
+    //   titleKey: "aitravel.tracking.title",
+    //   descriptionKey: "aitravel.tracking.description",
+    //   statisticKey: "aitravel.tracking.statistic",
+    //   videoSrc: "/lovable-uploads/demo.mp4",
+    //   placeholder: "",
+    //   isVertical: false
+    // }
   ];
 
   return (
