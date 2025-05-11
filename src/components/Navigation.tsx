@@ -133,7 +133,7 @@ const Navigation: React.FC = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-4 lg:space-x-6 mr-4">
               <a href="#problems" className="text-white hover:transform hover:-translate-y-1 transition-colors whitespace-nowrap drop-shadow-lg">{t('nav.problems')}</a>
-              <a href="https://preview--journey-sales-compass.lovable.app/" target="_blank" rel="noopener noreferrer" className=  "text-white hover:transform hover:-translate-y-1 cursor-pointer transition-colors whitespace-nowrap drop-shadow-lg">App</a>
+              <a href="https://appsellmoretrips.pages.dev/" target="_blank" rel="noopener noreferrer" className=  "text-white hover:transform hover:-translate-y-1 cursor-pointer transition-colors whitespace-nowrap drop-shadow-lg">App</a>
               <a onClick={() => setIsDemoOpen(true)} className="text-white hover:transform hover:-translate-y-1 cursor-pointer transition-colors whitespace-nowrap drop-shadow-lg">Demo</a>
               <a onClick={() => setIsPitchOpen(true)} className="text-white hover:transform hover:-translate-y-1 cursor-pointer transition-colors whitespace-nowrap drop-shadow-lg">Pitch</a>
             </div>
@@ -219,7 +219,7 @@ const Navigation: React.FC = () => {
               {t('nav.problems')}
             </a>
             <a
-              href="https://preview--journey-sales-compass.lovable.app/" target="_blank" rel="noopener noreferrer"
+              href="https://appsellmoretrips.pages.dev/" target="_blank" rel="noopener noreferrer"
               className="text-white cursor-pointer  hover:text-secondary transition-colors font-medium flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
