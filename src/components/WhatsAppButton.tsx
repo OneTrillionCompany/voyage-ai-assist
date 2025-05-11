@@ -24,7 +24,7 @@ const WhatsAppButton: React.FC = () => {
               ${isHeroButtonVisible ? 'opacity-0 pointer-events-none transform translate-y-10' : 'opacity-100 pointer-events-auto transform translate-y-0'}`}
             aria-label={t('whatsapp.chat')}
           >
-            <div className="absolute w-full h-full rounded-full bg-green-500 opacity-40 animate-ping" />
+            <div className="absolute inset-0 rounded-full bg-green-500 opacity-40 animate-ping" />
             {/* WhatsApp SVG Icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"

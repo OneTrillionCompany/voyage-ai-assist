@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import BeforeAfterComparisonSection from '@/components/BeforeAfterComparisonSection';
-import FAQSection from '@/components/FAQSection';
 import TeamSection from '@/components/TeamSection';
 import Footer from '@/components/Footer';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -43,7 +42,6 @@ const Index = () => {
       <BeforeAfterComparisonSection />
       <AITravelServicesSection />
       <CRMIntegrationSection />
-      <FAQSection />
       <TeamSection />
       <Footer />
 

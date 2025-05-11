@@ -185,7 +185,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Mobile CTA Button - Bottom Center */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center md:hidden">
+        <div className="absolute bottom-[180px] left-0 right-0 flex justify-center md:hidden">
           <Button
             className="bg-primary hover:bg-secondary text-white text-base px-4"
             onClick={scrollToContact}

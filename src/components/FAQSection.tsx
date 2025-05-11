@@ -56,13 +56,6 @@ const FAQSection: React.FC = () => {
               {t('faq.items.item5.answer')}
             </AccordionContent>
           </AccordionItem>
-          
-          <AccordionItem value="item-6">
-            <AccordionTrigger className="text-left">{t('faq.items.item6.question')}</AccordionTrigger>
-            <AccordionContent>
-              {t('faq.items.item6.answer')}
-            </AccordionContent>
-          </AccordionItem>
         </Accordion>
       </div>
     </section>

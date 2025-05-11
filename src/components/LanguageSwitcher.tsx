@@ -12,8 +12,8 @@ import {
 // Language data with display names and image paths
 const languageOptions = [
   { code: 'en', name: 'English', flag: '/lovable-uploads/us-flag.jpeg' },
-  { code: 'es-col', name: 'Español', flag: '/lovable-uploads/col-flag.jpeg' },
-  { code: 'pt-br', name: 'Português', flag: '/lovable-uploads/br-flag.jpeg' }
+  { code: 'es', name: 'Español', flag: '/lovable-uploads/col-flag.jpeg' },
+  { code: 'pt', name: 'Português', flag: '/lovable-uploads/br-flag.jpeg' }
 ];
 
 const LanguageSwitcher: React.FC = () => {
