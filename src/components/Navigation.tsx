@@ -174,14 +174,13 @@ const Navigation: React.FC = () => {
             </DialogHeader>
             {/* <DeviceFrame isVertical={true}> */}
               <div className="aspect-video">
-                <video
+                <iframe
                   className="w-full h-full rounded-lg"
-                  autoPlay
-                  controls
-                  src="/lovable-uploads/sellmoretripsDemo.mp4"
-                >
-                  Your browser does not support the video tag.
-                </video>
+                  src="https://www.youtube.com/embed/_HXrISQzDPk"
+                  title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             {/* </DeviceFrame> */}
           </DialogContent>
