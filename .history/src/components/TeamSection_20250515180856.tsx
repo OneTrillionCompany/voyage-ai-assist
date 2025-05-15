@@ -84,7 +84,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Gregson Murcia "
           role={t('team.role.fullstack')}
-          image="public\lovable-uploads\greg.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQHdFN7Rq-1eJg/profile-displayphoto-shrink_400_400/B4EZaS3KiIHMAg-/0/1746220657163?e=1752105600&v=beta&t=bkvHx0VzCIV4pNAFWA2hmYf4ewohGTlHjXve4oP4C-Q"
           linkedin="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/"
         />
       </div>

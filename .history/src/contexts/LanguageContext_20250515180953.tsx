@@ -898,8 +898,8 @@ const defaultTranslations = {
   },
   'team.role.fullstack': {
     en: 'Senior Fullstack Engineer',
-    es: 'Ingeniero senior Fullstack',
-    pt: 'Engenheiro Fullstack sênior'
+    es: 'Ingeniero Fullstack Senior',
+    pt: 'Engenheiro Senior Fullstack'
   },
   'team.role.ai': {
     en: 'AI Engineer',

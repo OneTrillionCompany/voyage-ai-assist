@@ -894,12 +894,12 @@ const defaultTranslations = {
   'team.role.architect': {
     en: 'Solutions Architect',
     es: 'Arquitecto de soluciones',
-    pt: 'Arquiteto de soluções'
+    pt: 'Engenheiro de IA'
   },
   'team.role.fullstack': {
-    en: 'Senior Fullstack Engineer',
-    es: 'Ingeniero senior Fullstack',
-    pt: 'Engenheiro Fullstack sênior'
+    en: 'AI Engineer',
+    es: 'Ingeniero de IA',
+    pt: 'Engenheiro de IA'
   },
   'team.role.ai': {
     en: 'AI Engineer',

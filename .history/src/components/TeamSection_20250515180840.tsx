@@ -48,7 +48,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Sofia Salinas"
           role={t('team.role.cto')}
-          image="public\lovable-uploads\sofia.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4D03AQGYM8KaU6EEHg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1711032962726?e=1752105600&v=beta&t=dOxNzWutLvAjo07fTVlHvxUKnr7Uw-zk5NCBlplXa2k"
           linkedin="https://www.linkedin.com/in/sofiasalinasrico/"
         />
         <TeamMember
@@ -72,7 +72,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Daniel Rivera Yepes"
           role={t('team.role.ai')}
-          image="public\lovable-uploads\daniel.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQGDUgKggPEaEw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1695931176974?e=1752105600&v=beta&t=TwPvR_qmryGRwjJq2JRffA9b6ESkiv5oPdT4lpVVGAw"
           linkedin="https://www.linkedin.com/in/danrivera9/"
         />
         <TeamMember
@@ -84,7 +84,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Gregson Murcia "
           role={t('team.role.fullstack')}
-          image="public\lovable-uploads\greg.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQHdFN7Rq-1eJg/profile-displayphoto-shrink_400_400/B4EZaS3KiIHMAg-/0/1746220657163?e=1752105600&v=beta&t=bkvHx0VzCIV4pNAFWA2hmYf4ewohGTlHjXve4oP4C-Q"
           linkedin="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/"
         />
       </div>

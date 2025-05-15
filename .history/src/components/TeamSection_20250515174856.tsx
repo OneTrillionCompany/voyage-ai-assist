@@ -44,35 +44,34 @@ const TeamSection: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center items-center">
-
         <TeamMember
-          name="Sofia Salinas"
-          role={t('team.role.cto')}
-          image="public\lovable-uploads\sofia.jpeg"
-          linkedin="https://www.linkedin.com/in/sofiasalinasrico/"
+          name="Joan Mateo Bermudez"
+          role={t('team.role.ceo')}
+          image="https://media.licdn.com/dms/image/v2/D4E03AQEazcfikupM7g/profile-displayphoto-shrink_400_400/B4EZayPhmhHcAg-/0/1746747137115?e=1752105600&v=beta&t=sHt0eeKhR-CZdFyqHnTLOFuuKKWig_p-ZmvR2Nn1Fmc"
+          linkedin="https://www.linkedin.com/in/joan-mateo-bermudez-collazos-a764b2232/"
         />
         <TeamMember
           name="Manuel Alejandro Gruezo"
           role={t('team.role.ceo')}
-          image="public\lovable-uploads\manuel.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQEazcfikupM7g/profile-displayphoto-shrink_400_400/B4EZayPhmhHcAg-/0/1746747137115?e=1752105600&v=beta&t=sHt0eeKhR-CZdFyqHnTLOFuuKKWig_p-ZmvR2Nn1Fmc"
           linkedin="https://www.linkedin.com/in/manuel-alejandro-gruezo-perlaza-bb1970255/"
         />
         <TeamMember
           name="Gustavo Chipantiza"
           role={t('team.role.cdo')}
-          image="public\lovable-uploads\gustavo.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQH1W7YMO4PWPg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700289742816?e=1752105600&v=beta&t=EAsSQLFxgHha3lLfWruv0HJnTRlBuRxfmDetjZtM4CA"
           linkedin="https://www.linkedin.com/in/gustavo-chipantiza-09a095238/"
         />
         <TeamMember
-          name="Joan Mateo Bermudez"
-          role={t('team.role.architect')}
-          image="public\lovable-uploads\mateo.jpeg"
-          linkedin="https://www.linkedin.com/in/joan-mateo-bermudez-collazos-a764b2232/"
+          name="Sofia Salinas"
+          role={t('team.role.cto')}
+          image="https://media.licdn.com/dms/image/v2/D4D03AQGYM8KaU6EEHg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1711032962726?e=1752105600&v=beta&t=dOxNzWutLvAjo07fTVlHvxUKnr7Uw-zk5NCBlplXa2k"
+          linkedin="https://www.linkedin.com/in/sofiasalinasrico/"
         />
         <TeamMember
           name="Daniel Rivera Yepes"
           role={t('team.role.ai')}
-          image="public\lovable-uploads\daniel.jpeg"
+          image="https://media.licdn.com/dms/image/v2/D4E03AQGDUgKggPEaEw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1695931176974?e=1752105600&v=beta&t=TwPvR_qmryGRwjJq2JRffA9b6ESkiv5oPdT4lpVVGAw"
           linkedin="https://www.linkedin.com/in/danrivera9/"
         />
         <TeamMember
@@ -83,8 +82,8 @@ const TeamSection: React.FC = () => {
         />
         <TeamMember
           name="Gregson Murcia "
-          role={t('team.role.fullstack')}
-          image="public\lovable-uploads\greg.jpeg"
+          role={t('team.role.ai')}
+          image="https://media.licdn.com/dms/image/v2/D4E03AQHdFN7Rq-1eJg/profile-displayphoto-shrink_400_400/B4EZaS3KiIHMAg-/0/1746220657163?e=1752105600&v=beta&t=bkvHx0VzCIV4pNAFWA2hmYf4ewohGTlHjXve4oP4C-Q"
           linkedin="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/"
         />
       </div>

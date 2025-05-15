@@ -56,14 +56,14 @@ const defaultTranslations = {
     pt: 'Responda melhor. Escale sem contratar. Aproveite ao máximo seu investimento em publicidade'
   },
   'hero.title': {
-    en: 'Sell 3x More Trips with AI',
-    es: 'Vende 3x más viajes con IA',
-    pt: 'Venda 3x mais viagens com IA'
+    en: 'Sell 3x More Trips with AI Agent',
+    es: 'Vende 3x veces más viajes con un Agente de IA',
+    pt: 'Venda 3x mais viagens com um Agente de IA'
   },
   'hero.description': {
-    en: 'Power up your sales team with AI, multiplying your revenue without expanding your team: Sell 3x more, respond 10x faster, convert 4x more leads.',
-    es: 'Potencia tu equipo de ventas con IA, multiplicando tus ingresos sin multiplicar tu equipo: Vende 3x más, responde 10x más rápido, convierte 4x más leads.',
-    pt: 'Potencialize sua equipe de vendas com IA, multiplicando sua receita sem expandir sua equipe: Venda 3x mais, responda 10x mais rápido, converta 4x mais leads.'
+    en: 'Power up your sales team with AI, multiplying your revenue without expanding your team: Sell 3x more, respond 10x faster, convert 4x more leads. Get an AI agent that works 24/7 and never leaves a customer unanswered.',
+    es: 'Potencia tu equipo de ventas con IA, multiplicando tus ingresos sin multiplicar tu equipo: Vende 3 veces más, responde 10 veces más rápido, convierte 4 veces más leads. Obtén un agente de IA que trabaja 24/7 sin dejar clientes sin respuesta.',
+    pt: 'Potencialize sua equipe de vendas com IA, multiplicando sua receita sem expandir sua equipe: Venda 3x mais, responda 10x mais rápido, converta 4x mais leads. Obtenha um agente de IA que trabalha 24/7 e nunca deixa um cliente sem resposta.'
   },
   'hero.cta': {
     en: 'Connect with Us',
@@ -891,20 +891,20 @@ const defaultTranslations = {
     es: 'CTO',
     pt: 'CTO'
   },
-  'team.role.architect': {
-    en: 'Solutions Architect',
-    es: 'Arquitecto de soluciones',
-    pt: 'Arquiteto de soluções'
-  },
-  'team.role.fullstack': {
-    en: 'Senior Fullstack Engineer',
-    es: 'Ingeniero senior Fullstack',
-    pt: 'Engenheiro Fullstack sênior'
-  },
   'team.role.ai': {
     en: 'AI Engineer',
     es: 'Ingeniero de IA',
     pt: 'Engenheiro de IA'
+  },
+  'team.role.fullstack' : {
+    en: 'Senior Fullstack Engineer',
+    es: 'Ingeniero Senior Fullstack',
+    pt: 'Engenheiro Senior Fullstack'
+  },
+  'team.role.architect' : {
+    en: 'Solutions Architect',
+    es: 'Arquitecto de soluciones',
+    pt: 'Arquiteto de soluções'
   },
   'aitravel.tracking.statistic': {
     en: '31+ customers recovered in a single day',
@@ -988,7 +988,8 @@ const defaultTranslations = {
     en: 'Dashboard Overview',
     es: 'Vista general del Dashboard',
     pt: 'Visão geral do Dashboard'
-  }
+  },
+ 
 };
 
 const LanguageContext = createContext<LanguageContextType>({
